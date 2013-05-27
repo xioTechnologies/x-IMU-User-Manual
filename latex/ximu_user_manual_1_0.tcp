@@ -1,0 +1,12 @@
+[FormatInfo]
+Type=TeXnicCenterProjectInformation
+Version=4
+
+[ProjectInfo]
+MainFile=ximu_user_manual_1_0.tex
+UseBibTeX=0
+UseMakeIndex=0
+ActiveProfile=LaTeX => PDF
+ProjectLanguage=en
+ProjectDialect=US
+
