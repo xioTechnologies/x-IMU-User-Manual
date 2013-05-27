@@ -46,7 +46,7 @@ IMU-3000}}
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 4.1 \normalsize}
+\title{\Huge x-IMU User Manual 4.2 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -1287,206 +1287,216 @@ Battery powered applications require that power consumption is minimised in orde
 \section{Auxiliary port}
 \label{sec:AuxiliaryPort}
 
+%\sectionComingSoon{}
+
+The x-IMU features an auxiliary port that can be configured to one of many modes.  The auxiliary port connector is a $2\times6$, 2.54 mm pitch female header socket.  The socket pins include: ground, an external power input, 3.3 V power output, hard reset and 8 I/O channels.  The pins are annotated in Figure \ref{fig:auxiliaryPortPins} and summarised in table \ref{tab:auxiliaryPortPins}.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.5\textwidth]{graphics/auxiliaryPortPins.png}
+		\caption{Auxiliary port pins}
+	\label{fig:auxiliaryPortPins}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l l l}
+		\hline	
+		Pin         &   Description             & Min/Max\\
+		\hline	
+        GND         &   Common ground           & N/A\\
+        EXT         &   External power input    & 3.5 V to 6.3 V\\	
+        RST         &   Hard reset (active low) & 0 V to 3.3 V\\	
+        3V3         &   3.3 V power output      & 100 mA\\	
+        AX0 to AX7  &   I/O channels            & 0 V to 3.3 V, 4 mA source/sink\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pins}			
+	\label{tab:auxiliaryPortPins}
+\end{table}
+
+The mode of the auxiliary port is set by the \textit{\hyperref[sec:AuxiliaryPortMode]{auxiliary port mode}} register.  If the x-IMU receives a packet associated with a specific axillary port mode while the axillary port is not in that mode the x-IMU will respond with an \textit{\hyperref[sec:IncorrectAuxiliaryPortMode]{incorrect auxiliary port mode}} error.  For example, this will happen if the x-IMU receives a \textit{digital I/O packet} to change a digital output channel while the axillary port mode is \textit{disabled}.
+
+\paragraph{Auxiliary port modes}
+\begin{itemize}
+  \item \hyperref[sec:Disabled]{Disabled}
+  \item \hyperref[sec:DigitalIOMode]{Digital I/O}
+  \item \hyperref[sec:AnalogueInput]{Analogue input}
+  \item \hyperref[sec:PWMOutput]{PWM output}
+  \item \hyperref[sec:ADXL345BusMode]{ADXL345 bus}
+  \item \hyperref[sec:UART]{UART}
+\end{itemize}
+
+\subsection{Disabled}
+\label{sec:Disabled}
+
+When \textit{disabled}, all auxiliary port channels are configured as high-impedance inputs.  The auxiliary port in \textit{disabled} when the x-IMU is in \hyperref[sec:SleepMode]{sleep mode}. Table \ref{tab:AuxiliaryPortPinAssignmentsWhenDisabled} summarises the auxiliary port pin assignments when disabled.
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l l l}
+		\hline	
+		Pin       &   I/O     & Description\\
+		\hline	
+        AX0       &   Input   & Unused\\
+        AX1       &   Input   & Unused\\	
+        AX2       &   Input   & Unused\\	
+        AX3       &   Input   & Unused\\	
+        AX4       &   Input   & Unused\\	
+        AX5       &   Input   & Unused\\	
+        AX6       &   Input   & Unused\\	
+        AX7       &   Input   & Unused\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments when disabled}			
+	\label{tab:AuxiliaryPortPinAssignmentsWhenDisabled}
+\end{table}
+
+\subsection{Digital I/O mode}
+\label{sec:DigitalIOMode}
+
+In \textit{digital I/O mode} each pin of the auxiliary port functions as either a digital input or output.  The direction of each pin is defined within the \textit{\hyperref[sec:DigitalIODirection]{digital I/O direction}} register.  Digital input data is provided in either the \textit{digital I/O data} packets received from the x-IMU.  The data output rate of these packets may be set to \textit{on change only}, 1 Hz, 2 Hz, 4 Hz, 8 Hz, 16 Hz, 32 Hz, 64 Hz, 128 Hz, 256 Hz or 512 Hz in the \textit{\hyperref[sec:DigitalIODataOutputRate]{digital I/O data output rate}} register.  Digital outputs are set by sending a \textit{digital I/O data} packet to the x-IMU.
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l l l}
+		\hline	
+		Pin       &   I/O           & Description\\
+		\hline	
+        AX0       &   Input/Output  & Digital I/O\\
+        AX1       &   Input/Output  & Digital I/O\\	
+        AX2       &   Input/Output  & Digital I/O\\	
+        AX3       &   Input/Output  & Digital I/O\\	
+        AX4       &   Input/Output  & Digital I/O\\	
+        AX5       &   Input/Output  & Digital I/O\\
+        AX6       &   Input/Output  & Digital I/O\\	
+        AX7       &   Input/Output  & Digital I/O\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments in digital I/O mode}			
+	\label{tab:AuxiliaryPortPinAssignmentsInDigitalIOmode}
+\end{table}
+
+\subsection{Analogue input}
+\label{sec:AnalogueInput}
+
+In \textit{analogue input mode} all 8 pins of the auxiliary port function as analogue inputs.  Each analogue input channel sas a 12-bit resolution and a range of 0 V to 3.3 V.  The user may access analogue input data as either \textit{raw un-calibrated ADC results} or as \textit{calibrated units} by specifying the mode in the \textit{\hyperref[sec:AnalogueInputDataMode]{analogue input data mode}} register.  Analogue input data is provided in either the \textit{raw analogue input data} or \textit{calibrated analogue input data} packets.  The data output rate of these packets may be set to \textit{disabled}, 1 Hz, 2 Hz, 4 Hz, 8 Hz, 16 Hz, 32 Hz, 64 Hz, 128 Hz, 256 Hz or 512 Hz in the \textit{\hyperref[sec:AnalogueInputDataOutputRate]{analogue input data output rate}} register.
+
+\paragraph{Raw ADC data:}
+In raw data mode the analogue input data is the ADC integer value between 0 and 4096 corresponding to a voltage between 0 V and 3.3 V.  This data is provided in the \textit{raw analogue input data} packets.
+
+\paragraph{Calibrated data:}
+In calibrated data mode the analogue data is the calibrated measurement in Volts.  This data is provided in the \textit{calibrate analogue data} packets.  The calibrated measurement $a_n$ is calculated from the raw ADC measurements $\tilde{v}$ according to a sensitivity $s_{a_n}$ and bias $b_{a_n}$ as described by equation \eqref{analogueInputCal}.  Parameters $s_{a_n}$ and $b_{a_n}$ are defined in the analogue input \textit{\hyperref[sec:AnalogueInputSensitivity]{sensitivity}} and \textit{\hyperref[sec:AnalogueInputBias]{bias}} registers.
+
+\begin{equation}
+	a_n = \frac{1}{s_{a_n}} ( \tilde{a_n} - b_{a_n} )
+	\label{analogueInputCal}
+\end{equation}
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l  l l}
+		\hline	
+		Pin       &   I/O     & Description\\
+		\hline	
+        AX0       &   Input   & Analogue input channel AX0\\
+        AX1       &   Input   & Analogue input channel AX1\\	
+        AX2       &   Input   & Analogue input channel AX2\\	
+        AX3       &   Input   & Analogue input channel AX3\\	
+        AX4       &   Input   & Analogue input channel AX4\\	
+        AX5       &   Input   & Analogue input channel AX5\\	
+        AX6       &   Input   & Analogue input channel AX6\\	
+        AX7       &   Input   & Analogue input channel AX7\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments for analogue input mode}			
+	\label{tab:AuxPortPinAsignForAnalogueInputMode}
+\end{table}
+
+\subsection{PWM output mode}
+\label{sec:PWMOutput}
+
+In \textit{PWM output mode} four pins of the auxiliary port function as digital PWM outputs.  Unused pins are configured as high-impedance inputs.  The PWM frequency may be set from 3 Hz to 65,535 Hz in the \textit{\hyperref[sec:PWMFrequency]{PWM frequency}} register.  The duty cycle of each of the four PWM output channels are set by sending a \textit{PWM data} packet to the x-IMU.  The x-IMU echo back the packet as confirmation after the duty cycles have been set.
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l  l l}
+		\hline	
+		Pin       &   I/O         & Description\\
+		\hline	
+        AX0       &   Output    & PWM output channel AX0\\
+        AX1       &   Input     & Unused\\	
+        AX2       &   Output    & PWM output channel AX2\\	
+        AX3       &   Input     & Unused\\
+        AX4       &   Output    & PWM output channel AX4\\	
+        AX5       &   Input     & Unused\\	
+        AX6       &   Output    & PWM output channel AX6\\	
+        AX7       &   Input     & Unused\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments for PWM output mode}			
+	\label{tab:AuxPortPinAsignForPWMoutputMode}
+\end{table}
+
+\subsection{ADXL345 bus mode}
+\label{sec:ADXL345BusMode}
+
 \sectionComingSoon{}
 
-%The x-IMU features an auxiliary port that can be configured to one of many modes.  The auxiliary port connector is a $2\times6$, 2.54 mm pitch female header socket.  The socket pins include: ground, an external power input, 3.3 V power output, hard reset and 8 I/O channels.  The pins are annotated in Figure \ref{fig:auxiliaryPortPins} and summarised in table \ref{tab:auxiliaryPortPins}.
-%
-%\begin{figure}[H]
-%	\centering
-%		\includegraphics[width=0.5\textwidth]{graphics/auxiliaryPortPins.png}
-%		\caption{Auxiliary port pins}
-%	\label{fig:auxiliaryPortPins}
-%\end{figure}
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l l l}
-%		\hline	
-%		Pin         &   Description             & Min/Max\\
-%		\hline	
-%        GND         &   Common ground           & N/A\\
-%        EXT         &   External power input    & 3.5 V to 6.3 V\\	
-%        RST         &   Hard reset (active low) & 0 V to 3.3 V\\	
-%        3V3         &   3.3 V power output      & 100 mA\\	
-%        AX0 to AX7  &   I/O channels            & 0 V to 3.3 V, 4 mA source/sink\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pins}			
-%	\label{tab:auxiliaryPortPins}
-%\end{table}
-%
-%The mode of the auxiliary port is set by the \textit{\hyperref[sec:AuxiliaryPortMode]{auxiliary port mode}} register.  If the x-IMU receives a packet associated with a specific axillary port mode while the axillary port is not in that mode the x-IMU will respond with an \textit{\hyperref[sec:IncorrectAuxiliaryPortMode]{incorrect auxiliary port mode}} error.  For example, this will happen if the x-IMU receives a \textit{digital I/O packet} to change a digital output channel while the axillary port mode is \textit{disabled}.
-%
-%\paragraph{Auxiliary port modes}
-%\begin{itemize}
-%  \item \hyperref[sec:Disabled]{Disabled}
-%  \item \hyperref[sec:DigitalIOMode]{Digital I/O}
-%  \item \hyperref[sec:AnalogueInput]{Analogue input}
-%  \item \hyperref[sec:PWMOutput]{PWM output}
-%  \item \hyperref[sec:ADXL345BusMode]{ADXL345 bus}
-%  \item \hyperref[sec:UART]{UART}
-%\end{itemize}
-%
-%\subsection{Disabled}
-%\label{sec:Disabled}
-%
-%When \textit{disabled}, all auxiliary port channels are configured as high-impedance inputs.  The auxiliary port in \textit{disabled} when the x-IMU is in \hyperref[sec:SleepMode]{sleep mode}. Table \ref{tab:AuxiliaryPortPinAssignmentsWhenDisabled} summarises the auxiliary port pin assignments when disabled.
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l l l}
-%		\hline	
-%		Pin       &   I/O     & Description\\
-%		\hline	
-%        AX0       &   Input   & Unused\\
-%        AX1       &   Input   & Unused\\	
-%        AX2       &   Input   & Unused\\	
-%        AX3       &   Input   & Unused\\	
-%        AX4       &   Input   & Unused\\	
-%        AX5       &   Input   & Unused\\	
-%        AX6       &   Input   & Unused\\	
-%        AX7       &   Input   & Unused\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments when disabled}			
-%	\label{tab:AuxiliaryPortPinAssignmentsWhenDisabled}
-%\end{table}
-%
-%\subsection{Digital I/O mode}
-%\label{sec:DigitalIOMode}
-%
-%...
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l l l}
-%		\hline	
-%		Pin       &   I/O           & Description\\
-%		\hline	
-%        AX0       &   Input/Output  & Digital I/O\\
-%        AX1       &   Input/Output  & Digital I/O\\	
-%        AX2       &   Input/Output  & Digital I/O\\	
-%        AX3       &   Input/Output  & Digital I/O\\	
-%        AX4       &   Input/Output  & Digital I/O\\	
-%        AX5       &   Input/Output  & Digital I/O\\
-%        AX6       &   Input/Output  & Digital I/O\\	
-%        AX7       &   Input/Output  & Digital I/O\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments in digital I/O mode}			
-%	\label{tab:AuxiliaryPortPinAssignmentsInDigitalIOmode}
-%\end{table}
-%
-%\subsection{Analogue input}
-%\label{sec:AnalogueInput}
-%
-%In \textit{analogue input mode} all 8 pins of the auxiliary port function as analogue inputs.  Each analogue input channel as a 12-bit resolution and a range of 0 V to 3.3 V.  The user may access analogue input data as either \textit{raw un-calibrated ADC results} or as \textit{calibrated units} by specifying the mode in the \textit{\hyperref[sec:AnalogueInputDataMode]{analogue input data mode}} register.  Analogue input data is provided in either the \textit{raw analogue input data} or \textit{calibrated analogue input data} packets.  The data output rate of these packets may be set to \textit{disabled}, 1 Hz, 2 Hz, 4 Hz, 8 Hz, 16 Hz, 32 Hz, 64 Hz, 128 Hz, 256 Hz or 512 Hz in the \textit{\hyperref[sec:AnalogueInputDataOutputRate]{analogue input data output rate}} register.
-%
-%\paragraph{Raw ADC data:}
-%In raw data mode the analogue input data is the ADC integer value between 0 and 4096 corresponding to a voltage between 0 V and 3.3 V.  This data is provided in the \textit{raw analogue input data} packets.
-%
-%\paragraph{Calibrated data:}
-%In calibrated data mode the analogue data is the calibrated measurement in Volts.  This data is provided in the \textit{calibrate analogue data} packets.  The calibrated measurement $a_n$ is calculated from the raw ADC measurements $\tilde{v}$ according to a sensitivity $s_{a_n}$ and bias $b_{a_n}$ as described by equation \eqref{analogueInputCal}.  Parameters $s_{a_n}$ and $b_{a_n}$ are defined in the analogue input \textit{\hyperref[sec:AnalogueInputSensitivity]{sensitivity}} and \textit{\hyperref[sec:AnalogueInputBias]{bias}} registers.
-%
-%\begin{equation}
-%	a_n = \frac{1}{s_{a_n}} ( \tilde{a_n} - b_{a_n} )
-%	\label{analogueInputCal}
-%\end{equation}
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l  l l}
-%		\hline	
-%		Pin       &   I/O     & Description\\
-%		\hline	
-%        AX0       &   Input   & Analogue input channel AX0\\
-%        AX1       &   Input   & Analogue input channel AX1\\	
-%        AX2       &   Input   & Analogue input channel AX2\\	
-%        AX3       &   Input   & Analogue input channel AX3\\	
-%        AX4       &   Input   & Analogue input channel AX4\\	
-%        AX5       &   Input   & Analogue input channel AX5\\	
-%        AX6       &   Input   & Analogue input channel AX6\\	
-%        AX7       &   Input   & Analogue input channel AX7\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments for analogue input mode}			
-%	\label{tab:AuxPortPinAsignForAnalogueInputMode}
-%\end{table}
-%
-%\subsection{PWM output mode}
-%\label{sec:PWMOutput}
-%
-%Unused channels are configured as high-impedance inputs.
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l  l l}
-%		\hline	
-%		Pin       &   I/O         & Description\\
-%		\hline	
-%        AX0       &   Output    & PWM output channel AX0\\
-%        AX1       &   Input     & Unused\\	
-%        AX2       &   Output    & PWM output channel AX2\\	
-%        AX3       &   Input     & Unused\\
-%        AX4       &   Output    & PWM output channel AX4\\	
-%        AX5       &   Input     & Unused\\	
-%        AX6       &   Output    & PWM output channel AX6\\	
-%        AX7       &   Input     & Unused\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments for PWM output mode}			
-%	\label{tab:AuxPortPinAsignForPWMoutputMode}
-%\end{table}
-%
-%\subsection{ADXL345 bus mode}
-%\label{sec:ADXL345BusMode}
-%
 %- sensors need to init, this only happen when auxilary port mode changed or device start up... so if plug in sensor while x-IMU already in mdoe qnd running, the sensor will noot have been initilised and will not provde data.
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l  l l}
-%		\hline	
-%		Pin       &   I/O         & Description\\
-%		\hline	
-%        AX0       &   Output    & ADXL345 A SPI CS\\
-%        AX1       &   Input     & SPI CLK\\	
-%        AX2       &   Output    & ADXL345 B SPI CS\\
-%        AX3       &   Input     & SPI DIN\\
-%        AX4       &   Output    & ADXL345 C SPI CS\\
-%        AX5       &   Input     & SPI DOUT\\	
-%        AX6       &   Output    & ADXL345 D SPI CS\\
-%        AX7       &   Input     & Power enable\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments for ADXL345 bus mode}			
-%	\label{tab:AuxPortPinAsignForADXL345busMode}
-%\end{table}
-%
-%\subsection{UART mode}
-%\label{sec:UART}
-%
-%...
-%
-%\begin{table}[H]
-%	\centering
-%		\begin{tabular}{l  l l}
-%		\hline	
-%		Pin       &   I/O         & Description\\
-%		\hline	
-%        AX0       &   Output    & TX\\
-%        AX1       &   Input     & Unused\\	
-%        AX2       &   Output    & RX\\	
-%        AX3       &   Input     & Unused\\
-%        AX4       &   Output    & CTS\\	
-%        AX5       &   Input     & Unused\\	
-%        AX6       &   Output    & RTS\\	
-%        AX7       &   Input     & Unused\\			
-%		\hline
-%		\end{tabular}
-%		\caption{Auxiliary port pin assignments for UART mode}			
-%	\label{tab:AuxPortPinAsignForUARTmode}
-%\end{table}
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l  l l}
+		\hline	
+		Pin       &   I/O         & Description\\
+		\hline	
+        AX0       &   Output    & ADXL345 A SPI CS\\
+        AX1       &   Input     & SPI CLK\\	
+        AX2       &   Output    & ADXL345 B SPI CS\\
+        AX3       &   Input     & SPI DIN\\
+        AX4       &   Output    & ADXL345 C SPI CS\\
+        AX5       &   Input     & SPI DOUT\\	
+        AX6       &   Output    & ADXL345 D SPI CS\\
+        AX7       &   Input     & Power enable\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments for ADXL345 bus mode}			
+	\label{tab:AuxPortPinAsignForADXL345busMode}
+\end{table}
+
+\subsection{UART mode}
+\label{sec:UART}
+
+In \textit{UART mode} four pins of the auxiliary port function as a configurable UART with hardware flow control.  The \textit{\hyperref[sec:BluetoothPower]{Bluetooth power}} will automatically be disabled when \textit{UART mode} is enabled.  Commination via the auxiliary port UART is identical to that via the virtual serial ports enabled by the Bluetooth or USB connection.  The UART baud rate may be set to 2400, 4800, 7200, 9600, 14400, 19200, 38400, 57600, 115200, 230400, 460800 or 921600 baud in the \textit{\hyperref[sec:UARTBaudRate]{UART baud rate}} register.  The UART hardware flow control can be enabled or disabled in the \textit{\hyperref[sec:UARTHardwareFlowControl]{UART hardware flow control}} register.
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l  l l}
+		\hline	
+		Pin       &   I/O         & Description\\
+		\hline	
+        AX0       &   Output    & TX\\
+        AX1       &   Input     & Unused\\	
+        AX2       &   Output    & RX\\	
+        AX3       &   Input     & Unused\\
+        AX4       &   Output    & CTS\\	
+        AX5       &   Input     & Unused\\	
+        AX6       &   Output    & RTS\\	
+        AX7       &   Input     & Unused\\			
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments for UART mode}			
+	\label{tab:AuxPortPinAsignForUARTmode}
+\end{table}
+
+%---------------------------------------------------------------------------------------------------
+\subsubsection{UART bandwidth}
+\label{sec:UARTBandwidth}
+
+It is possible for the user to define \hyperref[sec:BatteryAndThermometerDataOutputRate]{data output rates} so that the amount of data being generated by the x-IMU exceeds the bandwidth of a communication channel.  If the UART bandwidth is exceed, the UART transmit buffer will overrun and some data will be lost.  When this happens a \textit{\hyperref[sec:UARTTransmitBufferOverrun]{UART transmit buffer overrun}} error will be generated.  As this error is sent immediately after the buffer has overrun, the error will be successfully transmitted.  This error can be avoided by reducing the \hyperref[sec:BatteryAndThermometerDataOutputRate]{data output rates} or increasing the \textit{\hyperref[sec:UARTBaudRate]{UART baud rate}} register.
+
+All data sent to the x-IMU via UART is buffered in the UART receive buffer before being processed.  The time required to process the received data is dependent on the data.  If data is sent to the x-IMU via UART at a rate at a rate greater than it can be processed then the receive buffer will overflow and some data will be lost.  When this happens a \textit{\hyperref[sec:UARTReceiveBufferOverrun]{UART receive buffer overrun}} error will be generated.
 
 %=====================================================================================================
 % Communication protocol
@@ -1789,7 +1799,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Error code:}	& \verb=0x0004=\\			
-	\textit{Description:}	& A \textit{transmit buffer overrun} error will be sent if the USB transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.  The x-IMU will attempt to transmit data via \hyperref[sec:USB]{USB} while the \hyperref[sec:USB]{USB} is detected as connected, if the \hyperref[sec:USB]{USB} is connect but the associated serial port not open then the \hyperref[sec:USB]{USB} transmit buffer will continue to overrun until the port is opened or the \hyperref[sec:USB]{USB} disconnected.  See the \hyperref[sec:USBBandwidth]{USB bandwidth} section for more information.
+	\textit{Description:}	& A \textit{USB transmit buffer overrun} error will be sent if the USB transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.  The x-IMU will attempt to transmit data via \hyperref[sec:USB]{USB} while the \hyperref[sec:USB]{USB} is detected as connected, if the \hyperref[sec:USB]{USB} is connect but the associated serial port not open then the \hyperref[sec:USB]{USB} transmit buffer will continue to overrun until the port is opened or the \hyperref[sec:USB]{USB} disconnected.  See the \hyperref[sec:USBBandwidth]{USB bandwidth} section for more information.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1807,7 +1817,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Error code:}	& \verb=0x0006=\\			
-	\textit{Description:}	& A \textit{transmit buffer overrun} error will be sent if the Bluetooth transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  \textit{Transmit buffer overrun} errors may be expected in the Bluetooth communication channel quality deteriorates; for example, if out of range.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.
+	\textit{Description:}	& A \textit{Bluetooth transmit buffer overrun} error will be sent if the Bluetooth transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  \textit{Transmit buffer overrun} errors may be expected in the Bluetooth communication channel quality deteriorates; for example, if out of range.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1943,6 +1953,24 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Error code:}	& \verb=0x0015=\\			
 	\textit{Description:}	& An \textit{incorrect auxiliary port mode} error will be sent if an auxiliary port action is requested while the \hyperref[sec:AuxiliaryPort]{auxiliary port} is not in the correct \hyperref[sec:AuxiliaryPortMode]{mode} for that action.  For example, an \textit{incorrect auxiliary port mode} error will be sent if a \textit{digital IO data} packet is received while the auxiliary port mode is \textit{disabled}.  See the \hyperref[sec:AuxiliaryPort]{auxiliary port} section for more information.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{UART receive buffer overrun}
+\label{sec:UARTReceiveBufferOverrun}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Error code:}	& \verb=0x0016=\\			
+	\textit{Description:}	& A \textit{UART receive buffer over} error will be sent if the \hyperref[sec:UART]{UART} receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.  See the \hyperref[sec:UARTBandwidth]{UART bandwidth} section for more information.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{UART transmit buffer overrun}
+\label{sec:UARTTransmitBufferOverrun}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Error code:}	& \verb=0x0017=\\			
+	\textit{Description:}	& A \textit{UART transmit buffer overrun} error will be sent if the UART transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where UART data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.  See the \hyperref[sec:UARTBandwidth]{UART bandwidth} section for more information.
 \end{tabular*}
 
 %=====================================================================================================
@@ -3227,8 +3255,10 @@ The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but 
 		\hline			
         Kingston & 8 GB & 4 & SDC4/8GB\\
 		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\	
+        PNY & 8 GB & 2 & P-MICROSD8GBHC-BX\\
         SanDisk & 4 GB & 4 & SDSDQM-004G-B35\\
         SanDisk & 8 GB & 2 & Unknown\\
+        SanDisk & 16 GB & 2 & Unknown\\
         Transcend & 4 GB & 6 & TS4GUSDHC6\\
         Transcend & 8 GB & 2 & TS8GUSDC2\\	                          										
 		\hline
@@ -3320,4 +3350,4 @@ The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but 
 %=====================================================================================================
 % END OF FILE
 %=====================================================================================================
-\end{document} 
+\end{document}
