@@ -11,13 +11,13 @@
 \setlength\oddsidemargin{0in}
 \setlength\evensidemargin{0in}
 \setlength\parindent{0.25in}
-\setlength\parskip{0in} 
+\setlength\parskip{0in}
 
 \usepackage{amsmath}
 \usepackage{bm}													% required for bold equations
 \usepackage{graphicx}										% required for images
 \usepackage{epstopdf}										% require for .eps graphics
-\usepackage{float}											% allows [H] to be used for floats (forces float to appear at location in code) 
+\usepackage{float}											% allows [H] to be used for floats (forces float to appear at location in code)
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[pdftex]{hyperref} 					% creates bookmarks and all cross-references and citations are hyperlinked in pdf
 \hypersetup{bookmarksnumbered, 					% put section numbers in bookmarks
@@ -25,22 +25,19 @@
 						colorlinks = true,
 						linkcolor=CadetBlue,
 						citecolor=CadetBlue,
-						urlcolor=MidnightBlue}			% bookmarks expanded when pdf opened	
-						
-\usepackage{C:/MyFiles/Reference_Libraries/LaTeX/MiscPackages/fixfoot/fixfoot}
-						
+						urlcolor=MidnightBlue}			% bookmarks expanded when pdf opened						
 						
 %=====================================================================================================
 % My Macros
 %=====================================================================================================								
 
-\DeclareFixedFootnote{\gyrofootnote}{x-IMUs of generations prior to version 1.3 use the \href{http://www.x-io.co.uk/res/doc/itg3200.pdf}{ITG-3200} gyroscope.}
+%\DeclareFixedFootnote{\gyrofootnote}{x-IMUs of generations prior to version 1.3 use the \href{http://www.x-io.co.uk/res/doc/itg3200.pdf}{ITG-3200} gyroscope.}
 				
-\def \xIMUGUI {\href{http://www.x-io.co.uk/node/9\#ximugui}{x-IMU GUI}}
-\def \xIMUAPI {\href{http://www.x-io.co.uk/node/9\#ximuapi}{x-IMU API}}		
-\def \MATLAB {\href{http://www.x-io.co.uk/node/10\#matlab_import_ximu_data}{MATLAB}}					
+\def \xIMUGUI {\href{http://www.x-io.co.uk/node/9\#ximu_gui}{x-IMU GUI}}
+\def \xIMUAPI {\href{http://www.x-io.co.uk/node/9\#ximu_api}{x-IMU API}}		
+\def \MATLAB {\href{http://www.x-io.co.uk/node/10\#ximu_matlab_library}{MATLAB}}					
 \def \accelMagName {\href{http://www.x-io.co.uk/res/doc/lsm303dlh.pdf}{LSM303DLH}}
-\def \gyroName {\href{http://www.x-io.co.uk/res/doc/imu3000.pdf}{IMU-3000}\gyrofootnote{}}	
+\def \gyroName {\href{http://www.x-io.co.uk/res/doc/imu3000.pdf}{IMU-3000}}	
 
 \def \contactUs {\href{http://www.x-io.co.uk/contact}{contact us}}
 \def \sectionComingSoon {This section is currently unavailable but can be updated \href{http://www.x-io.co.uk/contact}{on request}.}				
@@ -49,7 +46,7 @@
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 2.1 \normalsize}
+\title{\Huge x-IMU User Manual 3.0 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -66,34 +63,42 @@
 
 \end{titlepage}
 
-%=====================================================================================================
-% Version history
-%=====================================================================================================
-%\section{Version history}
-%\label{sec:VersionHistory}
-
-\begin{table}[H]
-	\centering
-		\begin{tabular*}{1.0\textwidth}{l l p{0.75\textwidth}}
-			\hline
-			Version	&	Date				& Notes\\
-			\hline\\
-			2.1			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
-							&							& - IMU/AHRS algorithm section has been updated.\\					
-							&							& - TODO: link to API docuemtnation etc.\\																							
-			2.0			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
-							&							& - Documented changes introduced by firmware 5.0, API 8.0 and GUI 7.0.  See individual release notes for details.\\																					
-							&							& Compatible versions: firmware 5.x, GUI 7.x, API 8.x.\\	
-			1.0			& 10/05/2011	&	- Initial release.\\
-							&							& Compatible versions: firmware 4.x, GUI 6.x, API 7.x.\\							
-			\hline
-		\end{tabular*}
-		\caption{Document version history}
-\end{table}
-
-%If you have any suggestions for how this document could be improved, please \href{ http://www.x-io.co.uk/contact}{contact us} and let us know.
-
-\newpage
+%%=====================================================================================================
+%% Version history
+%%=====================================================================================================
+%%\section{Version history}
+%%\label{sec:VersionHistory}
+%
+%
+% TO DO:!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+% - AHRS re-init when mode register written to
+% - gyro cal model uses AHRS biases
+%
+%
+%
+%
+%\begin{table}[H]
+%	\centering
+%		\begin{tabular*}{1.0\textwidth}{l l p{0.75\textwidth}}
+%			\hline
+%			Version	&	Date				& Notes\\
+%			\hline\\
+%			2.1			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
+%							&							& - IMU/AHRS algorithm section has been updated.\\					
+%							&							& - TODO: link to API docuemtnation etc.\\																							
+%			2.0			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
+%							&							& - Documented changes introduced by firmware 5.0, API 8.0 and GUI 7.0.  See individual release notes for details.\\																					 
+%							&							& Compatible versions: firmware 5.x, GUI 7.x, API 8.x.\\	
+%			1.0			& 10/05/2011	&	- Initial release.\\
+%							&							& Compatible versions: firmware 4.x, GUI 6.x, API 7.x.\\							
+%			\hline
+%		\end{tabular*}
+%		\caption{Document version history}
+%\end{table}
+%
+%%If you have any suggestions for how this document could be improved, please \href{ http://www.x-io.co.uk/contact}{contact us} and let us know.
+%
+%\newpage
 %=====================================================================================================
 % Disclaimer
 %=====================================================================================================
@@ -118,7 +123,7 @@
 \section{x-IMU overview}
 \label{sec:xIMUOverview}
 
-The x-IMU was designed to be the most versatile IMU/AHRS product available. Its host of on-board sensors, algorithms and configurable 8-channel auxiliary port make the x-IMU both a powerful sensor and controller. Communication is enabled via USB or Bluetooth for wireless applications. The on-board SD card, battery charger (via USB), real-time clock/calendar and motion trigger wake up also make the x-IMU an ideal stand-alone data logger.
+The x-IMU was designed to be the most versatile Inertial Measurement Unit (IMU) and Attitude Heading Reference System (AHRS) product available. Its host of on-board sensors, algorithms and configurable 8-channel auxiliary port make the x-IMU both a powerful sensor and controller. Communication is enabled via USB or Bluetooth for wireless applications. The on-board SD card, battery charger (via USB), real-time clock/calendar and motion trigger wake up also make the x-IMU an ideal stand-alone data logger.
 
 The open source \xIMUGUI{} allow users configure all internal x-IMU settings, view sensor data in real-time and export data to software such as \MATLAB{} and Microsoft Excel. Custom user software may be developed using the \xIMUAPI{}.
 
@@ -127,13 +132,14 @@ The open source \xIMUGUI{} allow users configure all internal x-IMU settings, vi
 
 \paragraph{On-board sensors}
 \begin{itemize}
-	\item Triple axis 16-bit gyroscope (±2000 $^\circ$/s range)
-	\item Triple axis 12-bit accelerometer (configurable range up to ±8 g)
-	\item Triple axis 12-bit magnetometer (configurable range up to ±8.1 G)
+	\item Triple axis 16-bit gyroscope (Selectable range up to ±2000 $^\circ$/s range)
+	\item Triple axis 12-bit accelerometer (Selectable range up to ±8 g)
+	\item Triple axis 12-bit magnetometer (Selectable range up to ±8.1 G)
 	\item 16-bit thermometer
 	\item Battery level
-	\item Calibrated and temperature compensated (gyroscope only)
-	\item Configurable sample rates up to 256 Hz
+	\item Factory calibrated
+	\item Temperature compensated (Gyroscope only)
+	\item Selectable sample rates up to 256 Hz
 \end{itemize}
 
 \paragraph{On-board algorithms}
@@ -141,14 +147,14 @@ The open source \xIMUGUI{} allow users configure all internal x-IMU settings, vi
     \item IMU algorithm for real-time measurement of pitch and roll relative to the Earth surface, immune to magnetic inferences
     \item AHRS algorithm for real-time measurement of full orientation relative to the Earth coordinate frame
     \item Sensor calibration algorithms for user maintenance
-\end{itemize}    
+\end{itemize}
 
 \paragraph{Connectivity}
 \begin{itemize}
     \item USB
     \item Bluetooth (class 1, 100m range, SPP)
     \item Micro-SD card (supports SDHC and FAT16/32 for capacities up to 2 TBs)
-\end{itemize}    
+\end{itemize}
 
 \paragraph{Power options}
 \begin{itemize}
@@ -156,13 +162,13 @@ The open source \xIMUGUI{} allow users configure all internal x-IMU settings, vi
     \item LiPo battery (on-board charging via USB)
     \item External source (3.6 V to 7.7 V)
     \item Low power consumption (35 mA to 100 mA dependant on settings and usage, 130 µA sleep mode)
-\end{itemize}    
+\end{itemize}
 
 \paragraph{Low profile}
 \begin{itemize}
     \item Dimensions: 33 $\times$ 42 $\times$ 10 mm
     \item Weight: 12g
-\end{itemize}  
+\end{itemize}
 
 \paragraph{Other features}
 \begin{itemize}
@@ -170,17 +176,20 @@ The open source \xIMUGUI{} allow users configure all internal x-IMU settings, vi
     \item Real-time clock and calendar
     \item Configurable command button
     \item Configurable 8 channel auxiliary port
-\end{itemize}    
+\end{itemize}
 
 \paragraph{Auxiliary port modes}
 \begin{itemize}
     \item Digital I/O (outputs controlled via USB or Bluetooth)
-\end{itemize}    
+    \item Analogue inputs (8 channels, 12-bit resolution, 0 to 3.3 V)
+    \item PWM output (4 channels, 1 to 65,535 Hz, controlled via USB or Bluetooth)
+    \item ADXL345 bus (4 external triple-axis, ±16g, 13-bit resolution accelerometers)
+\end{itemize}
 
 \subsection{x-IMU Software}
 \label{sec:xIMUSoftware}
 
-The \xIMUGUI{} (Graphical User Interface) provides interface to all features and functionality of the x-IMU via the \xIMUAPI{}. The \xIMUGUI{} is open source and is intended to serve as a comprehensive template for those using the \xIMUAPI{} to develop their own applications. Additional software examples using the \xIMUAPI{} for different applications can be found on the \href{http://www.x-io.co.uk/node/10}{x-IMU Examples webpage}.
+The \xIMUGUI{} (Graphical User Interface) provides interface to all features and functionality of the x-IMU via the \xIMUAPI{}. The \xIMUGUI{} is open source and so is intended to serve as a comprehensive template for those using the x-IMU API to develop their own applications. Additional open source software examples using the \xIMUAPI{} for various applications can be found on the \href{http://www.x-io.co.uk/node/10}{x-IMU Examples webpage}.
 
 \paragraph{Features}
 \begin{itemize}
@@ -190,7 +199,7 @@ The \xIMUGUI{} (Graphical User Interface) provides interface to all features and
     \item Data logger and file converter for exporting data; e.g. to MATLAB, Microsoft Excel, etc.
     \item Magnetic calibration tools
     \item Firmware bootloader to access new features in future x-IMU firmware versions
-\end{itemize}    
+\end{itemize}
 
 
 \newpage
@@ -201,12 +210,12 @@ The \xIMUGUI{} (Graphical User Interface) provides interface to all features and
 \label{sec:GettingStarted}
 
 \begin{enumerate}
-	\item Install the USB drivers (\ref{sec:InstallingUSBDrivers}) and/or pair the x-IMU as a Bluetooth device (\ref{sec:PairingTheXIMUWithABluetoothHost}).
+	\item Install the USB drivers (\ref{sec:InstallingUSBDrivers}) or pair the x-IMU as a Bluetooth device (\ref{sec:PairingTheXIMUWithABluetoothHost}).
 	\item Download and install the latest version of the \xIMUGUI{}.
 	\item Connect to the x-IMU via the \textit{Serial port} tab page (\ref{sec:TabPageSerialPort}) of the \xIMUGUI{}.
 \end{enumerate}
 
-The x-IMU and accompanying software were designed to be versatile and intuitive.  New users are advised to explore the x-IMU through the \xIMUGUI{} and consult this user manual when required.  If you are struggling to use the system and feel that this user manual is not providing you with appropriate documentation, please \contactUs{} so that we update the document appropriatly.
+%The x-IMU and accompanying software were designed to be versatile and intuitive.  New users are advised to explore the x-IMU through the \xIMUGUI{} and consult this user manual when required.  If you are struggling to use the system and feel that this user manual is not providing you with appropriate documentation, please \contactUs{} so that we update the document appropriatly.
 
 
 
@@ -325,7 +334,7 @@ The on-board battery connector allows the x-IMU to be powered by any single-cell
 \section{Software overview}
 \label{sec:SoftwareOverview}
 
-%The x-IMU software consists of the \xIMUGUI{} and \xIMUAPI{}.  
+%The x-IMU software consists of the \xIMUGUI{} and \xIMUAPI{}.
 %
 %%---------------------------------------------------------------------------------------------------
 %\subsection{Installing software and drivers}
@@ -415,7 +424,7 @@ The view sensor data tab page contains buttons to show or hide separate real-tim
 \end{figure}
 
 The data from individual sensors is displayed in real-time data graphs as seen in Figure \ref{fig:GUI_tab_view_sensor_data}.  The controls bar at the bottom of each graph allow the view and scaling to be adjusted.
-  
+
 \begin{figure}[H]
 	\centering
 		\includegraphics[width=0.5\textwidth]{graphics/GUI_gyroscope_graph.png}
@@ -423,7 +432,7 @@ The data from individual sensors is displayed in real-time data graphs as seen i
 	\label{fig:GUI_gyroscope_graph}
 \end{figure}
 
-Orientation data received may be displayed in a graph as ZYX Euler angles and displayed as the orientation of a 3D cuboid as seen in figure \ref{fig:GUI_3D_cuboid}.  The cuboid is displayed in a screen coordinate frame where the x-axis is aligned to the width of the screen (left to right), the z-axis aligned to the height (bottom to top) and the y-axis projects into the screen.  To align the motion of the physical x-IMU and 3D cuboid displayed on the screen, the user should first align the axes of the physical x-IMU to the screen coordinate frame and then use the \textit{Tare} command (\ref{sec:Tare}).
+Orientation data received may be displayed in a graph as ZYX Euler angles and displayed as the orientation of a 3D cuboid as seen in figure \ref{fig:GUI_3D_cuboid}.  The cuboid is displayed in a screen coordinate frame where the x-axis is aligned to the width of the screen (left to right), the z-axis aligned to the height (bottom to top) and the y-axis projects into the screen.  To align the motion of the physical x-IMU and 3D cuboid displayed on the screen, the user should first align the axes of the physical x-IMU to the screen coordinate frame and then use the \textit{algorithm tare} command (\ref{sec:AlgorithmTare}).
 
 \begin{figure}[H]
 	\centering
@@ -513,12 +522,12 @@ The hard-iron calibration tab page provides all the functionality required for t
 	\label{fig:GUI_tab_hard_iron_calibration}
 \end{figure}
 
-%------------------------------------------------
-\subsubsection{Tab page: Upload firmware}
-\label{sec:TabPageUploadFirmware}
-
-The bootloader tab page allows the x-IMU firmware to be updated.  The bootloader may only be used while the x-IMU is connected via USB and the serial port closed.  See the bootloader section (\ref{sec:Bootloader}) for more information.
-
+%%------------------------------------------------
+%\subsubsection{Tab page: Upload firmware}
+%\label{sec:TabPageUploadFirmware}
+%
+%The bootloader tab page allows the x-IMU firmware to be updated.  The bootloader may only be used while the x-IMU is connected via USB and the serial port closed.  See the bootloader section (\ref{sec:Bootloader}) for more information.
+%
 %\begin{figure}[H]
 %	\centering
 %		\includegraphics[width=0.8\textwidth]{graphics/GUI_tab_bootloader.png}
@@ -565,7 +574,7 @@ Windows may misinterpret the constant stream of data from the x-IMU as the behav
 \subsection{USB bandwidth}
 \label{sec:USBBandwidth}
 
-It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  If the USB bandwidth is exceed, the USB transmit buffer will overrun and some data will be lost.  When this happens a \textit{USB transmit buffer overrun} error (\ref{sec:USBTransmitBufferOverrun}) will be generated.  As this error message is sent immediately after the buffer has overrun, the error message will be successfully transmitted.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).
+It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  If the USB bandwidth is exceed, the USB transmit buffer will overrun and some data will be lost.  When this happens a \textit{USB transmit buffer overrun} error (\ref{sec:USBTransmitBufferOverrun}) will be generated.  As this error is sent immediately after the buffer has overrun, the error will be successfully transmitted.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).
 
 All data sent to the x-IMU via USB is buffered in the USB receive buffer before being processed.  The time required to process the received data is dependent on the data.  If data is sent to the x-IMU via USB at a rate at a rate greater than it can be processed then the receive buffer will overflow and some data will be lost.  When this happens a \textit{USB receive buffer overrun} error (\ref{sec:USBReceiveBufferOverrun}) will be generated.
 
@@ -637,7 +646,7 @@ The blue Bluetooth LED indicates the Bluetooth radio state.  The LED behaviour a
 \subsection{Bluetooth bandwidth}
 \label{sec:BluetoothBandwidth}
 
-It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  If the Bluetooth bandwidth is exceed, the Bluetooth transmit buffer will overrun and some data will be lost.  When this happens a \textit{Bluetooth transmit buffer overrun} error (\ref{sec:BluetoothTransmitBufferOverrun}) will be generated.  As this error message is sent immediately after the buffer has overrun, the error message will be successfully transmitted.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).
+It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  If the Bluetooth bandwidth is exceed, the Bluetooth transmit buffer will overrun and some data will be lost.  When this happens a \textit{Bluetooth transmit buffer overrun} error (\ref{sec:BluetoothTransmitBufferOverrun}) will be generated.  As this error is sent immediately after the buffer has overrun, the error will be successfully transmitted.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).
 
 All data sent to the x-IMU via Bluetooth is buffered in the Bluetooth receive buffer before being processed.  The time required to process the received data is dependent on the data.  If data is sent to the x-IMU via Bluetooth at a rate at a rate greater than it can be processed then the receive buffer will overflow and some data will be lost.  When this happens a \textit{Bluetooth receive buffer overrun} error (\ref{sec:BluetoothReceiveBufferOverrun}) will be generated.
 
@@ -661,7 +670,7 @@ The x-IMU uses a class I Bluetooth radio which represents a maximum range of 100
 
 The x-IMU streams all communication data simultaneously and identically via USB (\ref{sec:USB}), Bluetooth (\ref{sec:Bluetooth}) and to a file on the SD card.  The SD card may therefore be used in conjunction with the USB and/or Bluetooth or as the sole communication channel allowing the x-IMU to function as a standalone data logger.  Data is logged to the SD card on separate files binary files that are automatically created each time the x-IMU is switched on, reset or wakes up.  Logging is only then stopped once the x-IMU is reset or enters sleep mode.
 
-The binary files (\verb=.bin=) created may be read form the SD card on to any PC and then converted to individual Comma Separated Variable (\verb=.csv=) files using via the \xIMUGUI{} \textit{SD Card} tab page (\ref{sec:TabPageSDCard}).  Alternatively the \href{http://www.x-io.co.uk/node/10#sd_card_binary_file_converter}{x-IMU Binary File Converter} may be used for command-line-based or automated conversion of multiple files.  Converted CSV and text files can be directly imported into programmes such as MATLAB and Microsoft Excel.  The \href{http://www.x-io.co.uk/node/10#matlab_import_ximu_data}{MATLAB x-IMU Library} includes all the tools required to import, structure and plot x-IMU data.
+The binary files (\verb=.bin=) created may be read form the SD card on to any PC and then converted to individual Comma Separated Variable (\verb=.csv=) files using via the \xIMUGUI{} \textit{SD Card} tab page (\ref{sec:TabPageSDCard}).  Alternatively the \href{http://www.x-io.co.uk/node/10#sd_card_binary_file_converter}{x-IMU Binary File Converter} may be used for command-line-based or automated conversion of multiple files.  Converted CSV and text files can be directly imported into programmes such as MATLAB and Microsoft Excel.  The x-IMU MATLAB Library includes all the tools required to import, structure and plot x-IMU data.
 
 The x-IMU supports conventional SD cards and HCSD cards.  Cards may be formatted as FAT16 (usually cards equal or less than 2 GB) and FAT32 (for card greater than 2 GB).  For reliable performance it is recommended that the SD card is formatted prior to each use.
 
@@ -683,7 +692,7 @@ The amber SD card LED indicates SD card activity.  The LED remains lit each time
 \subsection{SD card bandwidth}
 \label{sec:SDCardBandwidth}
 
-It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  The SD card bandwidth is greater than the USB and Bluetooth bandwidth and so the SD card may still provide reliable data logging when the USB or Bluetooth channel bandwidth is exceeded.  If the SD card bandwidth is exceed, the SD card buffer will overrun and some data will be lost.  When this happens an \textit{SD card write buffer overrun} error (\ref{sec:SDCardWriteBufferOverrun}) will be generated.  As this error packet is sent immediately after the buffer has overrun, the error message will be successfully logged to the SD card.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).  The SD card LED (\ref{sec:SDCardLED}) may be used to provides an indication of SD card bandwidth performance while access to error messages is not available.
+It is possible for the user to define data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}) so that the data being generated by the x-IMU exceeds the bandwidth of a communication channel.  The SD card bandwidth is greater than the USB and Bluetooth bandwidth and so the SD card may still provide reliable data logging when the USB or Bluetooth channel bandwidth is exceeded.  If the SD card bandwidth is exceed, the SD card buffer will overrun and some data will be lost.  When this happens an \textit{SD card write buffer overrun} error (\ref{sec:SDCardWriteBufferOverrun}) will be generated.  As this error packet is sent immediately after the buffer has overrun, the error will be successfully logged to the SD card.  This error can be avoided by reducing the data output rate settings (e.g. \ref{sec:BatteryAndThermometerDataOutputRate}, \ref{sec:InertialAndMagneticDataOutputRate}, \ref{sec:QuaternionDataOutputRate}).  The SD card LED (\ref{sec:SDCardLED}) may be used to provides an indication of SD card bandwidth performance while access to errors is not available.
 
 The effective bandwidth of SD card varies between different SD card manufacturers and may decrease significantly if the SD card becomes fragmented.  It is therefore recommended that the SD card is formatted prior to each use.
 
@@ -691,7 +700,7 @@ The effective bandwidth of SD card varies between different SD card manufacturer
 \subsection{Magnetic distortions from the SD card socket}
 \label{sec:MagneticDistortionsFromTheSDCardSocket}
 
-The SD card socket contains a ferromagnetic mechanism that may distort magnetometer measurements in different ways dependant of the presence of an SD card.  These distortions are removed through hard-iron calibration and each x-IMU is calibrated and supplied with a dummy SD card that may be used to ensure constant SD card socket magnetic characteristics.
+The SD card socket contains a ferromagnetic mechanism that may distort magnetometer measurements in different ways dependant of the presence of an SD card.  These distortions are removed through hard-iron calibration.  Each x-IMU is calibrated and supplied with a dummy SD card that may be used to ensure constant SD card socket magnetic characteristics.
 
 %=====================================================================================================
 % Real-time clock and calendar
@@ -701,7 +710,7 @@ The SD card socket contains a ferromagnetic mechanism that may distort magnetome
 
 The on-board real-time clock and calendar provides accurate measurement of the date and time and is pre-programmed to account for leap-years between the year 2000 and 2099.  The real-time clock and calendar data can be viewed and synchronised with the computer clock using the \xIMUGUI{} via the \textit{Date/Time} tab page (\ref{sec:TabPageDateTime}).
 
-The real-time clock and calendar data a is provided by the x-IMU in the \textit{write date/time data} packets.  The output rate of these packets of either \textit{disabled} or 1 Hz is specified in the \textit{date/time data rate} register (\ref{sec:DateTimeDataOutputRate}).  A single \textit{date/time data} packet is always sent on device reset regardless of user settings so that the date and time are hardcoded as the first packet written to the SD card (\ref{sec:SDCard}).  The real-time clock and calendar is set by sending a \textit{write date/time data} packet to the x-IMU, once the new date and time have been set the x-IMU will respond with a \textit{write date/time data} containing the real-time clock and calendar data.  The date and time may read at any time by sending a \textit{read date/time data} packet to the x-IMU.
+The real-time clock and calendar data is provided by the x-IMU in the \textit{write date/time data} packets.  The output rate of these packets of either be \textit{disabled} to set up to 256 Hz in the \textit{date/time data rate} register (\ref{sec:DateTimeDataOutputRate}).  A single \textit{date/time data} packet is always sent on device reset regardless of user settings so that the date and time are hardcoded as the first packet written to the SD card (\ref{sec:SDCard}).  The real-time clock and calendar is set by sending a \textit{write date/time data} packet to the x-IMU, once the new date and time have been set the x-IMU will respond with a \textit{write date/time data} containing the real-time clock and calendar data.  The date and time may read at any time by sending a \textit{read date/time data} packet to the x-IMU.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Maintaining clock power}
@@ -715,7 +724,7 @@ The real-time clock and calendar require power to operate.  If power is lost or 
 \section{Sensors}
 \label{sec:Sensors}
 
-The x-IMU's on-board sensors include a triple axis gyroscope, triple axis accelerometer, triple axis magnetometer, thermometer and a battery voltmeter.  The user may access individual sensor data as either \textit{Raw un-calibrated ADC results} or as \textit{Calibrated units} by specifying the mode in the \textit{Sensor data mode} register (\ref{sec:SensorDataMode}).  The data from individual sensors is provided in either the \textit{Raw inertial/magnetic data} and \textit{Raw battery and thermometer data} packets or the \textit{Calibrated inertial/magnetic data} and \textit{Calibrated battery and thermometer data} packets.  The data output rate of these packets may be specified up to 256 Hz in the \textit{Battery and thermometer data output rate} (\ref{sec:BatteryAndThermometerDataOutputRate}) and \textit{Inertial/magnetic data output rate} (\ref{sec:InertialAndMagneticDataOutputRate}) registers.  Alternatively the individual output rates may be \textit{disabled} to prevent data from being sent.
+The x-IMU's on-board sensors include a triple axis gyroscope, triple axis accelerometer, triple axis magnetometer, thermometer and a battery voltmeter.  The user may access individual sensor data as either \textit{Raw un-calibrated ADC results} or as \textit{Calibrated units} by specifying the mode in the \textit{Sensor data mode} register (\ref{sec:SensorDataMode}).  The data from individual sensors is provided in either the \textit{Raw inertial/magnetic data} and \textit{Raw battery and thermometer data} packets or the \textit{Calibrated inertial/magnetic data} and \textit{Calibrated battery and thermometer data} packets.  The data output rate of these packets may either be \textit{disabled} to set up to 256 Hz in the \textit{Battery and thermometer data output rate} (\ref{sec:BatteryAndThermometerDataOutputRate}) and \textit{Inertial/magnetic data output rate} (\ref{sec:InertialAndMagneticDataOutputRate}) registers.  Alternatively the individual output rates may be \textit{disabled} to prevent data from being sent.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Battery voltmeter}
@@ -903,6 +912,43 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 
 \sectionComingSoon{}
 
+%- Calibrated sensor requires that the parameters of each sensor calibraiton model are defined.
+%- IMU and AHRS algorithms require sensors to be calibrated.
+%- For greatest accuracy, each x-IMU should be uniquly calibrated
+%- Mechanical stress (e..g in box or fassened to chassis) and temperature affect sensor bahaviour and require differnt calribation parameters... for greatest accuracy user should calibrate each sensor while the x-IMU is in state of final applcaition
+%- x-IMU supplied calibrated
+%- The x-IMU can be fully calibrated by on-board algorithm access through user via comamnds and the x-IMU GUI without the need for specialist equitpment.
+%
+%%\sectionComingSoon{}
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Gyroscope calibration}
+%\label{sec:GyroscopeCalibration}
+%
+%The gyroscope sensitivity and bias parameters are calibrated through seporate processes.  Calibration of gyroscope senstivity requires
+%
+%Sensitivity... steady state temperature... quartz turntable only.
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Accelerometer calibration}
+%\label{sec:AccelerometerCalibration}
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Magnetometer calibration}
+%\label{sec:MagnetometerCalibration}
+%
+%%------------------------------------------------
+%\subsubsection{Hard-iron calibration}
+%\label{sec:HardIronCalibration}
+
+
+
+
+
+
+
+
+
 %The sensors must be correctly calibrated for the IMU and AHRS algorithms to provide an accurate estimate of orientation.  The battery voltmeter must be correctly calibrated for the low battery voltage detection functionality to work properly.
 %
 %...save registers when done
@@ -982,86 +1028,86 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 %=====================================================================================================
 % IMU/AHRS algorithms
 %=====================================================================================================
-\section{IMU/AHRS algorithms}
-\label{sec:IMUAHRSAlgorithms}
+\section{IMU and AHRS algorithms}
+\label{sec:IMUAndAHRSAlgorithms}
 
-%\sectionComingSoon{}
+\sectionComingSoon{}
 
-- On-board algorithms provde oreitnation relative to Earth
-- Uses gyro, accel, mag
-- Oreintation data provided as quaternion in quaternion packet.  Data output rate set by register
-- API includes class methods for conversion to rotation matrix and Euler angles.
-- Oreintation viewed in GUI with 3D cuboid and Euler angles.
-
-- Algorithm update rate = 256 Hz regardless of data output rate
-- Algorithm performance is dependant on calibration.
-- Performance can be tuned by adjusting algorithm paramters.  See section \ref{sec:OptimisingAlgorithmPerformance} for more information.
-
-
-%---------------------------------------------------------------------------------------------------
-\subsection{Principle of operation}
-\label{sec:PrincipleOfOperation}
-
-- use gyroscope data to estimate oreintaiton.... however gyroscope measeutnts alone cannot work because of drift.
-- this drift is compensated for through meaurments of the Earth's gravitational and magentic feilds, provided by the accelermeter and magnetoemter respectivly.
-- accelerometer measures accelerations and the direction of gravity.... it is used to counter drift relative to the Earth's surface; i.e. the estimated pitch and roll.  As the acceleoemter also measures accelerations as well as gravitry,
-- magnetometer measures direction fo Earth's magentic feild... used to counter drift relative to the magnetic poles of the Earth; i.e. in the estimated heading.
-- the proportional gain governs how much influence
-
-\paragraph{IMU mode:}
-- The IMU algorithm uses only the gyroscope and acceleormeter and so will not compensate for drift in heading.  This is suitable for many applciations where only pitch and roll are required and/or it is possible to `reset' heading periodically.
-- The advantage of excluding the magnetoemter from the algorithm is: magnetic calbration unessary, local magnetic distortion have no effect; e.g. if x-IMU used within a magnetically noisey enviroment
-
-\paragraph{AHRS mode:}
-- The IMU algorithm uses only the gyroscope and acceleormeter and magnetoemer.  Free form drift in all axes.  As magnetoem
-
-
-%---------------------------------------------------------------------------------------------------
-\subsection{Algorithm parameters}
-\label{sec:AlgorithmParameters}
-
-%------------------------------------------------
-\subsubsection{Algorithm mode}
-\label{sec:AlgorithmMode}
-
-%------------------------------------------------
-\subsubsection{Algorithm gains}
-\label{sec:AlgorithmGains}
-
-%------------------------------------------------
-\subsubsection{Algorithm magnetic feild rejection}
-\label{sec:AlgorithmMagneticFeildRejection}
-
-%------------------------------------------------
-\subsubsection{Algorithm tare quaternion}
-\label{sec:AlgorithmTareQuaternion}
-
-
-%---------------------------------------------------------------------------------------------------
-\subsection{Algorithm operations}
-\label{sec:AlgorithmOperations}
-
-%------------------------------------------------
-\subsubsection{Algorithm initialise}
-\label{sec:AlgorithmInitialise}
-
-- init on reset
-
-%------------------------------------------------
-\subsubsection{Algorithm tare}
-\label{sec:AlgorithmTare}
-
-%------------------------------------------------
-\subsubsection{Algorithm clear tare}
-\label{sec:AlgorithmClearTare}
-
-%------------------------------------------------
-\subsubsection{Algorithm initialise then tare}
-\label{sec:AlgorithmInitialiseThenTare}
-
-%---------------------------------------------------------------------------------------------------
-\subsection{Optimising algorithm performance}
-\label{sec:OptimisingAlgorithmPerformance}
+%- On-board algorithms provde oreitnation relative to Earth
+%- Uses gyro, accel, mag
+%- Oreintation data provided as quaternion in quaternion packet.  Data output rate set by register
+%- API includes class methods for conversion to rotation matrix and Euler angles.
+%- Oreintation viewed in GUI with 3D cuboid and Euler angles.
+%
+%- Algorithm update rate = 256 Hz regardless of data output rate
+%- Algorithm performance is dependant on calibration.
+%- Performance can be tuned by adjusting algorithm paramters.  See section \ref{sec:OptimisingAlgorithmPerformance} for more information.
+%
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Principle of operation}
+%\label{sec:PrincipleOfOperation}
+%
+%- use gyroscope data to estimate oreintaiton.... however gyroscope measeutnts alone cannot work because of drift.
+%- this drift is compensated for through meaurments of the Earth's gravitational and magentic feilds, provided by the accelermeter and magnetoemter respectivly.
+%- accelerometer measures accelerations and the direction of gravity.... it is used to counter drift relative to the Earth's surface; i.e. the estimated pitch and roll.  As the acceleoemter also measures accelerations as well as gravitry,
+%- magnetometer measures direction fo Earth's magentic feild... used to counter drift relative to the magnetic poles of the Earth; i.e. in the estimated heading.
+%- the proportional gain governs how much influence
+%
+%\paragraph{IMU mode:}
+%- The IMU algorithm uses only the gyroscope and acceleormeter and so will not compensate for drift in heading.  This is suitable for many applciations where only pitch and roll are required and/or it is possible to `reset' heading periodically.
+%- The advantage of excluding the magnetoemter from the algorithm is: magnetic calbration unessary, local magnetic distortion have no effect; e.g. if x-IMU used within a magnetically noisey enviroment
+%
+%\paragraph{AHRS mode:}
+%- The IMU algorithm uses only the gyroscope and acceleormeter and magnetoemer.  Free form drift in all axes.  As magnetoem
+%
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Algorithm parameters}
+%\label{sec:AlgorithmParameters}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm mode}
+%\label{sec:AlgorithmMode}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm gains}
+%\label{sec:AlgorithmGains}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm magnetic feild rejection}
+%\label{sec:AlgorithmMagneticFeildRejection}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm tare quaternion}
+%\label{sec:AlgorithmTareQuaternion}
+%
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Algorithm operations}
+%\label{sec:AlgorithmOperations}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm initialise}
+%\label{sec:AlgorithmInitialise}
+%
+%- init on reset
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm tare}
+%\label{sec:AlgorithmTare}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm clear tare}
+%\label{sec:AlgorithmClearTare}
+%
+%%------------------------------------------------
+%\subsubsection{Algorithm initialise then tare}
+%\label{sec:AlgorithmInitialiseThenTare}
+%
+%%---------------------------------------------------------------------------------------------------
+%\subsection{Optimising algorithm performance}
+%\label{sec:OptimisingAlgorithmPerformance}
 
 %The on-board sensor fusion algorithm uses the gyroscope, accelerometer and magnetometer to provide an optimal, real-time estimate of the devices' orientation relative to the Earth.  The IMU and AHRS algorithms require that the on-board sensors are properly calibrated (\ref{sec:Calibration}).  The estimated orientation is represented as a quaternion and is transmitted in the quaternion data packet \ref{sec:QuaternionData}.  The algorithm internal update rate is fixed at 256 Hz regardless of the quaternion data output rate (\ref{sec:QuaternionDataOutputRate}).
 %
@@ -1122,9 +1168,7 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 \section{Power management}
 \label{sec:PowerManagement}
 
-The x-IMU may be powered via USB (\ref{sec:USB}), an external supply (\ref{sec:ExternalSupply}) or a single cell lithium polyer (LiPo) battery cell (\ref{sec:BatteryAndCharging}).
-
-% power switch for USB and battery.  switch off for external power supply
+The x-IMU may be powered via USB (\ref{sec:USB}), an external supply (\ref{sec:ExternalSupply}) or a single cell lithium polymer (LiPo) battery cell (\ref{sec:BatteryAndCharging}) which will be charged automatically while the x-IMU is connected to a USB port.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{External supply}
@@ -1151,7 +1195,7 @@ The calibrated battery voltmeter (\ref{sec:BatteryVoltmeter}) is used to trigger
 \label{sec:SleepMode}
 
 In sleep mode, the x-IMU remains powered but all on-board components are shutdown.  This allows the device to be effectively `turned off' without disabling power to essential components; for example, the real time clock and calendar (\ref{sec:RealTimeClockAndCalendar}).  The green status LED (\ref{sec:StatusLEDGreen}) will blink once every 3 seconds to indicate that the device is in sleep mode.  Sleep mode is enabled through the sources listed below.  The x-IMU will reset upon wake up so that the same behaviour may be expected when the devices is powered on, reset or awakened.  The wake up sources are listed below.
-  
+
 \paragraph{Sleep mode enable sources:}
 \label{sec:SleepModeEnableSources}
 
@@ -1188,7 +1232,9 @@ The sleep timer will trigger sleep mode after the period of time defined in the 
 \subsection{Motion triggered wake up}
 \label{sec:MotionTriggeredWakeUp}
 
-The motion trigger wake up is enabled via the \textit{motion trigger wake up} register (\ref{sec:MotionTriggerWakeUp}) and may be either disabled or set to a \textit{low} or high \textit{sensitivity}.  Motion is detected using accelerometer.  If motion is detected while the x-IMU is in sleep mode then the x-IMU will wake up.  While the x-IMU is not in sleep mode the motion trigger wake up is used to reset the sleep timer (\ref{sec:SleepTimerReg}) and thus postpone sleep while motion persists.  For example, if the sleep timer is set to 20 seconds and there is sufficient motion once every 10 seconds the motion trigger wake up will prevent the sleep timer from expiring.
+The motion trigger wake up is enabled via the \textit{motion trigger wake up} register (\ref{sec:MotionTriggerWakeUp}) and may be either \textit{disabled} or set to a \textit{low} or \textit{high} sensitivity.  Motion is detected using accelerometer.  If motion is detected while the x-IMU is in sleep mode then the x-IMU will wake up.  While the x-IMU is not in sleep mode the motion trigger wake up is used to reset the sleep timer (\ref{sec:SleepTimerReg}) and thus postpone sleep while motion persists.
+
+For example, if the sleep timer is set to 20 seconds and there is motion is detected at least once every 20 seconds the motion trigger wake up will prevent the sleep timer from expiring and the x-IMU will not enter sleep mode.  However, if no motion is detected for 20 seconds the x-IMU will enter sleep mode.  If motion is then detected while in sleep mode, the x-IMU will wake up.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Tips for minimising power consumption}
@@ -1202,7 +1248,7 @@ Battery powered applications require that power consumption is minimised in orde
 \begin{itemize}
 	\item Set data rates of unused data to \textit{Disabled}.
 	\item Use the minimum data rates required by application.
-	\item Set IMU/AHRS algorithm (\ref{sec:IMUAHRSAlgorithms}) mode to \textit{Disabled} if not required.
+	\item Set IMU/AHRS algorithm (\ref{sec:IMUAndAHRSAlgorithms}) mode to \textit{Disabled} if not required.
 	\item Disable Bluetooth (\ref{sec:Bluetooth}) if not required.
 	\item Use the sleep timer (\ref{sec:SleepTimer}) and motion trigger wake up (\ref{sec:MotionTriggeredWakeUp}) to automatically enter sleep mode during periods of inactivity.
 \end{itemize}
@@ -1304,7 +1350,7 @@ This section is currently unavailable.  Users wishing to develop their own x-IMU
 \section{Commands}
 \label{sec:Commands}
 
-Commands are executed by either sending a \textit{command} packet to the x-IMU or by pressing the push button which may be configured to execute a specific command.  Commands are sent using the \xIMUGUI{} via the \textit{Commands} tab page (\ref{sec:TabPageCommands}).  Once a command has been executed the x-IMU will echo the \textit{command} packet back to the host computer as confirmation.  As all communication from the x-IMU to the host computer is logged to the SD card (\ref{sec:SDCard}), all command confirmations will be logged on the SD card.  If a \textit{command} packet is sent containing an invalid command code the x-IMU will respond with an \textit{invalid command} error message (\ref{sec:InvalidCommand}).
+Commands are executed by either sending a \textit{command} packet to the x-IMU USB or Bluetooth or by pressing the push button which may be configured to execute a specific command.  Commands are sent using the \xIMUGUI{} via the \textit{Commands} tab page (\ref{sec:TabPageCommands}).  Once a command has been executed, the x-IMU will echo the \textit{command} packet back to the host computer as confirmation.  As all communication from the x-IMU to the host computer is logged to the SD card (\ref{sec:SDCard}), all command confirmations will be logged on the SD card.  If a \textit{command} packet is sent containing an invalid command code the x-IMU will respond with an \textit{invalid command} error (\ref{sec:InvalidCommand}).
 
 Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentarily pause sensor sampling and processing while the received data is processed.  This may cause discrepancies in the otherwise fixed data output rates.
 
@@ -1324,12 +1370,21 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \end{tabular*}
 
 %------------------------------------------------
+\subsubsection{Factory reset}
+\label{sec:FactoryReset}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
+	\textit{Command code:}	& \verb=0x0001=\\			
+	\textit{Description:}	& A \textit{factory reset} command code is used to reset the x-IMU to its original state prior to factory calibration so that all registers return to their default values.  The user must press the push button (\ref{sec:PushButton}) on the x-IMU within 3 seconds of sending a \textit{factory reset} command in order to confirm the request else the x-IMU will respond with a \textit{factory reset failed} error (\ref{sec:FactoryResetFailed}).  The x-IMU requires several seconds to reconfigure on-board components during the execution of a factory reset.
+\end{tabular*}
+
+%------------------------------------------------
 \subsubsection{Reset}
 \label{sec:Reset}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0001=\\			
-	\textit{Description:}	& A \textit{reset} command causes a software reset of the x-IMU.  The x-IMU will close any open files on the SD card before reset, in this way the reset command may be of use to users wishing to break up a logging session into multiple files.  The reset command is used put the x-IMU into bootloader (\ref{sec:Bootloader}) mode in order to upload new firmware.  A \textit{reset} command is sent by the x-IMU to the host computer as confirmation of reset, power on and wake up.
+	\textit{Command code:}	& \verb=0x0002=\\			
+	\textit{Description:}	& A \textit{reset} command causes a software reset of the x-IMU.  The x-IMU will close any open files on the SD card before reset, in this way the reset command may be of use to users wishing to break up a logging session into multiple files.  The reset command is used put the x-IMU into bootloader mode in order to upload new firmware.  A \textit{reset} command is sent by the x-IMU to the host computer as confirmation of reset, power on and wake up.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1337,7 +1392,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:Sleep}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0002=\\			
+	\textit{Command code:}	& \verb=0x0003=\\			
 	\textit{Description:}	& A \textit{sleep} command will put the device into sleep mode (\ref{sec:SleepMode}).  The x-IMU will close any open files on the SD card before entering sleep mode.  The x-IMU may be taken out of sleep mode by using the push button configured in \textit{sleep/wake} mode or using the motion triggered wake up functionality (\ref{sec:MotionTriggeredWakeUp}).
 \end{tabular*}
 
@@ -1346,8 +1401,26 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:ResetSleepTimer}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0003=\\			
+	\textit{Command code:}	& \verb=0x0004=\\			
 	\textit{Description:}	& The \textit{reset sleep timer} command will reset the sleep timer (\ref{sec:SleepTimer}) countdown and so postpone sleep.  An example usage of this command is to create behaviour where the x-IMU will automatically enter sleep mode when communication with the host software ends or connection is lost.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Sample gyroscope axis at 200 dps}
+\label{sec:SampleGyroscopeAxisAtPm200CircS}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
+	\textit{Command code:}	& \verb=0x0005=\\			
+	\textit{Description:}	& The \textit{sample gyroscope axis at 200 dps} command is used to calibrate the gyroscope sensitivity parameters.  This command should be sent while the x-IMU rotating at either $+200^\circ/s$ or $-200^\circ/s$ around either its \textit{x}, \textit{y} or \textit{z} axis.  The x-IMU will automatically detect the axis and direction of rotation.  The mean gyroscope output will then be measured over approximately 8 seconds before being stored to the corresponding register (\ref{sec:GyroscopeSampledXAxisAtp200Dps} to \ref{sec:GyroscopeSampledZAxisAtm200Dps}).  A \textit{calculate gyroscope sensitivity} command (\ref{sec:CalculateGyroscopeSensitivity}) will then be executed.  The execution of the \textit{sample gyroscope axis at 200 dps} command will be aborted if a gyroscope axis is detected as not being at approximately $\pm200^\circ/s$ and a \textit{gyroscope axis not at 200 dps} error (\ref{sec:GyroscopeAxisNotAt200Dps}) will be generated.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Calculate gyroscope sensitivity}
+\label{sec:CalculateGyroscopeSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
+	\textit{Command code:}	& \verb=0x0006=\\			
+	\textit{Description:}	& The \textit{calculate gyroscope sensitivity} command is used to execute the on-board gyroscope sensitivity calibration algorithm.  The algorithm uses the register values (\ref{sec:GyroscopeSampledXAxisAtp200Dps} to \ref{sec:GyroscopeSampledZAxisAtm200Dps})	previously obtained by the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}) to calculate the gyroscope sensitivity parameters and update the registers (\ref{sec:GyroscopeXAxisSensitivity} to \ref{sec:GyroscopeZAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -1355,8 +1428,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleGyroscopeBiasAtTemperature1}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0004=\\			
-	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 1} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the lowest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately  16 seconds, store the results to registers (\ref{sec:GyroscopeSample1Temperature} to \ref{sec:GyroscopeSample1ZAxisBias}) and then trigger a \textit{calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The execution of this command will be aborted if a \textit{gyroscope not stationary} error (\ref{sec:GyroscopeNotStationary}) occurs.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
+	\textit{Command code:}	& \verb=0x0007=\\			
+	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 1} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the lowest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately  16 seconds, store the results to registers (\ref{sec:GyroscopeSample1Temperature} to \ref{sec:GyroscopeSample1ZAxisBias}) and then trigger a \textit{calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The execution of the \textit{sample gyroscope bias at temperature 1} command will be aborted if the gyroscope is detected as not being stationary and a \textit{gyroscope not stationary} error (\ref{sec:GyroscopeNotStationary}) will be generated.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -1364,8 +1437,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleGyroscopeBiasAtTemperature2}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0005=\\			
-	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 2} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the highest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately 16 seconds, store the results to registers (\ref{sec:GyroscopeSample2Temperature} to \ref{sec:GyroscopeSample2ZAxisBias}) and then trigger a \textit{calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).The execution of this command will be aborted if a \textit{gyroscope not stationary} error (\ref{sec:GyroscopeNotStationary}) occurs.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
+	\textit{Command code:}	& \verb=0x0008=\\			
+	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 2} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the highest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately  16 seconds, store the results to registers (\ref{sec:GyroscopeSample2Temperature} to \ref{sec:GyroscopeSample2ZAxisBias}) and then trigger a \textit{calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The execution of the \textit{sample gyroscope bias at temperature 2} command will be aborted if the gyroscope is detected as not being stationary and a \textit{gyroscope not stationary} error (\ref{sec:GyroscopeNotStationary}) will be generated.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -1373,17 +1446,26 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:CalculateGyroscopeBiasParameters}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0006=\\			
-	\textit{Description:}	& The \textit{calculate gyroscope bias parameters} command is used to execute the on-board gyroscope bias calibration calculation.  The algorithm uses the register values (\ref{sec:GyroscopeSample1Temperature} to \ref{sec:GyroscopeSample2ZAxisBias})	previously sampled by the \textit{sample gyroscope bias at temperature 1} (\ref{sec:SampleGyroscopeBiasAtTemperature1}) and \textit{sample gyroscope bias at temperature 2} (\ref{sec:SampleGyroscopeBiasAtTemperature2}) commands to calculate the gyroscope bias parameters and update the registers (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
+	\textit{Command code:}	& \verb=0x0009=\\			
+	\textit{Description:}	& The \textit{calculate gyroscope bias parameters} command is used to execute the on-board gyroscope bias calibration algorithm.  The algorithm uses the register values (\ref{sec:GyroscopeSample1Temperature} to \ref{sec:GyroscopeSample2ZAxisBias})	previously sampled by the \textit{sample gyroscope bias at temperature 1} (\ref{sec:SampleGyroscopeBiasAtTemperature1}) and \textit{sample gyroscope bias at temperature 2} (\ref{sec:SampleGyroscopeBiasAtTemperature2}) commands to calculate the gyroscope bias parameters and update the registers (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).
 \end{tabular*}
 
 %------------------------------------------------
-\subsubsection{Look up accelerometer bias and sensitivity}
-\label{sec:LookUpAccelerometerSensitivity}
+\subsubsection{Sample accelerometer axis at 1 g}
+\label{sec:SampleAccelerometerAxisAt1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0007=\\			
-	\textit{Description:}	& The \textit{look up accelerometer bias and sensitivity} command is used to set the accelerometer sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisSensitivity}) and bias registers (\ref{sec:AccelerometerXAxisBias} to \ref{sec:AccelerometerZAxisBias}) to the calibrated parameters defined by the accelerometer manufacturer.  This command should be used each time the accelerometer full-scale range (\ref{sec:AccelerometerFullScale}) is changed.  See the accelerometer calibration section (\ref{sec:AccelerometerCalibration}) for more information.
+	\textit{Command code:}	& \verb=0x000A=\\			
+	\textit{Description:}	& The \textit{sample accelerometer axis at 1 g} command is used to calibrate the accelerometer bias and sensitivity parameters.  This command should be sent while the x-IMU stationary and orientated with either its \textit{x}, \textit{y} or \textit{z} axis at either $+1$ g or $-1$ g.  The x-IMU will automatically detect the axis and direction of gravity.  The mean accelerometer output will then be measured over approximately 8 seconds before being stored to the corresponding register (\ref{sec:AccelerometerSampledXAxisAtp1G} to \ref{sec:AccelerometerSampledZAxisAtm1G}).  A \textit{calculate accelerometer bias and sensitivity} command (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) will then be executed.  The execution of the \textit{sample accelerometer axis at 1 g} command will be aborted if a accelerometer axis is detected as not being at approximately $\pm1$ g and a \textit{accelerometer axis not at 1 g} error (\ref{sec:AccelerometerAxisNotAt1g}) will be generated.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Calculate accelerometer bias and sensitivity}
+\label{sec:CalculateAccelerometerBiasAndSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
+	\textit{Command code:}	& \verb=0x000B=\\		
+	\textit{Description:}	& The \textit{calculate accelerometer bias and sensitivity} command is used to execute the on-board accelerometer bias and sensitivity calibration algorithm.  The algorithm uses the register values (\ref{sec:AccelerometerSampledXAxisAtp1G} to \ref{sec:AccelerometerSampledZAxisAtm1G}) previously sampled by the \textit{sample accelerometer axis at 1 g} (\ref{sec:SampleAccelerometerAxisAt1G}) command to calculate the accelerometer bias and sensitivity and update the registers (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}).  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -1391,8 +1473,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:MeasureMagnetometerBiasAndSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0008=\\			
-	\textit{Description:}	& The \textit{measure magnetometer bias and sensitivity} command is used to run an on-board magnetometer calibration algorithm.  The x-IMU use the magnetometer's internal field generator to measure the mean magnetometer bias and sensitivity over approximately 16 seconds independent of external magnetic interference.  The magnetometer sensitivity (\ref{sec:MagnetometerXAxisSensitivity} to \ref{sec:MagnetometerZAxisSensitivity}) and bias (\ref{sec:MagnetometerXAxisBias} to \ref{sec:MagnetometerZAxisBias}) registers and then automatically updated.  This command should be used each time the accelerometer full-scale range (\ref{sec:MagnetometerFullScale}) is changed.  The execution of this command will be aborted if a \textit{magnetometer saturation} error (\ref{sec:MagnetometerSaturation}) occurs.  See the magnetometer calibration section (\ref{sec:MagnetometerCalibration}) for more information.
+	\textit{Command code:}	& \verb=0x000C=\\			
+	\textit{Description:}	& The \textit{measure magnetometer bias and sensitivity} command is used to run an on-board magnetometer calibration algorithm.  The x-IMU uses the magnetometer's internal field generator to measure the mean magnetometer bias and sensitivity over approximately 16 seconds independent of external magnetic interference.  The magnetometer sensitivity (\ref{sec:MagnetometerXAxisSensitivity} to \ref{sec:MagnetometerZAxisSensitivity}) and bias (\ref{sec:MagnetometerXAxisBias} to \ref{sec:MagnetometerZAxisBias}) registers and then automatically updated.  This command should be used each time the accelerometer full-scale range (\ref{sec:MagnetometerFullScale}) is changed.  The execution of this command will be aborted if a \textit{magnetometer saturation} error (\ref{sec:MagnetometerSaturation}) occurs.  See the magnetometer calibration section (\ref{sec:MagnetometerCalibration}) for more information.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1400,8 +1482,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmInitialise}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0009=\\			
-	\textit{Description:}	& The \textit{algorithm initialise} command will re-start the algorithm from initial conditions.  This command can be used to 'force' the algorithm to converge to steady state conditions if previous distortions to magnetic or other extreme sensor measurements have left the IMU or AHRS algorithm output at an erroneous orientation.  See the IMU/AHRS algorithms section (\ref{sec:IMUAHRSAlgorithms}) for more information. 
+	\textit{Command code:}	& \verb=0x000D=\\			
+	\textit{Description:}	& The \textit{algorithm initialise} command will re-start the algorithm from initial conditions.  This command can be used to 'force' the algorithm to converge to steady state conditions if previous distortions to magnetic or other extreme sensor measurements have left the IMU or AHRS algorithm output at an erroneous orientation.  See the IMU/AHRS algorithms section (\ref{sec:IMUAndAHRSAlgorithms}) for more information.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1409,8 +1491,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000A=\\			
-	\textit{Description:}	& The \textit{algorithm tare} command is used to set the algorithm datum orientation and store the reference quaternion to the \textit{tare quaternion} registers (\ref{sec:TareQuaternionElement0} to \ref{sec:TareQuaternionElement3}).  These registers may be then be cleared using the clear tare command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Command code:}	& \verb=0x000E=\\			
+	\textit{Description:}	& The \textit{algorithm tare} command is used to set the algorithm datum orientation and store the reference quaternion to the \textit{tare quaternion} registers (\ref{sec:TareQuaternionElement0} to \ref{sec:TareQuaternionElement3}).  These registers may be then be cleared using the clear tare command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -1418,8 +1500,8 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmClearTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000B=\\			
-	\textit{Description:}	& The \textit{algorithm clear tare} command is used to clear the \textit{tare quaternion} registers (\ref{sec:TareQuaternionElement0} to \ref{sec:TareQuaternionElement3}) and return the datum orientation to alignment with the Earth coordinate frame. 
+	\textit{Command code:}	& \verb=0x000F=\\			
+	\textit{Description:}	& The \textit{algorithm clear tare} command is used to clear the \textit{tare quaternion} registers (\ref{sec:TareQuaternionElement0} to \ref{sec:TareQuaternionElement3}) and return the datum orientation to alignment with the Earth coordinate frame.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1427,20 +1509,20 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmInitialiseThenTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000C=\\			
-	\textit{Description:}	& The \textit{algorithm initialise then tare} command will execute an \textit{algorithm initialise} command (\ref{sec:AlgorithmInitialise}) and then execute an \textit{algorithm clear tare} command (\ref{sec:AlgorithmTare}) once the initialisation is complete.
+	\textit{Command code:}	& \verb=0x0010=\\			
+	\textit{Description:}	& The \textit{algorithm initialise then tare} command will perform an \textit{algorithm initialise} and then \textit{algorithm clear tare} once the initialisation is complete.
 \end{tabular*}
 
 %=====================================================================================================
-% Error messages
+% Errors
 %=====================================================================================================
-\section{Error messages}
-\label{sec:ErrorMessages}
+\section{Errors}
+\label{sec:Errors}
 
-Error messages are sent by the x-IMU to warn the user or host software of any internal errors that have occurred.  The \xIMUGUI{} will display these errors in message boxes for user acknowledgment.  As all communication from the x-IMU to the host computer is logged to the SD card (\ref{sec:SDCard}), all error messages will be logged on the SD card.
+Error are sent by the x-IMU to warn the user or host software of any internal errors that have occurred.  The \xIMUGUI{} will display these errors in message boxes for user acknowledgment.  As all communication from the x-IMU to the host computer is logged to the SD card (\ref{sec:SDCard}), all errors will be logged on the SD card.
 
 %---------------------------------------------------------------------------------------------------
-\subsection{Individual error messages}
+\subsection{Individual errors}
 \label{sec:IndividualErrorMessages}
 
 %------------------------------------------------
@@ -1449,7 +1531,16 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Error code:}	& \verb=0x0000=\\			
-	\textit{Description:}	& No error.
+	\textit{Description:}	& No error.  This error code is used within internal processes and will never appear to the user.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Factory reset failed}
+\label{sec:FactoryResetFailed}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Error code:}	& \verb=0x0001=\\			
+	\textit{Description:}	& A \textit{factory reset failed} error is sent if the user fails to press the push button (\ref{sec:PushButton}) within 3 seconds of sending a \textit{factory reset} command (\ref{sec:FactoryReset}) and the execution of the command was aborted.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1457,7 +1548,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:LowBattery}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0001=\\			
+	\textit{Error code:}	& \verb=0x0002=\\			
 	\textit{Description:}	& A \textit{low battery} error is sent when the low battery voltage detection (\ref{sec:LowBatteryVoltageDetection}) detects that the battery voltage has fallen below the specific level defined in the \textit{battery shutdown voltage} register (\ref{sec:BatteryShotdownVoltage}).  This message is sent immediately before the x-IMU enters sleep mode (\ref{sec:SleepMode}).  See the low battery voltage detection section (\ref{sec:LowBatteryVoltageDetection}) for more information.
 \end{tabular*}
 
@@ -1466,7 +1557,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:USBReceiveBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0002=\\			
+	\textit{Error code:}	& \verb=0x0003=\\			
 	\textit{Description:}	& A \textit{USB receive buffer over} error will be sent if the USB receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.
 \end{tabular*}
 
@@ -1475,7 +1566,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:USBTransmitBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0003=\\			
+	\textit{Error code:}	& \verb=0x0004=\\			
 	\textit{Description:}	& A \textit{transmit buffer overrun} error will be sent if the USB transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{SD card write buffer overrun} errors (\ref{sec:SDCardWriteBufferOverrun}).  The x-IMU will attempt to transmit data via USB while the USB is detected as connected, if the USB is connect but the associated serial port not open then the USB transmit buffer will continue to overrun until the port is opened or the USB disconnected.
 \end{tabular*}
 
@@ -1484,7 +1575,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:BluetoothReceiveBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0004=\\			
+	\textit{Error code:}	& \verb=0x0005=\\			
 	\textit{Description:}	& A \textit{Bluetooth receive buffer over} error will be sent if the Bluetooth receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.
 \end{tabular*}
 
@@ -1493,7 +1584,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:BluetoothTransmitBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0005=\\			
+	\textit{Error code:}	& \verb=0x0006=\\			
 	\textit{Description:}	& A \textit{transmit buffer overrun} error will be sent if the Bluetooth transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  \textit{Transmit buffer overrun} errors may be expected in the Bluetooth communication channel quality deteriorates; for example, if out of range.  This error may be ignored in applications where the Bluetooth data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{SD card write buffer overrun} errors (\ref{sec:SDCardWriteBufferOverrun}).
 \end{tabular*}
 
@@ -1502,7 +1593,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:SDCardWriteBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0006=\\			
+	\textit{Error code:}	& \verb=0x0007=\\			
 	\textit{Description:}	& An \textit{SD card buffer over} error will be sent if the SD card buffer is overrun and data to be written to the SD was lost.  Consider using lower data output rates if this error occurs repeatedly.  An occurrence of this error may go unnoticed while the USB and Bluetooth are not used.  The red SD card LED (\ref{sec:ChargingLEDRed}) indicates SD card activity, if this LED behaviour approaches that of being solidly on then it is likely that the this error is occurring.
 \end{tabular*}
 
@@ -1511,8 +1602,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:TooFewBytesInPacket}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0007=\\			
-	\textit{Description:}	& A \textit{too few bytes in packet} error will be sent if the received packet does not contain enough bytes to be valid.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x0008=\\			
+	\textit{Description:}	& A \textit{too few bytes in packet} error will be sent if the received packet does not contain enough bytes to be valid.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1520,8 +1611,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:TooManyBytesInPacket}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0008=\\			
-	\textit{Description:}	& A \textit{too many bytes in packet} error will be sent if the received packet does not contains too many bytes to be valid.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x0009=\\			
+	\textit{Description:}	& A \textit{too many bytes in packet} error will be sent if the received packet does not contains too many bytes to be valid.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1529,8 +1620,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:InvalidChecksum}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0009=\\			
-	\textit{Description:}	& An \textit{invalid checksum} error will be sent if the received packet contains a valid number of bytes but contains an invalid checksum.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000A=\\			
+	\textit{Description:}	& An \textit{invalid checksum} error will be sent if the received packet contains a valid number of bytes but contains an invalid checksum.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1538,8 +1629,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:UnknownPacketHeader}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000A=\\			
-	\textit{Description:}	& An \textit{Unknown packet header} error will be sent if the received packet contains a valid number of bytes and checksum but the header is not recognised.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000B=\\			
+	\textit{Description:}	& An \textit{Unknown packet header} error will be sent if the received packet contains a valid number of bytes and checksum but the header is not recognised.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1547,8 +1638,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:InvalidNumberOfBytesForPacketHeader}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000B=\\			
-	\textit{Description:}	& An \textit{invalid number of bytes for packet header} error will be sent if the received packet contains a valid number of bytes, checksum and packet header but the number of bytes does not match that expected for the specific packet header.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000C=\\			
+	\textit{Description:}	& An \textit{invalid number of bytes for packet header} error will be sent if the received packet contains a valid number of bytes, checksum and packet header but the number of bytes does not match that expected for the specific packet header.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1556,8 +1647,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:InvalidRegisterAddress}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000C=\\			
-	\textit{Description:}	& An \textit{invalid register address} error will be sent if the read or write register packet contains an invalid register address.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000D=\\			
+	\textit{Description:}	& An \textit{invalid register address} error will be sent if the read or write register packet contains an invalid register address.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1565,8 +1656,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:RegisterReadOnly}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000D=\\			
-	\textit{Description:}	& A \textit{register read-only} error will be sent if the write register packet represents an attempt to write a read-only register.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000E=\\			
+	\textit{Description:}	& A \textit{register read-only} error will be sent if the write register packet represents an attempt to write a read-only register.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1574,8 +1665,8 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:InvalidRegisterValue}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000E=\\			
-	\textit{Description:}	& An \textit{invalid register value} error will be sent if the write register packet contains an invalid register value for the specific address.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x000F=\\			
+	\textit{Description:}	& An \textit{invalid register value} error will be sent if the write register packet contains an invalid register value for the specific address.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1583,8 +1674,17 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:InvalidCommand}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000F=\\			
-	\textit{Description:}	& An \textit{invalid command} error will be sent if the command code within the command packet is not valid.  This error is only relevant users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+	\textit{Error code:}	& \verb=0x0010=\\			
+	\textit{Description:}	& An \textit{invalid command} error will be sent if the command code within the command packet is not valid.  This error is only relevant to users developing their own communication software and not using the \xIMUAPI{} or \xIMUGUI{}.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope axis not at 200 dps}
+\label{sec:GyroscopeAxisNotAt200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Error code:}	& \verb=0x0011=\\			
+	\textit{Description:}	& A \textit{gyroscope axis not at 200 dps} error will be sent if an axis is detected as not being at approximately $\pm200^\circ/s$ during the execution of a \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}) and the execution of the command was aborted.  See the gyroscope calibration section (\ref{sec:GyroscopeCalibration}) for more information.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1592,8 +1692,17 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:GyroscopeNotStationary}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0010=\\			
-	\textit{Description:}	& A \textit{gyroscope not stationary} error will be sent if the gyroscope was detected as not being stationary during the execution of a \textit{sample gyroscope bias} command (\ref{sec:SampleGyroscopeBiasAtTemperature1} or \ref{sec:SampleGyroscopeBiasAtTemperature2}) and the execution of the process was aborted.  See the gyroscope calibration section (\ref{sec:GyroscopeCalibration}) for more information.
+	\textit{Error code:}	& \verb=0x0012=\\			
+	\textit{Description:}	& A \textit{gyroscope not stationary} error will be sent if the gyroscope was detected as not being stationary during the execution of a \textit{sample gyroscope bias} command (\ref{sec:SampleGyroscopeBiasAtTemperature1} or \ref{sec:SampleGyroscopeBiasAtTemperature2}) and the execution of the command was aborted.  See the gyroscope calibration section (\ref{sec:GyroscopeCalibration}) for more information.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer axis not at 1g}
+\label{sec:AccelerometerAxisNotAt1g}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Error code:}	& \verb=0x0013=\\			
+	\textit{Description:}	& A \textit{accelerometer axis not at 1g} error will be sent if an axis is detected as not being at approximately $\pm1$ g during the execution of a \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}) and the execution of the command was aborted.  See the accelerometer calibration section (\ref{sec:AccelerometerCalibration}) for more information.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1601,7 +1710,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:MagnetometerSaturation}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0011=\\			
+	\textit{Error code:}	& \verb=0x0014=\\			
 	\textit{Description:}	& A \textit{magnetometer saturation} error will be sent if the measurements taken during the execution of the \textit{measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}) were detected as having saturated and the execution of the command was aborted.  See the magnetometer calibration section (\ref{sec:MagnetometerCalibration}) for more information.
 \end{tabular*}
 
@@ -1610,7 +1719,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \label{sec:IncorrectAuxiliaryPortMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0012=\\			
+	\textit{Error code:}	& \verb=0x0015=\\			
 	\textit{Description:}	& An \textit{incorrect auxiliary port mode} error will be sent if an auxiliary port action is requested while the auxiliary port is not in the correct mode (\ref{sec:AuxiliaryPortMode}) for that action.  For example, an \textit{incorrect auxiliary port mode} error will be sent if a \textit{digital IO data} packet is received while the auxiliary port mode is \textit{Disabled}.  See the auxiliary port section (\ref{sec:AuxiliaryPort}) for more information.
 \end{tabular*}
 
@@ -1620,7 +1729,7 @@ Error messages are sent by the x-IMU to warn the user or host software of any in
 \section{Registers}
 \label{sec:Registers}
 
-All x-IMU settings are saved in a bank of registers stored to non-volatile flash memory.  Each register has a 16-bit address and 16-bit value.  These values may be viewed, edited, read, written and backed up to file using the \xIMUGUI{} via the \textit{registers} tab page.
+All x-IMU settings are stored within a bank of registers in non-volatile flash memory.  Each register has a 16-bit address and 16-bit value.  These values may be viewed, edited, read, written and backed up to file using the \xIMUGUI{} via the \textit{registers} tab page (\ref{sec:TabPageRegisters}).
 
 %---------------------------------------------------------------------------------------------------
 % Reading and writing registers
@@ -1629,7 +1738,7 @@ All x-IMU settings are saved in a bank of registers stored to non-volatile flash
 
 Any register may be read by sending a \textit{read register} packet containing register address to be read.  The x-IMU will respond with a \textit{register write} packet containing the register address and value.  The x-IMU will automatically send all register values so that settings are hardcoded as the first packets written to the SD card (\ref{sec:SDCard}).  Registers may be written by sending a \textit{register write} packet containing the register address to be written to and the new register value.  The x-IMU will respond with a \textit{register write} packet containing the register address and new value.
 
-If a \textit{read register} or \textit{register write} packet is sent containing an invalid register address the x-IMU will respond with an \textit{invalid register address} error message (\ref{sec:InvalidRegisterAddress}).  If a \textit{register write} packet is sent containing an read-only register address the x-IMU will respond with a \textit{register read-only} error message (\ref{sec:RegisterReadOnly}).  If a \textit{register write} packet is sent containing register value that is invalid for the specified address the x-IMU will respond with an invalid register value error message (\ref{sec:InvalidRegisterValue}).
+If a \textit{read register} or \textit{register write} packet is sent containing an invalid register address the x-IMU will respond with an \textit{invalid register address} error (\ref{sec:InvalidRegisterAddress}).  If a \textit{register write} packet is sent containing an read-only register address the x-IMU will respond with a \textit{register read-only} error (\ref{sec:RegisterReadOnly}).  If a \textit{register write} packet is sent containing register value that is invalid for the specified address the x-IMU will respond with an invalid register value error (\ref{sec:InvalidRegisterValue}).
 
 Sending a \textit{read register} or \textit{register write} packet to the x-IMU will cause the x-IMU to momentarily pause sensor sampling and processing while the packet is processed.  This may cause discrepancies in the otherwise fixed data output rates.
 
@@ -1646,7 +1755,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0000=\\			
-	\textit{Value:}				& 0 to 65535.  Read-only.\\	
+	\textit{Value:}				& 0 to 65534.  Read-only.\\	
 	\textit{Description:}	& The major number of the current firmware version loaded on the x-IMU.\\
 \end{tabular*}
 
@@ -1656,7 +1765,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0001=\\			
-	\textit{Value:}				& 0 to 65535.  Read-only.\\	
+	\textit{Value:}				& 0 to 65534.  Read-only.\\	
 	\textit{Description:}	& The minor number of the current firmware version loaded on the x-IMU.\\
 \end{tabular*}
 
@@ -1667,7 +1776,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0002=\\			
 	\textit{Value:}				& \verb=0x0000= to \verb=0xFFFF=.  Read-only.\\
-	\textit{Description:}	& The unique 4 hexadecimal digit ID of the x-IMU taken as the last 2 bytes of the Bluetooth MAC address.\\
+	\textit{Description:}	& The 4 digit hexadecimal ID of the x-IMU taken as the last 2 bytes of the Bluetooth MAC address.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1682,7 +1791,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 												& \verb=0x0003= = \textit{Algorithm initialise} command (\ref{sec:AlgorithmInitialise})\\
 												& \verb=0x0004= = \textit{Algorithm tare} command (\ref{sec:AlgorithmTare})\\		
 												& \verb=0x0005= = \textit{Algorithm initialise then tare} command (\ref{sec:AlgorithmInitialiseThenTare})\\
-	\textit{Description:}	& The command to be executed when the push button (\ref{sec:PushButton}) is pressed.  See the commands section for more information on individual commands. \\
+	\textit{Description:}	& The command to be executed when the push button (\ref{sec:PushButton}) is pressed.  See the commands section (\ref{sec:Commands}) for more information on individual commands (\ref{sec:IndividualCommands}). \\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1691,7 +1800,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0004=\\			
-	\textit{Value:}				& Q11.5 signed fixed point value between $-1024$ and $+1024$.\\	
+	\textit{Value:}				& Q11.5 signed fixed point value between $-1024$ and $+1023.969$.\\	
 	\textit{Description:}	& Calibrated sensitivity of the battery ADC in V/lsb.  See parameter $s_v$ in the battery voltmeter section (\ref{sec:BatteryVoltmeter}).  The typical value is $621$ V/lsb.\\
 \end{tabular*}
 
@@ -1701,7 +1810,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0005=\\		
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
 	\textit{Description:}	& Calibrated bias of the battery ADC in lsb.  See parameter $b_v$ in the battery voltmeter section (\ref{sec:BatteryVoltmeter}).  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -1711,7 +1820,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0006=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+512$.\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the thermometer in $^{\circ}$C/lsb.  See parameter $s_\tau$ in the thermometer section (\ref{sec:Thermometer}). The typical value is provided as 280 $^{\circ}$C/lsb in the \gyroName{} datasheet.\\
 \end{tabular*}
 
@@ -1726,13 +1835,26 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \end{tabular*}
 
 %------------------------------------------------
+\subsubsection{Gyroscope full-scale}
+\label{sec:GyroscopeFullScale}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0008=\\			
+	\textit{Value:}				& \verb=0x0000= = $\pm250 ^\circ/s$\\
+												& \verb=0x0001= = $\pm500 ^\circ/s$\\
+												& \verb=0x0002= = $\pm1000 ^\circ/s$\\	
+												& \verb=0x0003= = $\pm2000 ^\circ/s$\\												
+	\textit{Description:}	& Full-scale range of the gyroscope.  Each full-scale range will have different associated sensitivity (\ref{sec:GyroscopeXAxisSensitivity} to \ref{sec:GyroscopeZAxisSensitivity}) and bias (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBias}) values.  The gyroscope should therefore be recalibrated when the full-scale range is changed.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
 \subsubsection{Gyroscope x-axis sensitivity}
 \label{sec:GyroscopeXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0008=\\			
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the gyroscope x-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_x}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $16.4$ $^{\circ}$/s/lsb. in the \gyroName{} datasheet.\\ 
+	\textit{Address:}			& \verb=0x0009=\\			
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\		
+	\textit{Description:}	& Calibrated sensitivity of the gyroscope x-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_x}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate gyroscope sensitivity} (\ref{sec:GyroscopeXAxisSensitivity}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1740,9 +1862,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0009=\\	
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\				
-	\textit{Description:}	& Calibrated sensitivity of the gyroscope y-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_y}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $16.4$ $^{\circ}$/s/lsb. in the \gyroName{} datasheet.\\ 
+	\textit{Address:}			& \verb=0x000A=\\	
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\				
+	\textit{Description:}	& Calibrated sensitivity of the gyroscope y-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_y}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate gyroscope sensitivity} (\ref{sec:GyroscopeXAxisSensitivity}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1750,39 +1872,99 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000A=\\		
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\			
-	\textit{Description:}	& Calibrated sensitivity of the gyroscope z-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_z}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $16.4$ $^{\circ}$/s/lsb. in the \gyroName{} datasheet.\\ 
+	\textit{Address:}			& \verb=0x000B=\\		
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\			
+	\textit{Description:}	& Calibrated sensitivity of the gyroscope z-axis in $^{\circ}$/s/lsb.  See parameter $s_{g_z}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate gyroscope sensitivity} (\ref{sec:GyroscopeXAxisSensitivity}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
-\subsubsection{Gyroscope x-axis bias}
+\subsubsection{Gyroscope sampled x-axis at +200 dps}
+\label{sec:GyroscopeSampledXAxisAtp200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x000C=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope x-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope x-axis sensitivity} (\ref{sec:GyroscopeXAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope sampled y-axis at +200 dps}
+\label{sec:GyroscopeSampledYAxisAtp200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x000D=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope y-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope y-axis sensitivity} (\ref{sec:GyroscopeYAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope sampled z-axis at +200 dps}
+\label{sec:GyroscopeSampledZAxisAtp200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x000E=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope z-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope z-axis sensitivity} (\ref{sec:GyroscopeZAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope sampled x-axis at -200 dps}
+\label{sec:GyroscopeSampledXAxisAtm200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x000F=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope x-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope x-axis sensitivity} (\ref{sec:GyroscopeXAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope sampled y-axis at -200 dps}
+\label{sec:GyroscopeSampledYAxisAtm200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0010=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope y-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope y-axis sensitivity} (\ref{sec:GyroscopeYAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope sampled z-axis at -200 dps}
+\label{sec:GyroscopeSampledZAxisAtm200Dps}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0011=\\		
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Description:}	& Sampled gyroscope z-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{sample gyroscope axis at 200 dps} command (\ref{sec:SampleGyroscopeAxisAtPm200CircS}).  This value is used by the gyroscope sensitivity calibration algorithm in the calculation the \textit{gyroscope z-axis sensitivity} (\ref{sec:GyroscopeZAxisSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Gyroscope x-axis bias at 25 degrees Celsius}
 \label{sec:GyroscopeXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000B=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the gyroscope x-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_x}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $0$ lsb in the \gyroName{} datasheet.  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0012=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Calibrated bias of the gyroscope x-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_x}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
-\subsubsection{Gyroscope y-axis bias}
+\subsubsection{Gyroscope y-axis bias at 25 degrees Celsius}
 \label{sec:GyroscopeYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000C=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the gyroscope y-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_y}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $0$ lsb in the \gyroName{} datasheet.  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0013=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\			
+	\textit{Description:}	& Calibrated bias of the gyroscope y-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_y}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
-\subsubsection{Gyroscope z-axis bias}
+\subsubsection{Gyroscope z-axis bias at 25 degrees Celsius}
 \label{sec:GyroscopeZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000D=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the gyroscope z-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_z}$ in the gyroscope section (\ref{sec:Gyroscope}).  The typical value is provided as $0$ lsb in the \gyroName{} datasheet.  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0014=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\			
+	\textit{Description:}	& Calibrated bias of the gyroscope z-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_z}$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1790,9 +1972,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeXAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000E=\\			
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\	
-	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope x-axis in lsb/$^{\circ}$C.  See parameter $f_x$ in the gyroscope section (\ref{sec:Gyroscope}).  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0015=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\	
+	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope x-axis in lsb/$^{\circ}$C.  See parameter $f_x$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1800,9 +1982,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeYAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000F=\\			
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\	
-	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope y-axis in lsb/$^{\circ}$C.  See parameter $f_y$ in the gyroscope section (\ref{sec:Gyroscope}).  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0016=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
+	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope y-axis in lsb/$^{\circ}$C.  See parameter $f_y$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1810,9 +1992,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeZAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0010=\\			
-	\textit{Value:}				& Q6.10 signed fixed point value between $-32$ and $+32$.\\	
-	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope z-axis in lsb/$^{\circ}$C.  See parameter $f_z$ in the gyroscope section (\ref{sec:Gyroscope}).  The x-IMU has build in algorithms to accuracy evaluate this parameter automatically using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}), see the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0017=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\	
+	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope z-axis in lsb/$^{\circ}$C.  See parameter $f_z$ in the gyroscope section (\ref{sec:Gyroscope}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Calculate gyroscope bias parameters} (\ref{sec:CalculateGyroscopeBiasParameters}) command.  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1820,9 +2002,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample1Temperature}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0011=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& Temperature at gyroscope bias sample 1 in $^{\circ}$C.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 1 is recorded using the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0018=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
+\textit{Description:}	& Sampled temperature of gyroscope in $^{\circ}$C, obtained through the execution of the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1830,9 +2012,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample1XAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0012=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& x-axis bias at gyroscope bias sample 1 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 1 is recorded using the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x0019=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Sampled gyroscope x-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1840,9 +2022,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample1YAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0013=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& y-axis bias at gyroscope bias sample 1 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 1 is recorded using the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001A=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1850,9 +2032,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample1ZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0014=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& z-axis bias at gyroscope bias sample 1 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 1 is recorded using the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001B=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Sampled gyroscope z-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 1} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1860,9 +2042,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample2Temperature}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0015=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& Temperature at gyroscope bias sample 2 in $^{\circ}$C.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 2 is recorded using the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001C=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
+\textit{Description:}	& Sampled temperature of gyroscope in $^{\circ}$C, obtained through the execution of the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature1}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\		
 \end{tabular*}
 
 %------------------------------------------------
@@ -1870,9 +2052,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample2XAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0016=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& x-axis bias at gyroscope bias sample 2 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 2 is recorded using the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001D=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Sampled gyroscope x-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1880,9 +2062,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample2YAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0017=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& y-axis bias at gyroscope bias sample 2 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 2 is recorded using the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001E=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1890,9 +2072,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:GyroscopeSample2ZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0018=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\	
-	\textit{Description:}	& z-axis bias at gyroscope bias sample 2 in lsb.  Gyroscope bias samples 1 and 2 are required for the automatic calculation of the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}) using the \textit{Calculate gyroscope bias parameters} command (\ref{sec:CalculateGyroscopeBiasParameters}).  The gyroscope bias sample 2 is recorded using the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
+	\textit{Address:}			& \verb=0x001F=\\			
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
+	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{Sample gyroscope bias at temperature 2} command (\ref{sec:SampleGyroscopeBiasAtTemperature2}).  This value is used by the gyroscope bias calibration algorithm in the calculation the gyroscope bias parameters (\ref{sec:GyroscopeXAxisBias} to \ref{sec:GyroscopeZAxisBiasTemperatureSensitivity}).  See the gyroscope calibration section for more information (\ref{sec:GyroscopeCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1900,11 +2082,11 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerFullScale}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0019=\\			
+	\textit{Address:}			& \verb=0x0020=\\			
 	\textit{Value:}				& \verb=0x0000= = $\pm2$ g\\
 												& \verb=0x0001= = $\pm4$ g\\
 												& \verb=0x0002= = $\pm8$ g\\												
-	\textit{Description:}	& Sets the full-scale range of the accelerometer.  Each full-scale range will have different associated sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisSensitivity}) and bias (\ref{sec:AccelerometerXAxisBias} to \ref{sec:AccelerometerZAxisBias}) values.  The \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}) may be used to recall the correct calibrated sensitivity and bias values for the selected full-scale range.\\	
+	\textit{Description:}	& Full-scale range of the accelerometer.  Each full-scale range will have different associated bias and sensitivity values (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}).  The accelerometer therefore be recalibrated when the full-scale range is changed.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1912,9 +2094,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001A=\\			
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer x-axis in g/lsb.  See parameter $s_{a_x}$ in the accelerometer section (\ref{sec:Accelerometer}).  The typical values are provided for each full-scale range (\ref{sec:AccelerometerFullScale}) in the \accelMagName{} datasheet.  These values can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0021=\\			
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer x-axis in g/lsb.  See parameter $s_{a_x}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1922,9 +2104,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001B=\\	
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer y-axis in g/lsb.  See parameter $s_{a_y}$ in the accelerometer section (\ref{sec:Accelerometer}).  The typical values are provided for each full-scale range (\ref{sec:AccelerometerFullScale}) in the \accelMagName{} datasheet.  These values can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0022=\\	
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer y-axis in g/lsb.  See parameter $s_{a_y}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1932,9 +2114,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001C=\\		
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer z-axis in g/lsb.  See parameter $s_{a_z}$ in the accelerometer section (\ref{sec:Accelerometer}).  The typical values are provided for each full-scale range (\ref{sec:AccelerometerFullScale}) in the \accelMagName{} datasheet.  These values can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0023=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer z-axis in g/lsb.  See parameter $s_{a_z}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1942,9 +2124,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001D=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the accelerometer x-axis in lsb.  See parameter $b_{a_x}$ in the accelerometer section (\ref{sec:Accelerometer}).  A typical value of $0$ lsb is provided in the \accelMagName{} datasheet.  This value can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0024=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the accelerometer x-axis in lsb.  See parameter $b_{a_x}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1952,9 +2134,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001E=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the accelerometer y-axis in lsb.  See parameter $b_{a_y}$ in the accelerometer section (\ref{sec:Accelerometer}).  A typical value of $0$ lsb is provided in the \accelMagName{} datasheet.  This value can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0025=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Description:}	& Calibrated bias of the accelerometer y-axis in lsb.  See parameter $b_{a_y}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1962,9 +2144,69 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AccelerometerZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001F=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the accelerometer z-axis in lsb.  See parameter $b_{a_z}$ in the accelerometer section (\ref{sec:Accelerometer}).  A typical value of $0$ lsb is provided in the \accelMagName{} datasheet.  This value can be set automatically using the \textit{Look up accelerometer bias and sensitivity} command (\ref{sec:LookUpAccelerometerSensitivity}).\\
+	\textit{Address:}			& \verb=0x0026=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Description:}	& Calibrated bias of the accelerometer z-axis in lsb.  See parameter $b_{a_z}$ in the accelerometer section (\ref{sec:Accelerometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled x-axis at +1 g}
+\label{sec:AccelerometerSampledXAxisAtp1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0027=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Description:}	& Sampled accelerometer x-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled y-axis at +1 g}
+\label{sec:AccelerometerSampledYAxisAtp1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0028=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Description:}	& Sampled accelerometer y-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled z-axis at +1 g}
+\label{sec:AccelerometerSampledZAxisAtp1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0029=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Sampled accelerometer z-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled x-axis at -1 g}
+\label{sec:AccelerometerSampledXAxisAtm1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x002A=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Sampled accelerometer x-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\	
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled y-axis at -1 g}
+\label{sec:AccelerometerSampledYAxisAtm1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x002B=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Sampled accelerometer y-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Accelerometer sampled z-axis at -1 g}
+\label{sec:AccelerometerSampledZAxisAtm1G}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x002C=\\		
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Sampled accelerometer z-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{sample accelerometer axis at 1 g} command (\ref{sec:SampleAccelerometerAxisAt1G}).  This value is used by the accelerometer bias and sensitivity calibration algorithm in the calculation the accelerometer bias and sensitivity (\ref{sec:AccelerometerXAxisSensitivity} to \ref{sec:AccelerometerZAxisBias}) values using the \textit{calculate accelerometer bias and sensitivity} (\ref{sec:CalculateAccelerometerBiasAndSensitivity}) command.  See the accelerometer calibration section for more information (\ref{sec:AccelerometerCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -1972,7 +2214,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerFullScale}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0020=\\			
+	\textit{Address:}			& \verb=0x002D=\\			
 	\textit{Value:}				& \verb=0x0000= = $\pm1.3$ G\\
 												& \verb=0x0001= = $\pm1.9$ G\\
 												& \verb=0x0002= = $\pm2.5$ G\\		
@@ -1980,7 +2222,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 												& \verb=0x0004= = $\pm4.7$ G\\	
 												& \verb=0x0005= = $\pm5.6$ G\\	
 												& \verb=0x0006= = $\pm8.1$ G\\											
-	\textit{Description:}	& Sets the full-scale range of the magnetometer.  Each full-scale range will have different associated sensitivity (\ref{sec:MagnetometerXAxisSensitivity} to \ref{sec:MagnetometerZAxisSensitivity}) and bias (\ref{sec:MagnetometerXAxisBias} to \ref{sec:MagnetometerZAxisBias}) values.  The \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}) may be used to measure the correct calibrated sensitivity and bias values for the selected full-scale range using an on-board algorithm.\\	
+	\textit{Description:}	& Full-scale range of the magnetometer.  Each full-scale range will have different associated bias and sensitivity values (\ref{sec:MagnetometerXAxisSensitivity} to \ref{sec:MagnetometerZAxisBias}).  The magnetometer therefore be recalibrated when the full-scale range is changed.  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1988,9 +2230,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0021=\\			
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer x-axis in G/lsb.  See parameter $s_{m_x}$ in the magnetometer section (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x002E=\\			
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer x-axis in G/lsb.  See parameter $s_{m_x}$ in the magnetometer section (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -1998,9 +2240,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0022=\\			
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer y-axis in G/lsb.  See parameter $s_{m_y}$ in the magnetometer section (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x002F=\\			
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer y-axis in G/lsb.  See parameter $s_{m_y}$ in the magnetometer section (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -2008,9 +2250,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0023=\\			
-	\textit{Value:}				& Q11.4 signed fixed point value between $-2048$ and $+2048$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer z-axis in G/lsb.  See parameter $s_{m_z}$ in the magnetometer section (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x0030=\\			
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer z-axis in G/lsb.  See parameter $s_{m_z}$ in the magnetometer section (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -2018,9 +2260,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0024=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the magnetometer x-axis in lsb.  See parameter $b_{m_x}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x0031=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Description:}	& Calibrated bias of the magnetometer x-axis in lsb.  See parameter $b_{m_x}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -2028,9 +2270,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0025=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the magnetometer y-axis in lsb.  See parameter $b_{m_y}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x0032=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Description:}	& Calibrated bias of the magnetometer y-axis in lsb.  See parameter $b_{m_y}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 	
 %------------------------------------------------
@@ -2038,9 +2280,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0026=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+128$.\\		
-	\textit{Description:}	& Calibrated bias of the magnetometer z-axis in lsb.  See parameter $b_{m_z}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The typical values are provided for each full-scale range (\ref{sec:MagnetometerFullScale}) in the \accelMagName{} datasheet.  Accurate values can be set automatically using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).\\
+	\textit{Address:}			& \verb=0x0033=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Description:}	& Calibrated bias of the magnetometer z-axis in lsb.  See parameter $b_{m_z}$ in the magnetometer section  (\ref{sec:Magnetometer}).  The value of the parameter can be accurately evaluated through calibration using the \textit{Measure magnetometer bias and sensitivity} command (\ref{sec:MeasureMagnetometerBiasAndSensitivity}).  See the magnetometer calibration section for more information (\ref{sec:MagnetometerCalibration}).\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -2048,9 +2290,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerXAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0027=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+16$.\\		
-	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer x-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  Use of the magnetometer and AHRS algorithm requires that the hard-iron bias parameters are accurately calibrated.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).
+	\textit{Address:}			& \verb=0x0034=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer x-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2058,9 +2300,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerYAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0028=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+16$.\\		
-	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer y-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  Use of the magnetometer and AHRS algorithm requires that the hard-iron bias parameters are accurately calibrated.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).
+	\textit{Address:}			& \verb=0x0035=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer y-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2068,9 +2310,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MagnetometerZAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0029=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+16$.\\		
-	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer z-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  Use of the magnetometer and AHRS algorithm requires that the hard-iron bias parameters are accurately calibrated.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).
+	\textit{Address:}			& \verb=0x0036=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer z-axis in G.  See parameter $h_x$ in the magnetometer section (\ref{sec:Magnetometer}).  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the hard-iron calibrations section for more information (\ref{sec:HardIronCalibration}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2078,11 +2320,11 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002A=\\			
+	\textit{Address:}			& \verb=0x0037=\\			
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0000= = IMU\\
 												& \verb=0x0001= = AHRS\\										
-	\textit{Description:}	& Sets the algorithm mode, see the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).  The algorithm mode can be set to \textit{Disabled} to reduce power consumption when the algorithms are not required. 
+	\textit{Description:}	& IMU and AHRS algorithm mode.  See the IMU and AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).  The algorithm mode can be set to \textit{Disabled} to reduce power consumption if the algorithms are not required.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2090,9 +2332,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmProportionalGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002B=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $0$ and $+128$.\\
-	\textit{Description:}	& Algorithm proportional feedback gain.  The proportional gain governs the rate at which the algorithm output converges to an orientation assumed by the accelerometer and magnetometer; a low value will 'trust' the gyroscope data more and the accelerometer and magnetometer less, a high value will 'trust' the gyroscope less and the accelerometer and magnetometer more.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}). 
+	\textit{Address:}			& \verb=0x0038=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Description:}	& Algorithm proportional feedback gain.  The proportional gain governs the rate at which the algorithm output converges to an orientation assumed by the accelerometer and magnetometer; lower values `trust' the gyroscope data more and the accelerometer and magnetometer less and higher values will 'trust' the gyroscope less and the accelerometer and magnetometer more.  See the IMU and AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2100,9 +2342,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmIntegralGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002C=\\			
-	\textit{Value:}				& Q2.14 signed fixed point value between $0$ and $+2$.\\	
-	\textit{Description:}	& Algorithm integral feedback gain.  The integral gain governs the rate at which the algorithm compensates for gyroscope bias drift.  It is recommended that users ensure accurate gyroscope bias temperature sensitivity calibration and use an integral feedback gain of 0 to avoid instabilities.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}). 
+	\textit{Address:}			& \verb=0x0039=\\			
+	\textit{Value:}				& Q1.15 signed fixed point value between $0$ and $+0.9999695$.\\	
+	\textit{Description:}	& Algorithm integral feedback gain.  The integral gain governs the rate at which the algorithm compensates for gyroscope bias drift.  It is recommended that users ensure accurate gyroscope bias temperature sensitivity calibration and use an integral feedback gain of 0 to avoid algorithm output oscillations and instabilities.  See the IMU and AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2110,9 +2352,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmInitialProportionalGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002D=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $0$ and $512$.\\	
-	\textit{Description:}	& Algorithm initial proportional feedback gain used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmInitilasationPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x003A=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\		
+	\textit{Description:}	& Initial algorithm proportional feedback gain used during algorithm initialisation.  The effective proportional gain will ramp down from the \textit{algorithm initial proportional gain} to the \textit{algorithm proportional gain} (\ref{sec:AlgorithmProportionalGain}) over the \textit{algorithm initialisation period} (\ref{sec:AlgorithmInitilasationPeriod}).  See the IMU and AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2120,9 +2362,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmInitilasationPeriod}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002E=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $0$ and $+128$.\\		
-	\textit{Description:}	& Algorithm ramp down period (in seconds) used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain (\ref{sec:AlgorithmProportionalGain}) to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmInitilasationPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x003B=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\		
+	\textit{Description:}	& Algorithm initialisation period in seconds. The effective proportional gain will ramp down from the \textit{algorithm initial proportional gain} ()\ref{sec:AlgorithmInitialProportionalGain} to the \textit{algorithm proportional gain} \ref{sec:AlgorithmProportionalGain} over the \textit{algorithm initialisation period}.  See the IMU and AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2130,9 +2372,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmMinimumValidMagneticFieldMagnitude}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0041=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+16$.\\	
-	\textit{Description:}	& The minimum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.  Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}). 
+	\textit{Address:}			& \verb=0x003C=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Description:}	& The minimum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.  Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2140,9 +2382,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AlgorithmMaximumValidMagneticFieldMagnitude}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0042=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+16$.\\	
-	\textit{Description:}	& The maximum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.   Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}). 
+	\textit{Address:}			& \verb=0x003D=\\			
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Description:}	& The maximum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.   Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2150,9 +2392,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:TareQuaternionElement0}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002F=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+1$.\\		
-	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation \ref{sec:Tare} has been preformed.  The tare quaternion can be set using the \textit{tare} command (\ref{sec:Tare}) and cleared using the \textit{clear tare} command (\ref{sec:ClearTareCmd}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x003E=\\			
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\		
+	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{algorithm tare} command (\ref{sec:AlgorithmTare}) and cleared using the \textit{clear tare} command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2160,9 +2402,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:TareQuaternionElement1}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0030=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+1$.\\		
-	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation \ref{sec:Tare} has been preformed.  The tare quaternion can be set using the \textit{tare} command (\ref{sec:Tare}) and cleared using the \textit{clear tare} command (\ref{sec:ClearTareCmd}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x003F=\\			
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\		
+	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{algorithm tare} command (\ref{sec:AlgorithmTare}) and cleared using the \textit{clear tare} command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2170,9 +2412,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:TareQuaternionElement2}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0031=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+1$.\\		
-	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation \ref{sec:Tare} has been preformed.  The tare quaternion can be set using the \textit{tare} command (\ref{sec:Tare}) and cleared using the \textit{clear tare} command (\ref{sec:ClearTareCmd}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x0040=\\			
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\			
+	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{algorithm tare} command (\ref{sec:AlgorithmTare}) and cleared using the \textit{clear tare} command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2180,9 +2422,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:TareQuaternionElement3}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0032=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+1$.\\		
-	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation \ref{sec:Tare} has been preformed.  The tare quaternion can be set using the \textit{tare} command (\ref{sec:Tare}) and cleared using the \textit{clear tare} command (\ref{sec:ClearTareCmd}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Address:}			& \verb=0x0041=\\			
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\			
+	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{algorithm tare} command (\ref{sec:AlgorithmTare}) and cleared using the \textit{clear tare} command (\ref{sec:AlgorithmClearTare}).  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAndAHRSAlgorithms}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2190,10 +2432,10 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:SensorDataMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0033=\\			
+	\textit{Address:}			& \verb=0x0042=\\			
 	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
 												& \verb=0x0001= = Calibrated measurements\\										
-	\textit{Description:}	& Sets the data output mode of the sensors.  See the sensors section for more details (\ref{sec:Sensors}).
+	\textit{Description:}	& Data output mode of on-board sensors.  See the sensors section for more details (\ref{sec:Sensors}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2201,9 +2443,17 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:DateTimeDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0034=\\		
+	\textit{Address:}			& \verb=0x0043=\\		
 	\textit{Value:}				& \verb=0x0000= = Disabled (sent on reset/wake only)\\
 												& \verb=0x0001= = 1 Hz\\
+												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0003= = 4 Hz\\
+												& \verb=0x0004= = 8 Hz\\
+												& \verb=0x0005= = 16 Hz\\
+												& \verb=0x0006= = 32 Hz\\
+												& \verb=0x0007= = 64 Hz\\
+												& \verb=0x0008= = 128 Hz\\
+												& \verb=0x0009= = 256 Hz\\
 	\textit{Description:}	& Output rate of the \textit{date/time data} packets.  Data rates can be reduced or disabled to conserve power.
 \end{tabular*}
 
@@ -2212,7 +2462,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:BatteryAndThermometerDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0035=\\		
+	\textit{Address:}			& \verb=0x0044=\\		
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
 												& \verb=0x0002= = 2 Hz\\	
@@ -2231,7 +2481,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:InertialAndMagneticDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0036=\\		
+	\textit{Address:}			& \verb=0x0045=\\		
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
 												& \verb=0x0002= = 2 Hz\\	
@@ -2250,7 +2500,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:QuaternionDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0037=\\		
+	\textit{Address:}			& \verb=0x0046=\\		
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
 												& \verb=0x0002= = 2 Hz\\	
@@ -2269,7 +2519,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:SDCardNewFileName}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0038=\\			
+	\textit{Address:}			& \verb=0x0047=\\			
 	\textit{Value:}				& 00000 to 65535\\		
 	\textit{Description:}	& The file name used to be used when the next file is created on the SD card.  See the SD card section for more information (\ref{sec:SDCard}).
 \end{tabular*}
@@ -2279,9 +2529,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:BatteryShotdownVoltage}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0039=\\			
-	\textit{Value:}				& Q4.12 signed fixed point value between $3.5$ and $+8$.\\		
-	\textit{Description:}	& Minimum voltage threshold for the device to shutdown.  See the low battery voltage detection section for more information (\ref{sec:LowBatteryVoltageDetection}).
+	\textit{Address:}			& \verb=0x0048=\\			
+	\textit{Value:}				& Q4.12 signed fixed point value between $3.5$ and $+7.999756$.\\		
+	\textit{Description:}	& Minimum voltage threshold for the device to shutdown.  See the low battery voltage detection section for more information (\ref{sec:LowBatteryVoltageDetection}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2289,9 +2539,9 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:SleepTimerReg}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003A=\\			
+	\textit{Address:}			& \verb=0x0049=\\			
 	\textit{Value:}				& 0 to 65535\\
-	\textit{Description:}	& Sleep timer value in seconds.  Once this period has elapsed, the x-IMU will enter sleep mode (\ref{sec:SleepMode}).  A value of 0 seconds will disable the sleep timer.  See the sleep timer (\ref{sec:SleepTimer}) section for more information.
+	\textit{Description:}	& Sleep timer value in seconds.  Once this period has elapsed, the x-IMU will enter sleep mode (\ref{sec:SleepMode}).  A value of 0 seconds will disable the sleep timer.  See the sleep timer (\ref{sec:SleepTimer}) section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2299,11 +2549,11 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:MotionTriggerWakeUp}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003B=\\			
+	\textit{Address:}			& \verb=0x004A=\\			
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Low sensitivity\\
 												& \verb=0x0001= = High sensitivity\\
-	\textit{Description:}	& Enables the sensitivity of the motion trigger wake up.  See the motion trigger wake up section for more information (\ref{sec:MotionTriggeredWakeUp}).
+	\textit{Description:}	& Enables the sensitivity of the motion trigger wake up.  See the motion trigger wake up section for more information (\ref{sec:MotionTriggeredWakeUp}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2311,10 +2561,10 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:BluetoothPower}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003C=\\			
+	\textit{Address:}			& \verb=0x004B=\\			
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Enabled\\
-	\textit{Description:}	& Enables or disables Bluetooth.  The Bluetooth can be disabled to conserve power.
+	\textit{Description:}	& Enables or disables Bluetooth.  The Bluetooth can be disabled to conserve power.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2322,10 +2572,13 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:AuxiliaryPortMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003D=\\			
+	\textit{Address:}			& \verb=0x004C=\\			
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Digital I/O\\
-	\textit{Description:}	& Sets the auxiliary port mode.  See the auxiliary port section for more information (\ref{sec:AuxiliaryPort}).
+												& \verb=0x0002= = Analgoue input\\
+												& \verb=0x0003= = PWM output\\
+												& \verb=0x0004= = ADXL345 bus\\
+	\textit{Description:}	& Sets the auxiliary port mode.  See the auxiliary port section for more information (\ref{sec:AuxiliaryPort}).\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2333,7 +2586,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:DigitalIODirection}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003F=\\			
+	\textit{Address:}			& \verb=0x004D=\\			
 	\textit{Value:}				& \verb=0x0000= = All channels are inputs\\
 												& \verb=0x0001= = Channels 0, 1, 2, 3, 4, 5 and 6 are inputs, 7 is an output\\
 												& \verb=0x0002= = Channels 0, 1, 2, 3, 4 and 5 are inputs, 6 and 7 are outputs\\
@@ -2343,7 +2596,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 												& \verb=0x0006= = Channels 0 and 1 are inputs, 2, 3, 4, 5, 6 and 7 are outputs\\
 												& \verb=0x0007= = Channel 0 is an input, 1, 2, 3, 4, 5, 6 and 7 are outputs\\
 												& \verb=0x0008= = All channels are outputs\\
-	\textit{Description:}	& Sets the direction of the auxiliary port channels when in digital I/O mode.  See the digital I/O mode section for more information (\ref{sec:DigitalIOMode}).
+	\textit{Description:}	& Sets the direction of the auxiliary port channels when in digital I/O mode.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2351,7 +2604,37 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \label{sec:DigitalIODataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0040=\\		
+	\textit{Address:}			& \verb=0x004E=\\		
+	\textit{Value:}				& \verb=0x0000= = Disabled (On change only)\\
+												& \verb=0x0001= = 1 Hz\\
+												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0003= = 4 Hz\\
+												& \verb=0x0004= = 8 Hz\\
+												& \verb=0x0005= = 16 Hz\\
+												& \verb=0x0006= = 32 Hz\\
+												& \verb=0x0007= = 64 Hz\\
+												& \verb=0x0008= = 128 Hz\\
+												& \verb=0x0009= = 256 Hz\\
+	\textit{Description:}	& Output rate of the \textit{digital I/O data} packets.  Data rates can be reduced or disabled to conserve power.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Analogue input data mode}
+\label{sec:AnalogueInputDataMode}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x004F=\\			
+	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
+												& \verb=0x0001= = Calibrated measurements\\										
+	\textit{Description:}	& Data output mode of analogue input.  See the sensors section for more details (\ref{sec:Sensors}).\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Analogue input data output rate}
+\label{sec:AnalogueInputDataOutputRate}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0050=\\		
 	\textit{Value:}				& \verb=0x0000= = On change only\\
 												& \verb=0x0001= = 1 Hz\\
 												& \verb=0x0002= = 2 Hz\\	
@@ -2362,7 +2645,307 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 												& \verb=0x0007= = 64 Hz\\
 												& \verb=0x0008= = 128 Hz\\
 												& \verb=0x0009= = 256 Hz\\
-	\textit{Description:}	& Output rate of the digital I/O data packets.  See the digital I/O mode section for more information (\ref{sec:DigitalIOMode}).
+	\textit{Description:}	& Output rate of the \textit{analogue input} packets.  Data rates can be reduced or disabled to conserve power.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Analgoue input sensitivity}
+\label{sec:Analgoue inputSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0051=\\			
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2,048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the analogue input ADC in V/lsb.  The typical value is $1241.188$ V/lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{Analgoue input bias}
+\label{sec:Analgoue inputBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0052=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
+	\textit{Description:}	& Calibrated bias of the battery ADC in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{PWM frequency}
+\label{sec:PWMFrequency}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0053=\\			
+	\textit{Value:}				& 1 to 65535\\
+	\textit{Description:}	& Frequency of the PWM output in Hz.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 bus data mode}
+\label{sec:ADXL345BusDataMode}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0054=\\			
+	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
+												& \verb=0x0001= = Calibrated measurements\\										
+	\textit{Description:}	& Data output mode of ADXL345 bus.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 bus data output rate}
+\label{sec:ADXL345BusDataOutputRate}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0055=\\		
+	\textit{Value:}				& \verb=0x0000= = On change only\\
+												& \verb=0x0001= = 1 Hz\\
+												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0003= = 4 Hz\\
+												& \verb=0x0004= = 8 Hz\\
+												& \verb=0x0005= = 16 Hz\\
+												& \verb=0x0006= = 32 Hz\\
+												& \verb=0x0007= = 64 Hz\\
+												& \verb=0x0008= = 128 Hz\\
+												& \verb=0x0009= = 256 Hz\\
+	\textit{Description:}	& Output rate of the \textit{ADXL345 bus data} packets.  Data rates can be reduced or disabled to conserve power.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A x-axis sensitivity}
+\label{sec:ADXL345AXAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0056=\\			
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A x-axis in g/lsb.  The typical value is $256$ g/lsb.  The typical value is $256$ V/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A y-axis sensitivity}
+\label{sec:ADXL345AYAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0057=\\	
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A y-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A z-axis sensitivity}
+\label{sec:ADXL345AZAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0058=\\		
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A z-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A x-axis bias}
+\label{sec:ADXL345AXAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0059=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 A x-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A y-axis bias}
+\label{sec:ADXL345AYAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005A=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 A y-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 A z-axis bias}
+\label{sec:ADXL345AZAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005B=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 A z-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B x-axis sensitivity}
+\label{sec:ADXL345BXAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005C=\\			
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B x-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B y-axis sensitivity}
+\label{sec:ADXL345BYAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005D=\\	
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B y-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B z-axis sensitivity}
+\label{sec:ADXL345BZAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005E=\\		
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B z-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B x-axis bias}
+\label{sec:ADXL345BXAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x005F=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 B x-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B y-axis bias}
+\label{sec:ADXL345BYAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0060=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 B y-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 B z-axis bias}
+\label{sec:ADXL345BZAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0061=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 B z-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C x-axis sensitivity}
+\label{sec:ADXL345CXAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0062=\\			
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C x-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C y-axis sensitivity}
+\label{sec:ADXL345CYAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0063=\\	
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C y-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C z-axis sensitivity}
+\label{sec:ADXL345CZAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0064=\\		
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C z-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C x-axis bias}
+\label{sec:ADXL345CXAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0065=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 C x-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C y-axis bias}
+\label{sec:ADXL345CYAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0066=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 C y-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 C z-axis bias}
+\label{sec:ADXL345CZAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0067=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 C z-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D x-axis sensitivity}
+\label{sec:ADXL345DXAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0068=\\			
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D x-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D y-axis sensitivity}
+\label{sec:ADXL345DYAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x0069=\\	
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D y-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D z-axis sensitivity}
+\label{sec:ADXL345DZAxisSensitivity}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x006A=\\		
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D z-axis in g/lsb.  The typical value is $256$ g/lsb.
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D x-axis bias}
+\label{sec:ADXL345DXAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x006B=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 D x-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D y-axis bias}
+\label{sec:ADXL345DYAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x006C=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 D y-axis in lsb.  The typical value is 0 lsb.\\
+\end{tabular*}
+
+%------------------------------------------------
+\subsubsection{ADXL345 D z-axis bias}
+\label{sec:ADXL345DZAxisBias}
+
+\begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
+	\textit{Address:}			& \verb=0x006D=\\			
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Description:}	& Calibrated bias of the ADXL345 D z-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
 %%=====================================================================================================
