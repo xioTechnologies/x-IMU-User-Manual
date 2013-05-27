@@ -49,7 +49,7 @@
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 2.0 \normalsize}
+\title{\Huge x-IMU User Manual 2.1 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -78,6 +78,9 @@
 			\hline
 			Version	&	Date				& Notes\\
 			\hline\\
+			2.1			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
+							&							& - IMU/AHRS algorithm section has been updated.\\					
+							&							& - TODO: link to API docuemtnation etc.\\																							
 			2.0			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
 							&							& - Documented changes introduced by firmware 5.0, API 8.0 and GUI 7.0.  See individual release notes for details.\\																					
 							&							& Compatible versions: firmware 5.x, GUI 7.x, API 8.x.\\	
@@ -982,7 +985,83 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 \section{IMU/AHRS algorithms}
 \label{sec:IMUAHRSAlgorithms}
 
-\sectionComingSoon{}
+%\sectionComingSoon{}
+
+- On-board algorithms provde oreitnation relative to Earth
+- Uses gyro, accel, mag
+- Oreintation data provided as quaternion in quaternion packet.  Data output rate set by register
+- API includes class methods for conversion to rotation matrix and Euler angles.
+- Oreintation viewed in GUI with 3D cuboid and Euler angles.
+
+- Algorithm update rate = 256 Hz regardless of data output rate
+- Algorithm performance is dependant on calibration.
+- Performance can be tuned by adjusting algorithm paramters.  See section \ref{sec:OptimisingAlgorithmPerformance} for more information.
+
+
+%---------------------------------------------------------------------------------------------------
+\subsection{Principle of operation}
+\label{sec:PrincipleOfOperation}
+
+- use gyroscope data to estimate oreintaiton.... however gyroscope measeutnts alone cannot work because of drift.
+- this drift is compensated for through meaurments of the Earth's gravitational and magentic feilds, provided by the accelermeter and magnetoemter respectivly.
+- accelerometer measures accelerations and the direction of gravity.... it is used to counter drift relative to the Earth's surface; i.e. the estimated pitch and roll.  As the acceleoemter also measures accelerations as well as gravitry,
+- magnetometer measures direction fo Earth's magentic feild... used to counter drift relative to the magnetic poles of the Earth; i.e. in the estimated heading.
+- the proportional gain governs how much influence
+
+\paragraph{IMU mode:}
+- The IMU algorithm uses only the gyroscope and acceleormeter and so will not compensate for drift in heading.  This is suitable for many applciations where only pitch and roll are required and/or it is possible to `reset' heading periodically.
+- The advantage of excluding the magnetoemter from the algorithm is: magnetic calbration unessary, local magnetic distortion have no effect; e.g. if x-IMU used within a magnetically noisey enviroment
+
+\paragraph{AHRS mode:}
+- The IMU algorithm uses only the gyroscope and acceleormeter and magnetoemer.  Free form drift in all axes.  As magnetoem
+
+
+%---------------------------------------------------------------------------------------------------
+\subsection{Algorithm parameters}
+\label{sec:AlgorithmParameters}
+
+%------------------------------------------------
+\subsubsection{Algorithm mode}
+\label{sec:AlgorithmMode}
+
+%------------------------------------------------
+\subsubsection{Algorithm gains}
+\label{sec:AlgorithmGains}
+
+%------------------------------------------------
+\subsubsection{Algorithm magnetic feild rejection}
+\label{sec:AlgorithmMagneticFeildRejection}
+
+%------------------------------------------------
+\subsubsection{Algorithm tare quaternion}
+\label{sec:AlgorithmTareQuaternion}
+
+
+%---------------------------------------------------------------------------------------------------
+\subsection{Algorithm operations}
+\label{sec:AlgorithmOperations}
+
+%------------------------------------------------
+\subsubsection{Algorithm initialise}
+\label{sec:AlgorithmInitialise}
+
+- init on reset
+
+%------------------------------------------------
+\subsubsection{Algorithm tare}
+\label{sec:AlgorithmTare}
+
+%------------------------------------------------
+\subsubsection{Algorithm clear tare}
+\label{sec:AlgorithmClearTare}
+
+%------------------------------------------------
+\subsubsection{Algorithm initialise then tare}
+\label{sec:AlgorithmInitialiseThenTare}
+
+%---------------------------------------------------------------------------------------------------
+\subsection{Optimising algorithm performance}
+\label{sec:OptimisingAlgorithmPerformance}
 
 %The on-board sensor fusion algorithm uses the gyroscope, accelerometer and magnetometer to provide an optimal, real-time estimate of the devices' orientation relative to the Earth.  The IMU and AHRS algorithms require that the on-board sensors are properly calibrated (\ref{sec:Calibration}).  The estimated orientation is represented as a quaternion and is transmitted in the quaternion data packet \ref{sec:QuaternionData}.  The algorithm internal update rate is fixed at 256 Hz regardless of the quaternion data output rate (\ref{sec:QuaternionDataOutputRate}).
 %
@@ -1044,6 +1123,8 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 \label{sec:PowerManagement}
 
 The x-IMU may be powered via USB (\ref{sec:USB}), an external supply (\ref{sec:ExternalSupply}) or a single cell lithium polyer (LiPo) battery cell (\ref{sec:BatteryAndCharging}).
+
+% power switch for USB and battery.  switch off for external power supply
 
 %---------------------------------------------------------------------------------------------------
 \subsection{External supply}
@@ -1346,7 +1427,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmInitialiseThenTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000B=\\			
+	\textit{Command code:}	& \verb=0x000C=\\			
 	\textit{Description:}	& The \textit{algorithm initialise then tare} command will execute an \textit{algorithm initialise} command (\ref{sec:AlgorithmInitialise}) and then execute an \textit{algorithm clear tare} command (\ref{sec:AlgorithmTare}) once the initialisation is complete.
 \end{tabular*}
 
@@ -1641,7 +1722,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x0007=\\			
 	\textit{Value:}				& Q16.0 signed fixed point value between $-32768$ and $+32677$.\\
-	\textit{Description:}	& Calibrated bias of the thermometer in lsb.  See parameter $b_\tau$ (\ref{sec:Thermometer}) in the thermometer section (\ref{sec:Thermometer}).  The typical value is provided as $23,000$ lsb in the \gyroName{} datasheet.\\	
+	\textit{Description:}	& Calibrated bias of the thermometer in lsb.  See parameter $b_\tau$ (\ref{sec:Thermometer}) in the thermometer section (\ref{sec:Thermometer}).  The typical value is provided as $-23,000$ lsb in the \gyroName{} datasheet.\\	
 \end{tabular*}
 
 %------------------------------------------------
@@ -2031,7 +2112,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x002D=\\			
 	\textit{Value:}				& Q10.6 signed fixed point value between $0$ and $512$.\\	
-	\textit{Description:}	& Algorithm initial proportional feedback gain used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmRampDownPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Description:}	& Algorithm initial proportional feedback gain used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmInitilasationPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -2041,7 +2122,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Address:}			& \verb=0x002E=\\			
 	\textit{Value:}				& Q8.8 signed fixed point value between $0$ and $+128$.\\		
-	\textit{Description:}	& Algorithm ramp down period (in seconds) used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain (\ref{sec:AlgorithmProportionalGain}) to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmRampDownPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
+	\textit{Description:}	& Algorithm ramp down period (in seconds) used each time the algorithm resets.  The effective proportional gain will ramp down from the initial proportional gain (\ref{sec:AlgorithmProportionalGain}) to the proportional gain \ref{sec:AlgorithmProportionalGain} over a specified period of time \ref{sec:AlgorithmInitilasationPeriod}.  See the IMU/AHRS algorithms section for more information (\ref{sec:IMUAHRSAlgorithms}).
 \end{tabular*}
 
 %------------------------------------------------
@@ -2221,7 +2302,7 @@ Sending a \textit{read register} or \textit{register write} packet to the x-IMU 
 	\textit{Address:}			& \verb=0x003B=\\			
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Low sensitivity\\
-												& \verb=0x0001= = high sensitivity\\
+												& \verb=0x0001= = High sensitivity\\
 	\textit{Description:}	& Enables the sensitivity of the motion trigger wake up.  See the motion trigger wake up section for more information (\ref{sec:MotionTriggeredWakeUp}).
 \end{tabular*}
 
