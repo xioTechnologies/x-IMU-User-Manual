@@ -46,7 +46,7 @@ IMU-3000}}
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 4.0 \normalsize}
+\title{\Huge x-IMU User Manual 4.1 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -230,29 +230,38 @@ The x-IMU GUI{} (Graphical User Interface) provides interface to all features an
 
 \begin{figure}[H]
 	\centering
-		\includegraphics[width=0.5\textwidth]{graphics/ximu_pcb_top_large.png}
-		\caption{x-IMU top}
-	\label{fig:ximu_pcb_top_large}
+		\includegraphics[width=0.5\textwidth]{graphics/ximu_plastic_housing_orthogonal_large.png}
+		\caption{x-IMU and battery in plastic housing}
+	\label{fig:ximu_plastic_housing_orthogonal_large}
 \end{figure}
 
 \begin{figure}[H]
-	\centering
-		\includegraphics[width=0.5\textwidth]{graphics/ximu_pcb_bottom_large.png}
-		\caption{x-IMU bottom}
-	\label{fig:ximu_pcb_bottom_large}
+    \begin{minipage}[b]{0.5\linewidth}
+        \centering
+            \includegraphics[width=0.8\textwidth]{graphics/ximu_pcb_top_large.png}
+    		\caption{x-IMU top}
+    	\label{fig:ximu_pcb_top_large}
+    \end{minipage}
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.5\linewidth}
+        \centering
+            \includegraphics[width=0.8\textwidth]{graphics/ximu_pcb_bottom_large.png}
+    		\caption{x-IMU bottom}
+    	\label{fig:ximu_pcb_bottom_large}
+    \end{minipage}
 \end{figure}
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Power switch}
 \label{sec:PowerSwitch}
 
-The power switch is used to switch the battery and USB power on or off.  The battery and USB power is completely disconnected when the switch is in the \textit{off} position.  The x-IMU may be powered by an \hyperref[sec:ExternalSupply]{external supply} via the \hyperref[sec:AuxiliaryPort]{auxiliary port}.  For this the power switch must be in the \textit{off} position.
+The power switch is used to switch the \hyperref[sec:BatteryAndCharging]{battery} and \hyperref[sec:USB]{USB} power on or off.  The battery and USB power is completely disconnected when the switch is in the \textit{off} position.  The x-IMU may be powered by an \hyperref[sec:ExternalSupply]{external supply} via the \hyperref[sec:AuxiliaryPort]{auxiliary port} if the power switch must be in the \textit{off} position.
 
 %---------------------------------------------------------------------------------------------------
-\subsection{Push button}
-\label{sec:PushButton}
+\subsection{Command button}
+\label{sec:CommandButtonSum}
 
-The push button may be configured to execute x-IMU \hyperref[sec:Commands]{commands}.  The mode of the push button is defined in the \textit{\hyperref[sec:ButtonMode]{button mode}} register.  The default mode is \textit{sleep/wake}.
+The command button that allows the execution of \hyperref[sec:Commands]{commands} while the x-IMU is operating as a standalone device.  See the \hyperref[sec:CommandButton]{command button} section for more information.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{LEDs}
@@ -262,55 +271,55 @@ The push button may be configured to execute x-IMU \hyperref[sec:Commands]{comma
 \subsubsection{Status LED (Green)}
 \label{sec:StatusLEDGreen}
 
-The green LED indicates the status of the x-IMU.  The green LED will remain lit while the device is sampling and sending data packets and will otherwise be extinguished; for example, during the execution of \hyperref[sec:Commands]{commands}.  In \hyperref[sec:SleepMode]{sleep mode} the green LED will blink once every 3 seconds.  The green LED will flash rapidly while the on-board bootloader is active.
+The green LED indicates the status of the x-IMU.  It will remain lit while the device is sampling and sending data and will otherwise be extinguished; for example, during the execution of some  \hyperref[sec:Commands]{commands}.  In \hyperref[sec:SleepMode]{sleep mode} the green LED will blink once every 3 seconds.  The green LED will flash rapidly while the on-board bootloader is active.
 
 %------------------------------------------------
 \subsubsection{SD card LED (Amber)}
 \label{sec:SDCardLEDAmber}
 
-The amber LED indicates \hyperref[sec:SDCard]{SD card} activity.  Details on the SD LED behaviour are provided in the \hyperref[sec:SDCardLED]{SD card LED} section.
+The amber LED indicates \hyperref[sec:SDCard]{SD card} activity.  See the \hyperref[sec:SDCardLED]{SD card LED} section for more information.
 
 %------------------------------------------------
 \subsubsection{Bluetooth LED (Blue)}
 \label{sec:BluetoothLEDBlue}
 
-The blue LED indicates the state of the \hyperref[sec:Bluetooth]{Bluetooth} connection and power status.  Details of the Bluetooth LED behavior are summarised in Table \ref{tab:BluetoothLEDstates}.
+The blue LED indicates the state of the \hyperref[sec:Bluetooth]{Bluetooth} connection and power status.  See the \hyperref[sec:BluetoothLED]{Bluetooth LED} section for more information.
 
 %------------------------------------------------
 \subsubsection{Charging LED (Red)}
 \label{sec:ChargingLEDRed}
 
-The red LED indicates the \hyperref[sec:BatteryAndCharging]{charging state of the battery}.  The red LED will remain lit while the battery is charging and will be extinguished once the battery is charged.
+The red LED indicates the \hyperref[sec:BatteryAndCharging]{charging state of the battery}.  The red LED will remain lit while the battery is charging and will be extinguished once the battery is charged.  See the \hyperref[sec:BatteryAndCharging]{battery and charging} section for more information.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{USB socket}
 \label{sec:USBSocket}
 
-The USB mini-B socket is used to connect the x-IMU to a computer via a standard USB \textit{A to mini B (5 pin)} type cable.  The USB connect can also be used to power the x-IMU.  See the \hyperref[sec:USB]{USB} section for more information.
+The USB mini-B socket is used to connect the x-IMU to a computer via a standard \textit{USB A to mini B (5 pin)} type cable.  See the \hyperref[sec:USB]{USB} section for more information.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Micro-SD card socket}
 \label{sec:MicroSDCardSocket}
 
-The micro SD card socket is used to log all data generated by the x-IMU to an SD card.  The x-IMU supports standard SD and HCSD cards formatted as either FAT16 or FAT32.  A new file is created and logging starts each time the x-IMU is switch on, wakes up or is reset.  The file is automatically closed when the x-IMU enters \hyperref[sec:SleepMode]{sleep mode} or is reset.  The file must be closed before the SD card is removed or the x-IMU switched of otherwise the current file will corrupt and data lost.  See the \hyperref[sec:SDCard]{SD card} section for more information.
+The micro SD card socket is used to log all data generated by the x-IMU to an \hyperref[sec:SDCard]{SD card}.  The x-IMU supports standard SD and SDHC cards formatted as either FAT16 or FAT32.  The file must be closed before the \hyperref[sec:SDCard]{SD card} is removed or the x-IMU switched of otherwise the current file will corrupt and data lost.  See the \hyperref[sec:SDCard]{SD card} section for more information.
 
 %---------------------------------------------------------------------------------------------------
-\subsection{Bluetooth radio}
-\label{sec:BluetoothRadio}
+\subsection{Bluetooth module}
+\label{sec:BluetoothModule}
 
-The on-board Bluetooth radio is used to connect the x-IMU to a computer via Bluetooth.  The on-board Bluetooth radio is a class I device with a maximum range of 100 m.  The radio uses the Serial Port Profile (SPP) to enable connection to any Bluetooth host without the need to install specific drivers.  The \hyperref[sec:BluetoothPower]{Bluetooth module power} can be disabled to converse power.  See the \hyperref[sec:Bluetooth]{Bluetooth} section for more information.
+The on-board Bluetooth module is used to connect the x-IMU to a Bluetooth host.  See the \hyperref[sec:Bluetooth]{Bluetooth} section for more information.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Battery connector}
 \label{sec:BatteryConnector}
 
-The on-board battery connector allows the x-IMU to be powered by any single-cell Lithium Polymer battery.  The battery is automatically charged while the x-IMU is connected via USB.  See the \hyperref[sec:BatteryAndCharging]{battery and charging} section for more information.
+The on-board \hyperref[sec:BatteryAndCharging]{battery} connector allows the x-IMU to be powered by any single-cell Lithium Polymer (LiPo) battery.  The battery is automatically \hyperref[sec:BatteryAndCharging]{charged} while the x-IMU is connected to a \hyperref[sec:USB]{USB} host.  See the \hyperref[sec:BatteryAndCharging]{battery and charging} section for more information.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Auxiliary port header}
 \label{sec:subAuxiliaryPortHeader}
 
-See the \hyperref[sec:AuxiliaryPort]{auxiliary port} section for more information.
+The \hyperref[sec:AuxiliaryPort]{auxiliary port} that can be configured to one of many modes.  The auxiliary port connector is a $2\times6$, 2.54 mm pitch female header socket.  The socket pins include: ground, \hyperref[sec:ExternalSupply]{external power} input, 3.3 V output, hard reset and 8 I/O lines.  See the \hyperref[sec:AuxiliaryPort]{auxiliary port} section for more information.
 
 %=====================================================================================================
 \section{Software overview}
@@ -672,7 +681,7 @@ The x-IMU supports standard SD cards and SDHC cards\footnote{The x-IMU has known
 
 The x-IMU automatically creates a new file on the SD card each time the x-IMU is switched on, reset or wakes up.  If an SD card is not accessible at this point, the x-IMU will not create a file and the SD card will not be used.  The new file name is created as the 5 digit number stored in the \textit{\hyperref[sec:SDCardNewFileName]{SD card new file name}} register.  For example, \verb=00000.bin=.  The number stored in this register is automatically incremented each time a new file is created.  This ensures that each file created by the x-IMU is given a unique file name until the maximum file name of \verb=65535.bin= is reached, the file name will then automatically reset to \verb=00000.bin= and start again.  The user may also edit this value to any number by writing to the \hyperref[sec:SDCardNewFileName]{register}.  If the x-IMU attempts to create a file name that already exists on the SD card, the x-IMU automatically increment the file name and try again.  If all file names have been used, the x-IMU will not create a file and the SD card will not be used.
 
-Files must be closed before the SD card is removed or the x-IMU switched off otherwise the file will be corrupted and all data written to the file will be lost.  The file is automatically closed when the x-IMU is reset or enters \hyperref[sec:SleepMode]{sleep mode}.  Users wishing to frequently remove the SD card may wish to have the \hyperref[sec:PushButton]{push button} configured in \textit{sleep/wake} mode.
+Files must be closed before the SD card is removed or the x-IMU switched off otherwise the file will be corrupted and all data written to the file will be lost.  The file is automatically closed when the x-IMU is reset or enters \hyperref[sec:SleepMode]{sleep mode}.  Users wishing to frequently remove the SD card may wish to have the \hyperref[sec:CommandButton]{command button} configured in \textit{sleep/wake} mode.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{SD card LED}
@@ -1563,11 +1572,11 @@ This section is currently unavailable.  Users wishing to develop their own x-IMU
 \section{Commands}
 \label{sec:Commands}
 
-Commands are executed by either sending a \textit{command} packet to the x-IMU USB or Bluetooth or by pressing the push button which may be configured to execute a specific command.  Commands are sent using the x-IMU GUI{} via the \textit{\hyperref[sec:TabPageCommands]{commands}} tab page.  Once a command has been executed, the x-IMU will echo the \textit{command} packet back to the host as confirmation.  As all communication from the x-IMU to the host computer is logged to the \hyperref[sec:SDCard]{SD card}, all command confirmations will be logged on the SD card.  If a \textit{command} packet is sent containing an invalid command code the x-IMU will respond with an \textit{\hyperref[sec:InvalidCommand]{invalid command}} error.
+Commands are executed by either sending a \textit{command} packet to the x-IMU \hyperref[sec:USB]{USB} or \hyperref[sec:Bluetooth]{Bluetooth} or by pressing the \hyperref[sec:CommandButton]{command button} which may be configured to execute a specific command.  Commands are sent using the x-IMU GUI{} via the \textit{\hyperref[sec:TabPageCommands]{commands}} tab page.  Once a command has been executed, the x-IMU will echo the \textit{command} packet back to the host as confirmation.  As all communication from the x-IMU to the host computer is logged to the \hyperref[sec:SDCard]{SD card}, all command confirmations will be logged on the \hyperref[sec:SDCard]{SD card}.  If a \textit{command} packet is sent containing an invalid command code the x-IMU will respond with an \textit{\hyperref[sec:InvalidCommand]{invalid command}} error.
 
 Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentarily pause sensor sampling and processing while the received data is processed.  This may cause discrepancies in the otherwise fixed data output rates.
 
-% And data will not be processed while packet being dealt with.  This may cause recieve buffer overrun errors.
+% And data will not be processed while packet being dealt with.  This may cause receive buffer overrun errors.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Individual commands}
@@ -1588,7 +1597,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
 	\textit{Command code:}	& \verb=0x0001=\\			
-	\textit{Description:}	& A \textit{factory reset} command code is used to reset the x-IMU to its original state prior to factory calibration so that all registers return to their default values.  The user must press the push button on the x-IMU within 3 seconds of sending a \textit{factory reset} command in order to confirm the request else the x-IMU will respond with a \textit{\hyperref[sec:FactoryResetFailed]{factory reset failed}} error.  The x-IMU requires several seconds to reconfigure on-board components during the execution of a factory reset.
+	\textit{Description:}	& A \textit{factory reset} command code is used to reset the x-IMU to its original state prior to factory calibration so that all registers return to their default values.  The user must press the \hyperref[sec:CommandButton]{command button} within 3 seconds of sending a \textit{factory reset} command in order to confirm the request else the x-IMU will respond with a \textit{\hyperref[sec:FactoryResetFailed]{factory reset failed}} error.  The x-IMU requires several seconds to reconfigure on-board components during the execution of a factory reset.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1606,7 +1615,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
 	\textit{Command code:}	& \verb=0x0003=\\			
-	\textit{Description:}	& A \textit{sleep} command will put the device into \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU will close any open files on the \hyperref[sec:SDCard]{SD card} before entering \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU may be taken out of \hyperref[sec:SleepMode]{sleep mode} by using the push button configured in \textit{sleep/wake} mode or using the \hyperref[sec:MotionTriggeredWakeUp]{motion triggered wake up} functionality.
+	\textit{Description:}	& A \textit{sleep} command will put the device into \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU will close any open files on the \hyperref[sec:SDCard]{SD card} before entering \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU may be taken out of \hyperref[sec:SleepMode]{sleep mode} by using the \hyperref[sec:CommandButton]{command button} configured in \textit{sleep/wake} mode or using the \hyperref[sec:MotionTriggeredWakeUp]{motion triggered wake up} functionality.
 \end{tabular*}
 
 %------------------------------------------------
@@ -1753,7 +1762,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
 	\textit{Error code:}	& \verb=0x0001=\\			
-	\textit{Description:}	& A \textit{factory reset failed} error is sent if the user fails to press the push button within 3 seconds of sending a \textit{\hyperref[sec:FactoryReset]{factory reset}} command and the execution of the command was aborted.
+	\textit{Description:}	& A \textit{factory reset failed} error is sent if the user fails to press the \hyperref[sec:CommandButton]{command button} within 3 seconds of sending a \textit{\hyperref[sec:FactoryReset]{factory reset}} command and the execution of the command was aborted.
 \end{tabular*}
 
 %------------------------------------------------
@@ -2004,7 +2013,7 @@ A register may be written by sending a \textit{register write} packet containing
 												& \verb=0x0003= = \textit{\hyperref[sec:AlgorithmInitialise]{Algorithm initialise}} command\\
 												& \verb=0x0004= = \textit{\hyperref[sec:AlgorithmTare]{Algorithm tare}} command\\
 												& \verb=0x0005= = \textit{\hyperref[sec:AlgorithmInitialiseThenTare]{Algorithm initialise then tare}} command\\
-	\textit{Description:}	& The command to be executed when the \hyperref[sec:PushButton]{push button} is pressed.  See the \hyperref[sec:Commands]{commands} section for more information and details of \hyperref[sec:IndividualCommands]{individual commands}.\\
+	\textit{Description:}	& The command to be executed when the \hyperref[sec:CommandButton]{command button} is pressed.  See the \hyperref[sec:Commands]{commands} section for more information and details of \hyperref[sec:IndividualCommands]{individual commands}.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -3215,8 +3224,13 @@ The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but 
 		\begin{tabular}{l l l l}
 		\hline	
 		Brand & Capacity & Class & Product ID\\
-		\hline		
-		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\													
+		\hline			
+        Kingston & 8 GB & 4 & SDC4/8GB\\
+		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\	
+        SanDisk & 4 GB & 4 & SDSDQM-004G-B35\\
+        SanDisk & 8 GB & 2 & Unknown\\
+        Transcend & 4 GB & 6 & TS4GUSDHC6\\
+        Transcend & 8 GB & 2 & TS8GUSDC2\\	                          										
 		\hline
 		\end{tabular}
 		\caption{Confirmed compatible SDHC cards}			
@@ -3228,8 +3242,11 @@ The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but 
 		\begin{tabular}{l l l l}
 		\hline	
 		Brand & Capacity & Class & Product ID\\
-		\hline		
-		SanDisk & 16 GB & 2 & Unknown\\													
+		\hline
+        Kingston & 4 GB & 4 & SDC4/4GB\\
+        Kingston & 16 GB & 4 & SDC4/16GB\\
+		SanDisk & 16 GB & 2 & Unknown\\	
+        Transcend & 16 GB & 2 & TS16GUSDC2\\         									
 		\hline
 		\end{tabular}
 		\caption{Confirmed incompatible SDHC cards}			
