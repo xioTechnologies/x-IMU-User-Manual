@@ -46,7 +46,7 @@ IMU-3000}}
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 4.2 \normalsize}
+\title{\Huge x-IMU User Manual 4.3 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -673,7 +673,7 @@ The x-IMU streams all communication data simultaneously and identically via \hyp
 
 The binary files (\verb=.bin=) created may be read form the SD card on to any PC and then converted to individual Comma Separated Variable (\verb=.csv=) files using via the x-IMU GUI{} \textit{\hyperref[sec:TabPageSDCard]{SD Card}} tab page.  Alternatively the \href{http://www.x-io.co.uk/node/10#sd_card_binary_file_converter}{x-IMU Binary File Converter} may be used for command-line-based or automated conversion of multiple files.  Converted CSV and text files can be directly imported into programmes such as MATLAB and Microsoft Excel.  The x-IMU MATLAB Library includes all the tools required to import, structure and plot x-IMU data.
 
-The x-IMU supports standard SD cards and SDHC cards\footnote{The x-IMU has known compatibility issues with some SDHC cards.  See the \hyperref[sec:SDHCCardCompatibility]{SDHC card compatibility} section in the appendix for more information.}.  Cards may be formatted as FAT16 (usually cards equal or less than 2 GB) and FAT32 (for card greater than 2 GB).  For reliable performance it is recommended that the SD card is formatted prior to each use.
+The x-IMU supports standard SD cards and SDHC cards\footnote{The x-IMU has known compatibility issues with counterfeit SDHC cards.  It is recommended that you only use genuine products from a reputable brand.}.  Cards may be formatted as FAT16 (usually cards equal or less than 2 GB) and FAT32 (for card greater than 2 GB).  For reliable performance it is recommended that the SD card is formatted prior to each use.
 
 %---------------------------------------------------------------------------------------------------
 \subsection{Creating and closing files}
@@ -3237,51 +3237,51 @@ A register may be written by sending a \textit{register write} packet containing
 	\textit{Description:}& Hardware flow control enable/disable of the auxiliary port \hyperref[sec:UART]{UART}.  See the \hyperref[sec:UART]{UART} section for more information.\\
 \end{tabular*}
 
-%=====================================================================================================
-\newpage
-\appendix
-
-%=====================================================================================================
-\section{SDHC card compatibility}
-\label{sec:SDHCCardCompatibility}
-
-The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but has known compatibly issues with some SDHC cards of capacities greater than 2 GB.  SDHC cards that are not fully compatible may mean that the x-IMU is unable to create a file or that a file will be abandoned and left empty after a short period of logging.  Table \ref{tab:ConfirmedCompatibleSDHCCards} lists SDHC cards that have been thoroughly tested with the x-IMU and are known to be fully compatible.  Table \ref{tab:ConfirmedIncompatibleSDHCCards}  lists SDHC cards that have been tested with the x-IMU and found to not be fully compatible.  Users that experience compatibility issues with an SDHC card should note the SDHC card details (keeping the original packaging if possible) and \contactUs{} for support.
-
-\begin{table}[H]
-	\centering
-		\begin{tabular}{l l l l}
-		\hline	
-		Brand & Capacity & Class & Product ID\\
-		\hline			
-        Kingston & 8 GB & 4 & SDC4/8GB\\
-		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\	
-        PNY & 8 GB & 2 & P-MICROSD8GBHC-BX\\
-        SanDisk & 4 GB & 4 & SDSDQM-004G-B35\\
-        SanDisk & 8 GB & 2 & Unknown\\
-        SanDisk & 16 GB & 2 & Unknown\\
-        Transcend & 4 GB & 6 & TS4GUSDHC6\\
-        Transcend & 8 GB & 2 & TS8GUSDC2\\	                          										
-		\hline
-		\end{tabular}
-		\caption{Confirmed compatible SDHC cards}			
-	\label{tab:ConfirmedCompatibleSDHCCards}
-\end{table}
-
-\begin{table}[H]
-	\centering
-		\begin{tabular}{l l l l}
-		\hline	
-		Brand & Capacity & Class & Product ID\\
-		\hline
-        Kingston & 4 GB & 4 & SDC4/4GB\\
-        Kingston & 16 GB & 4 & SDC4/16GB\\
-		SanDisk & 16 GB & 2 & Unknown\\	
-        Transcend & 16 GB & 2 & TS16GUSDC2\\         									
-		\hline
-		\end{tabular}
-		\caption{Confirmed incompatible SDHC cards}			
-	\label{tab:ConfirmedIncompatibleSDHCCards}
-\end{table}
+%%=====================================================================================================
+%\newpage
+%\appendix
+%
+%%=====================================================================================================
+%\section{SDHC card compatibility}
+%\label{sec:SDHCCardCompatibility}
+%
+%The x-IMU is compatible with all standard SD cards of capacities up to 2 GB but has known compatibly issues with some SDHC cards of capacities greater than 2 GB.  SDHC cards that are not fully compatible may mean that the x-IMU is unable to create a file or that a file will be abandoned and left empty after a short period of logging.  Table \ref{tab:ConfirmedCompatibleSDHCCards} lists SDHC cards that have been thoroughly tested with the x-IMU and are known to be fully compatible.  Table \ref{tab:ConfirmedIncompatibleSDHCCards}  lists SDHC cards that have been tested with the x-IMU and found to not be fully compatible.  Users that experience compatibility issues with an SDHC card should note the SDHC card details (keeping the original packaging if possible) and \contactUs{} for support.
+%
+%\begin{table}[H]
+%	\centering
+%		\begin{tabular}{l l l l}
+%		\hline	
+%		Brand & Capacity & Class & Product ID\\
+%		\hline			
+%        Kingston & 8 GB & 4 & SDC4/8GB\\
+%		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\	
+%        PNY & 8 GB & 2 & P-MICROSD8GBHC-BX\\
+%        SanDisk & 4 GB & 4 & SDSDQM-004G-B35\\
+%        SanDisk & 8 GB & 2 & Unknown\\
+%        SanDisk & 16 GB & 2 & Unknown\\
+%        Transcend & 4 GB & 6 & TS4GUSDHC6\\
+%        Transcend & 8 GB & 2 & TS8GUSDC2\\	                          										
+%		\hline
+%		\end{tabular}
+%		\caption{Confirmed compatible SDHC cards}			
+%	\label{tab:ConfirmedCompatibleSDHCCards}
+%\end{table}
+%
+%\begin{table}[H]
+%	\centering
+%		\begin{tabular}{l l l l}
+%		\hline	
+%		Brand & Capacity & Class & Product ID\\
+%		\hline
+%        Kingston & 4 GB & 4 & SDC4/4GB\\
+%        Kingston & 16 GB & 4 & SDC4/16GB\\
+%		SanDisk & 16 GB & 2 & Unknown\\	
+%        Transcend & 16 GB & 2 & TS16GUSDC2\\         									
+%		\hline
+%		\end{tabular}
+%		\caption{Confirmed incompatible SDHC cards}			
+%	\label{tab:ConfirmedIncompatibleSDHCCards}
+%\end{table}
 
 %%=====================================================================================================
 %% Bootloader
