@@ -46,7 +46,7 @@ IMU-3000}}
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 4.3 \normalsize}
+\title{\Huge x-IMU User Manual 4.4 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -930,7 +930,24 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 \section{Sensor calibration}
 \label{sec:SensorCalibration}
 
-\sectionComingSoon{}
+The sensitivity and bias of the gyroscope, accelerometer and magnetometer are calibrated at the factory using precision equipment.  The user is recommended not to attempt to recalibrate these parameters.  Please \href{http://www.x-io.co.uk/contact}{contact} x-io Technologies for more information.
+
+%------------------------------------------------
+\subsubsection{Magnetometer hard-iron calibration}
+\label{sec:MagnetometerHardIronCalibration}
+
+Magnetic elements fixed to the x-IMU such as metal screws, the battery or electronics components may introduce hard-iron biases to magnetometer measurements.  These biases must be compensated for through hard-iron calibration.  Uncalibrated hard-iron distortions will cause significant errors in the x-IMUs estimated heading.  Each x-IMU is fully calibrated at the factory.  However, many applications may alter the hard-iron characteristics and so require the user perform hard-iron calibration using the x-IMU GUI.
+
+Before performing hard-iron calibration, the x-IMU registers must be set to output calibrated inertial and magnetic data packets at 256 Hz.  Calibration can then be performed by following steps 1, 2 and 3 indicated on the Hard-Iron Calibration tab in the x-IMU GUI.  Step 2 requires the user to collect a calibration dataset where the x-IMU (and any ferromagnetic elements it is fixed to) are rotated through as many and as different orientations as possible far away from other magnetic distortions.  The x-IMU should held far from all objects in a room for the duration of the dataset collection.
+
+\begin{figure}[H]
+	\centering
+		\includegraphics[width=0.8\textwidth]{graphics/GUI_tab_hard_iron_calibration.png}
+		\caption{x-IMU GUI{} hard-iron calibration tab page}
+	\label{fig:GUI_tab_hard_iron_calibration}
+\end{figure}
+
+The SD card socket will have different magnetic characteristics depending if an SD card is secured in the socket or not.  Each x-IMU is calibrated at the factory with a dummy SD card inserted to reduce the need for user calibration.
 
 %- Calibrated sensor requires that the parameters of each sensor calibraiton model are defined.
 %- IMU and AHRS algorithms require sensors to be calibrated.
@@ -1063,7 +1080,9 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 \section{IMU and AHRS algorithms}
 \label{sec:IMUAndAHRSAlgorithms}
 
-\sectionComingSoon{}
+The x-IMU features an sensor fusion algorithm that use the on-board sensors to compute a measurement of orientation relative to the Earth.  The algorithm can operate in either IMU or AHRS mode.  IMU mode uses only the gyroscope and accelerometer.  In this mode, the head component of the measurement orientation will slowly drift over time.  However, magnetic distortions or interference will have no effect on the sensor as the magnetometer is not used.  IMU mode is of use in application that require only an accurate measurement of the pitch and roll components of an orientation or do not need an absolute measurement of heading.  AHRS mode uses all of the on-board sensors so that the measurement of orientation is free from drift.
+
+The sensor fusion algorithm has a number of associated commands.  The Initialise command will cause the algorithm to reinitialise so that the proportional gain (Kp) governing how quickly the algorithm output converges to the accelerometer and magnetometer measurements, starts at a high value and is ramped down to the operating value.  The Tare command will save the current orientation so that all algorithm becomes relative to this datum.  A Tare operation is saved to non-volatile memory and so will remain in effect even if the device is reset.  A Clear Tare command will cancel this operation and clear the memory. 
 
 %- On-board algorithms provde oreitnation relative to Earth
 %- Uses gyro, accel, mag
