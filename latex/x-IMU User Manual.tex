@@ -24,29 +24,29 @@
 						colorlinks = true,
 						linkcolor=MidnightBlue,
 						citecolor=MidnightBlue,
-						urlcolor=MidnightBlue}			% bookmarks expanded when pdf opened						
-						
+						urlcolor=MidnightBlue}			% bookmarks expanded when pdf opened
+
 %=====================================================================================================
 % My Macros
-%=====================================================================================================								
+%=====================================================================================================
 
 %\DeclareFixedFootnote{\gyrofootnote}{x-IMUs of generations prior to version 1.3 use the \href{http://www.x-io.co.uk/res/doc/itg3200.pdf}{ITG-3200} gyroscope.}
-				
+
 %\def x-IMU GUI {\href{http://www.x-io.co.uk/node/9\#ximu_gui}{x-IMU GUI}}
-%\def x-IMU API {\href{http://www.x-io.co.uk/node/9\#ximu_api}{x-IMU API}}		
-\def \MATLAB {\href{http://www.x-io.co.uk/node/10\#ximu_matlab_library}{MATLAB}}					
+%\def x-IMU API {\href{http://www.x-io.co.uk/node/9\#ximu_api}{x-IMU API}}
+\def \MATLAB {\href{http://www.x-io.co.uk/node/10\#ximu_matlab_library}{MATLAB}}
 \def \accelMagName {\href{http://www.x-io.co.uk/res/doc/lsm303dlh.pdf}{LSM303DLH}}
 \def \gyroName {\href{http://www.x-io.co.uk/res/doc/imu3000.pdf}{
-IMU-3000}}	
+IMU-3000}}
 
 \def \contactUs {\href{http://www.x-io.co.uk/contact}{contact us}}
-\def \sectionComingSoon {This section is currently unavailable but can be updated \href{http://www.x-io.co.uk/contact}{on request}.}				
-						
+\def \sectionComingSoon {This section is currently unavailable but can be updated \href{http://www.x-io.co.uk/contact}{on request}.}
+
 %=====================================================================================================
 % Title, Name, Date
 %=====================================================================================================
 
-\title{\Huge x-IMU User Manual 4.4 \normalsize}
+\title{\Huge x-IMU User Manual 5.0 \normalsize}
 \author{x-io Technologies}
 
 \begin{document}
@@ -84,13 +84,13 @@ IMU-3000}}
 %			Version	&	Date				& Notes\\
 %			\hline\\
 %			2.1			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
-%							&							& - IMU/AHRS algorithm section has been updated.\\					
-%							&							& - TODO: link to API docuemtnation etc.\\																							
+%							&							& - IMU/AHRS algorithm section has been updated.\\
+%							&							& - TODO: link to API docuemtnation etc.\\
 %			2.0			& 17/05/2011	&	- Minor corrections spelling/wording/layout/appearance througout.\\
-%							&							& - Documented changes introduced by firmware 5.0, API 8.0 and GUI 7.0.  See individual release notes for details.\\																					 
-%							&							& Compatible versions: firmware 5.x, GUI 7.x, API 8.x.\\	
+%							&							& - Documented changes introduced by firmware 5.0, API 8.0 and GUI 7.0.  See individual release notes for details.\\
+%							&							& Compatible versions: firmware 5.x, GUI 7.x, API 8.x.\\
 %			1.0			& 10/05/2011	&	- Initial release.\\
-%							&							& Compatible versions: firmware 4.x, GUI 6.x, API 7.x.\\							
+%							&							& Compatible versions: firmware 4.x, GUI 6.x, API 7.x.\\
 %			\hline
 %		\end{tabular*}
 %		\caption{Document version history}
@@ -631,15 +631,15 @@ The blue Bluetooth LED indicates the Bluetooth radio state.  The LED behaviour a
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l  l}
-		\hline	
+		\hline
 		LED behaviour		&	Bluetooth state\\
-		\hline	
-		Off							& Switched off.  Power to the radio is completely disconnected\\			
+		\hline
+		Off							& Switched off.  Power to the radio is completely disconnected\\
 		Flashing (1 Hz)	& Fully powered and discoverable\\
 		On							& Fully powered and connected\\
 		\hline
 		\end{tabular}
-		\caption{Bluetooth LED states}			
+		\caption{Bluetooth LED states}
 	\label{tab:BluetoothLEDstates}
 \end{table}
 
@@ -800,14 +800,14 @@ In calibrated data mode the gyroscope data are calibrated angular velocities in 
 		s_{g_x}	& 0				& 0				\\
 		0				& s_{g_y}	&	0				\\
 		0				& 0 			& s_{g_z}
-	\end{bmatrix}		
+	\end{bmatrix}
 	^{-1}
 	\left(
 	\begin{bmatrix}
 		\tilde{g}_x\\
 		\tilde{g}_y\\
 		\tilde{g}_z
-	\end{bmatrix}	
+	\end{bmatrix}
 	-
 	\begin{bmatrix}
 		b_{g_x}\\
@@ -819,13 +819,13 @@ In calibrated data mode the gyroscope data are calibrated angular velocities in 
 		f_x	& 0				& 0			\\
 		0				& f_y	&	0			\\
 		0				& 0 	& f_z
-	\end{bmatrix}		
+	\end{bmatrix}
 	^{-1}
 	\begin{bmatrix}
 		\tau - 25\\
 		\tau - 25\\
 		\tau - 25
-	\end{bmatrix}	
+	\end{bmatrix}
 	-
 	\begin{bmatrix}
 		\alpha_x\\
@@ -860,20 +860,20 @@ In calibrated data mode the accelerometer data are calibrated accelerations in $
 		s_{a_x}	& 0				& 0				\\
 		0				& s_{a_y}	&	0				\\
 		0				& 0 			& s_{a_z}
-	\end{bmatrix}		
+	\end{bmatrix}
 	^{-1}
 	\left(
 	\begin{bmatrix}
 		\tilde{a}_x\\
 		\tilde{a}_y\\
 		\tilde{a}_z
-	\end{bmatrix}	
+	\end{bmatrix}
 	-
 	\begin{bmatrix}
 		b_{a_x}\\
 		b_{a_y}\\
 		b_{a_z}
-	\end{bmatrix}		
+	\end{bmatrix}
 	\right)
 	\label{accelCal}
 \end{equation}
@@ -902,27 +902,27 @@ In calibrated data mode the magnetometer data are calibrated accelerations in $G
 		s_{m_x}	& 0				& 0				\\
 		0				& s_{m_y}	&	0				\\
 		0				& 0 			& s_{m_z}
-	\end{bmatrix}		
+	\end{bmatrix}
 	^{-1}
 	\left(
 	\begin{bmatrix}
 		\tilde{m}_x\\
 		\tilde{m}_y\\
 		\tilde{m}_z
-	\end{bmatrix}	
+	\end{bmatrix}
 	-
 	\begin{bmatrix}
 		b_{m_x}\\
 		b_{m_y}\\
 		b_{m_z}
-	\end{bmatrix}	
-	\right)		
+	\end{bmatrix}
+	\right)
 	-
 	\begin{bmatrix}
 		h_x\\
 		h_y\\
 		h_z
-	\end{bmatrix}			
+	\end{bmatrix}
 	\label{magCal}
 \end{equation}
 
@@ -1082,7 +1082,7 @@ The SD card socket will have different magnetic characteristics depending if an 
 
 The x-IMU features an sensor fusion algorithm that use the on-board sensors to compute a measurement of orientation relative to the Earth.  The algorithm can operate in either IMU or AHRS mode.  IMU mode uses only the gyroscope and accelerometer.  In this mode, the head component of the measurement orientation will slowly drift over time.  However, magnetic distortions or interference will have no effect on the sensor as the magnetometer is not used.  IMU mode is of use in application that require only an accurate measurement of the pitch and roll components of an orientation or do not need an absolute measurement of heading.  AHRS mode uses all of the on-board sensors so that the measurement of orientation is free from drift.
 
-The sensor fusion algorithm has a number of associated commands.  The Initialise command will cause the algorithm to reinitialise so that the proportional gain (Kp) governing how quickly the algorithm output converges to the accelerometer and magnetometer measurements, starts at a high value and is ramped down to the operating value.  The Tare command will save the current orientation so that all algorithm becomes relative to this datum.  A Tare operation is saved to non-volatile memory and so will remain in effect even if the device is reset.  A Clear Tare command will cancel this operation and clear the memory. 
+The sensor fusion algorithm has a number of associated commands.  The Initialise command will cause the algorithm to reinitialise so that the proportional gain (Kp) governing how quickly the algorithm output converges to the accelerometer and magnetometer measurements, starts at a high value and is ramped down to the operating value.  The Tare command will save the current orientation so that all algorithm becomes relative to this datum.  A Tare operation is saved to non-volatile memory and so will remain in effect even if the device is reset.  A Clear Tare command will cancel this operation and clear the memory.
 
 %- On-board algorithms provde oreitnation relative to Earth
 %- Uses gyro, accel, mag
@@ -1247,6 +1247,7 @@ In sleep mode, the x-IMU remains powered but all on-board components are shutdow
 	\item \hyperref[sec:Sleep]{Sleep} command via \hyperref[sec:USB]{USB}, \hyperref[sec:Bluetooth]{Bluetooth} or \hyperref[sec:UART]{UART}
 	\item \hyperref[sec:LowBatteryVoltageDetection]{Low battery voltage detection}
 	\item \hyperref[sec:SleepTimer]{Sleep timer}
+    \item \hyperref[sec:sleepWakeMode]{Sleep/wake mode}
 \end{itemize}
 
 \paragraph{Wake up sources}
@@ -1320,17 +1321,17 @@ The x-IMU features an auxiliary port that can be configured to one of many modes
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l l l}
-		\hline	
+		\hline
 		Pin         &   Description             & Min/Max\\
-		\hline	
+		\hline
         GND         &   Common ground           & N/A\\
-        EXT         &   External power input    & 3.5 V to 6.3 V\\	
-        RST         &   Hard reset (active low) & 0 V to 3.3 V\\	
-        3V3         &   3.3 V power output      & 100 mA\\	
-        AX0 to AX7  &   I/O channels            & 0 V to 3.3 V, 4 mA source/sink\\			
+        EXT         &   External power input    & 3.5 V to 6.3 V\\
+        RST         &   Hard reset (active low) & 0 V to 3.3 V\\
+        3V3         &   3.3 V power output      & 100 mA\\
+        AX0 to AX7  &   I/O channels            & 0 V to 3.3 V, 4 mA source/sink\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pins}			
+		\caption{Auxiliary port pins}
 	\label{tab:auxiliaryPortPins}
 \end{table}
 
@@ -1344,6 +1345,7 @@ The mode of the auxiliary port is set by the \textit{\hyperref[sec:AuxiliaryPort
   \item \hyperref[sec:PWMOutput]{PWM output}
   \item \hyperref[sec:ADXL345BusMode]{ADXL345 bus}
   \item \hyperref[sec:UART]{UART}
+  \item \hyperref[sec:sleepWakeMode]{Sleep/wake mode}
 \end{itemize}
 
 \subsection{Disabled}
@@ -1354,20 +1356,20 @@ When \textit{disabled}, all auxiliary port channels are configured as high-imped
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l l l}
-		\hline	
+		\hline
 		Pin       &   I/O     & Description\\
-		\hline	
+		\hline
         AX0       &   Input   & Unused\\
-        AX1       &   Input   & Unused\\	
-        AX2       &   Input   & Unused\\	
-        AX3       &   Input   & Unused\\	
-        AX4       &   Input   & Unused\\	
-        AX5       &   Input   & Unused\\	
-        AX6       &   Input   & Unused\\	
-        AX7       &   Input   & Unused\\			
+        AX1       &   Input   & Unused\\
+        AX2       &   Input   & Unused\\
+        AX3       &   Input   & Unused\\
+        AX4       &   Input   & Unused\\
+        AX5       &   Input   & Unused\\
+        AX6       &   Input   & Unused\\
+        AX7       &   Input   & Unused\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments when disabled}			
+		\caption{Auxiliary port pin assignments when disabled}
 	\label{tab:AuxiliaryPortPinAssignmentsWhenDisabled}
 \end{table}
 
@@ -1379,20 +1381,20 @@ In \textit{digital I/O mode} each pin of the auxiliary port functions as either 
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l l l}
-		\hline	
+		\hline
 		Pin       &   I/O           & Description\\
-		\hline	
+		\hline
         AX0       &   Input/Output  & Digital I/O\\
-        AX1       &   Input/Output  & Digital I/O\\	
-        AX2       &   Input/Output  & Digital I/O\\	
-        AX3       &   Input/Output  & Digital I/O\\	
-        AX4       &   Input/Output  & Digital I/O\\	
+        AX1       &   Input/Output  & Digital I/O\\
+        AX2       &   Input/Output  & Digital I/O\\
+        AX3       &   Input/Output  & Digital I/O\\
+        AX4       &   Input/Output  & Digital I/O\\
         AX5       &   Input/Output  & Digital I/O\\
-        AX6       &   Input/Output  & Digital I/O\\	
-        AX7       &   Input/Output  & Digital I/O\\			
+        AX6       &   Input/Output  & Digital I/O\\
+        AX7       &   Input/Output  & Digital I/O\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments in digital I/O mode}			
+		\caption{Auxiliary port pin assignments in digital I/O mode}
 	\label{tab:AuxiliaryPortPinAssignmentsInDigitalIOmode}
 \end{table}
 
@@ -1415,20 +1417,20 @@ In calibrated data mode the analogue data is the calibrated measurement in Volts
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l  l l}
-		\hline	
+		\hline
 		Pin       &   I/O     & Description\\
-		\hline	
+		\hline
         AX0       &   Input   & Analogue input channel AX0\\
-        AX1       &   Input   & Analogue input channel AX1\\	
-        AX2       &   Input   & Analogue input channel AX2\\	
-        AX3       &   Input   & Analogue input channel AX3\\	
-        AX4       &   Input   & Analogue input channel AX4\\	
-        AX5       &   Input   & Analogue input channel AX5\\	
-        AX6       &   Input   & Analogue input channel AX6\\	
-        AX7       &   Input   & Analogue input channel AX7\\			
+        AX1       &   Input   & Analogue input channel AX1\\
+        AX2       &   Input   & Analogue input channel AX2\\
+        AX3       &   Input   & Analogue input channel AX3\\
+        AX4       &   Input   & Analogue input channel AX4\\
+        AX5       &   Input   & Analogue input channel AX5\\
+        AX6       &   Input   & Analogue input channel AX6\\
+        AX7       &   Input   & Analogue input channel AX7\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments for analogue input mode}			
+		\caption{Auxiliary port pin assignments for analogue input mode}
 	\label{tab:AuxPortPinAsignForAnalogueInputMode}
 \end{table}
 
@@ -1440,20 +1442,20 @@ In \textit{PWM output mode} four pins of the auxiliary port function as digital 
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l  l l}
-		\hline	
+		\hline
 		Pin       &   I/O         & Description\\
-		\hline	
+		\hline
         AX0       &   Output    & PWM output channel AX0\\
-        AX1       &   Input     & Unused\\	
-        AX2       &   Output    & PWM output channel AX2\\	
+        AX1       &   Input     & Unused\\
+        AX2       &   Output    & PWM output channel AX2\\
         AX3       &   Input     & Unused\\
-        AX4       &   Output    & PWM output channel AX4\\	
-        AX5       &   Input     & Unused\\	
-        AX6       &   Output    & PWM output channel AX6\\	
-        AX7       &   Input     & Unused\\			
+        AX4       &   Output    & PWM output channel AX4\\
+        AX5       &   Input     & Unused\\
+        AX6       &   Output    & PWM output channel AX6\\
+        AX7       &   Input     & Unused\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments for PWM output mode}			
+		\caption{Auxiliary port pin assignments for PWM output mode}
 	\label{tab:AuxPortPinAsignForPWMoutputMode}
 \end{table}
 
@@ -1467,46 +1469,46 @@ In \textit{PWM output mode} four pins of the auxiliary port function as digital 
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l  l l}
-		\hline	
+		\hline
 		Pin       &   I/O         & Description\\
-		\hline	
+		\hline
         AX0       &   Output    & ADXL345 A SPI CS\\
-        AX1       &   Input     & SPI CLK\\	
+        AX1       &   Input     & SPI CLK\\
         AX2       &   Output    & ADXL345 B SPI CS\\
         AX3       &   Input     & SPI DIN\\
         AX4       &   Output    & ADXL345 C SPI CS\\
-        AX5       &   Input     & SPI DOUT\\	
+        AX5       &   Input     & SPI DOUT\\
         AX6       &   Output    & ADXL345 D SPI CS\\
-        AX7       &   Input     & Power enable\\			
+        AX7       &   Input     & Power enable\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments for ADXL345 bus mode}			
+		\caption{Auxiliary port pin assignments for ADXL345 bus mode}
 	\label{tab:AuxPortPinAsignForADXL345busMode}
 \end{table}
 
-\subsection{UART mode}
-\label{sec:UART}
+\subsection{Sleep/wake mode}
+\label{sec:sleepWakeMode}
 
-In \textit{UART mode} four pins of the auxiliary port function as a configurable UART with hardware flow control.  The \textit{\hyperref[sec:BluetoothPower]{Bluetooth power}} will automatically be disabled when \textit{UART mode} is enabled.  Commination via the auxiliary port UART is identical to that via the virtual serial ports enabled by the Bluetooth or USB connection.  The UART baud rate may be set to 2400, 4800, 7200, 9600, 14400, 19200, 38400, 57600, 115200, 230400, 460800 or 921600 baud in the \textit{\hyperref[sec:UARTBaudRate]{UART baud rate}} register.  The UART hardware flow control can be enabled or disabled in the \textit{\hyperref[sec:UARTHardwareFlowControl]{UART hardware flow control}} register.
+In \textit{Sleep/wake mode} three pins of the auxiliary port function as an interface to control the sleep/wake state of the x-IMU remotely.  This may be useful in logging applications where access to the command button.  Separate inputs are assigned for sleep and wake signals to prevent accidental double triggering reverting an intended action.  An output signal indicates the sleep state of the x-IMU and can be used to drive an LED.
 
 \begin{table}[H]
 	\centering
 		\begin{tabular}{l  l l}
-		\hline	
+		\hline
 		Pin       &   I/O         & Description\\
-		\hline	
-        AX0       &   Output    & TX\\
-        AX1       &   Input     & Unused\\	
-        AX2       &   Output    & RX\\	
+		\hline
+        AX0       &   Output    & Sleep (active low, with internal pull-up)\\
+        AX1       &   Input     & Unused\\
+        AX2       &   Output    & Wake (active low, with internal pull-up)\\
         AX3       &   Input     & Unused\\
-        AX4       &   Output    & CTS\\	
-        AX5       &   Input     & Unused\\	
-        AX6       &   Output    & RTS\\	
-        AX7       &   Input     & Unused\\			
+        AX4       &   Output    & Sleep state (wake = driven low, sleep = pull-up)\\
+        AX5       &   Input     & Unused\\
+        AX6       &   Output    & Unused\\
+        AX7       &   Input     & Unused\\
 		\hline
 		\end{tabular}
-		\caption{Auxiliary port pin assignments for UART mode}			
-	\label{tab:AuxPortPinAsignForUARTmode}
+		\caption{Auxiliary port pin assignments for Sleep/Wake mode}
+	\label{tab:AuxPortPinAsignForSLeepWakemode}
 \end{table}
 
 %---------------------------------------------------------------------------------------------------
@@ -1517,13 +1519,38 @@ It is possible for the user to define \hyperref[sec:BatteryAndThermometerDataOut
 
 All data sent to the x-IMU via UART is buffered in the UART receive buffer before being processed.  The time required to process the received data is dependent on the data.  If data is sent to the x-IMU via UART at a rate at a rate greater than it can be processed then the receive buffer will overflow and some data will be lost.  When this happens a \textit{\hyperref[sec:UARTReceiveBufferOverrun]{UART receive buffer overrun}} error will be generated.
 
+\subsection{Digital I/O mode}
+\label{sec:DigitalIOMode}
+
+In \textit{digital I/O mode} each pin of the auxiliary port functions as either a digital input or output.  The direction of each pin is defined within the \textit{\hyperref[sec:DigitalIODirection]{digital I/O direction}} register.  Digital input data is provided in either the \textit{digital I/O data} packets received from the x-IMU.  The data output rate of these packets may be set to \textit{on change only}, 1 Hz, 2 Hz, 4 Hz, 8 Hz, 16 Hz, 32 Hz, 64 Hz, 128 Hz, 256 Hz or 512 Hz in the \textit{\hyperref[sec:DigitalIODataOutputRate]{digital I/O data output rate}} register.  Digital outputs are set by sending a \textit{digital I/O data} packet to the x-IMU.
+
+\begin{table}[H]
+	\centering
+		\begin{tabular}{l l l}
+		\hline
+		Pin       &   I/O           & Description\\
+		\hline
+        AX0       &   Input  & Digital I/O\\
+        AX1       &   Input  & Digital I/O\\
+        AX2       &   Input  & Digital I/O\\
+        AX3       &   Input  & Digital I/O\\
+        AX4       &   Input  & Digital I/O\\
+        AX5       &   Input  & Digital I/O\\
+        AX6       &   Input  & Digital I/O\\
+        AX7       &   Input  & Digital I/O\\
+		\hline
+		\end{tabular}
+		\caption{Auxiliary port pin assignments in digital I/O mode}
+	\label{tab:AuxiliaryPortPinAssignmentsInDigitalIOmode}
+\end{table}
+
 %=====================================================================================================
 % Communication protocol
 %=====================================================================================================
 \section{Communication protocol}
 \label{sec:CommunicationProtocol}
 
-This section is currently unavailable.  Users wishing to develop their own x-IMU communication interface are advised to study the open source \hyperref[sec:xIMUAPI]{x-IMU API}.  The API is source code is written in C\# and well commented so that porting the API (or aspects of) to another language should be a straight forward exercise.
+Documentation for the communication protocol used to interface to the x-IMU via serial is not provided.  However, an example generic C++ library is available on the x-IMU webpage and the \hyperref[sec:xIMUAPI]{x-IMU API} source code written in C\# provides a compressive library for all functionally of the x-IMU.
 
 %%---------------------------------------------------------------------------------------------------
 %\subsection{Packet encoding}
@@ -1616,7 +1643,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:NullCommand}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0000=\\			
+	\textit{Command code:}	& \verb=0x0000=\\
 	\textit{Description:}	& A \textit{null command} is a valid command code but will result in no action.  As all commands sent to the x-IMU are echoed back to the sender, a null command may be used by the host software to confirm communication with the x-IMU.
 \end{tabular*}
 
@@ -1625,7 +1652,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:FactoryReset}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0001=\\			
+	\textit{Command code:}	& \verb=0x0001=\\
 	\textit{Description:}	& A \textit{factory reset} command code is used to reset the x-IMU to its original state prior to factory calibration so that all registers return to their default values.  The user must press the \hyperref[sec:CommandButton]{command button} within 3 seconds of sending a \textit{factory reset} command in order to confirm the request else the x-IMU will respond with a \textit{\hyperref[sec:FactoryResetFailed]{factory reset failed}} error.  The x-IMU requires several seconds to reconfigure on-board components during the execution of a factory reset.
 \end{tabular*}
 
@@ -1634,7 +1661,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:Reset}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0002=\\			
+	\textit{Command code:}	& \verb=0x0002=\\
 	\textit{Description:}	& A \textit{reset} command causes a software reset of the x-IMU.  The x-IMU will close any open files on the SD card before reset, in this way the reset command may be of use to users wishing to break up a logging session into multiple files.  The reset command is used to put the x-IMU into bootloader mode in order to upload new firmware.  A \textit{reset} command is sent by the x-IMU to the host computer as confirmation of reset, power on and wake up.
 \end{tabular*}
 
@@ -1643,7 +1670,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:Sleep}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0003=\\			
+	\textit{Command code:}	& \verb=0x0003=\\
 	\textit{Description:}	& A \textit{sleep} command will put the device into \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU will close any open files on the \hyperref[sec:SDCard]{SD card} before entering \hyperref[sec:SleepMode]{sleep mode}.  The x-IMU may be taken out of \hyperref[sec:SleepMode]{sleep mode} by using the \hyperref[sec:CommandButton]{command button} configured in \textit{sleep/wake} mode or using the \hyperref[sec:MotionTriggeredWakeUp]{motion triggered wake up} functionality.
 \end{tabular*}
 
@@ -1652,7 +1679,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:ResetSleepTimer}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0004=\\			
+	\textit{Command code:}	& \verb=0x0004=\\
 	\textit{Description:}	& The \textit{reset sleep timer} command will reset the \hyperref[sec:SleepTimer]{sleep timer} countdown and so postpone sleep.  An example usage of this command is to create behaviour where the x-IMU will automatically enter \hyperref[sec:SleepMode]{sleep mode} when communication with the host software ends or connection is lost.
 \end{tabular*}
 
@@ -1661,7 +1688,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleGyroscopeAxisAtPm200CircS}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0005=\\			
+	\textit{Command code:}	& \verb=0x0005=\\
 	\textit{Description:}	& The \textit{sample gyroscope axis at 200 dps} command is used to calibrate the gyroscope sensitivity parameters.  This command should be sent while the x-IMU rotating at either $+200^\circ$/s or $-200^\circ$/s around either its \textit{x}, \textit{y} or \textit{z} axis.  The x-IMU will automatically detect the axis and direction of rotation.  The mean gyroscope output will then be measured over approximately 8 seconds before being stored to the \hyperref[sec:GyroscopeSampledXAxisAtp200Dps]{corresponding register}.  A \textit{\hyperref[sec:CalculateGyroscopeSensitivity]{calculate gyroscope sensitivity}} command will then be executed.  The execution of the \textit{sample gyroscope axis at 200 dps} command will be aborted if a gyroscope axis is detected as not being at approximately $\pm200^\circ$/s and a \textit{\hyperref[sec:GyroscopeAxisNotAt200Dps]{gyroscope axis not at 200 dps}} error will be generated.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.
 \end{tabular*}
 
@@ -1670,7 +1697,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:CalculateGyroscopeSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0006=\\			
+	\textit{Command code:}	& \verb=0x0006=\\
 	\textit{Description:}	& The \textit{calculate gyroscope sensitivity} command is used to execute the on-board gyroscope sensitivity calibration algorithm.  The algorithm uses the \hyperref[sec:GyroscopeSampledXAxisAtp200Dps]{sampled gyroscope bias} register values previously obtained by the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command to update the \hyperref[sec:GyroscopeXAxisSensitivity]{gyroscope sensitivity parameters registers}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.
 \end{tabular*}
 
@@ -1679,7 +1706,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleGyroscopeBiasAtTemperature1}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0007=\\			
+	\textit{Command code:}	& \verb=0x0007=\\
 	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 1} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the lowest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately  16 seconds, store the results to the \hyperref[sec:GyroscopeSample1Temperature]{sampled temperature 1} registers and then trigger a \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{calculate gyroscope bias parameters}} command.  The execution of the \textit{sample gyroscope bias at temperature 1} command will be aborted if the gyroscope is detected as not being stationary and a \textit{\hyperref[sec:GyroscopeNotStationary]{gyroscope not stationary}} error will be generated.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.
 \end{tabular*}
 
@@ -1688,7 +1715,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleGyroscopeBiasAtTemperature2}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0008=\\			
+	\textit{Command code:}	& \verb=0x0008=\\
 	\textit{Description:}	& The \textit{sample gyroscope bias at temperature 2} command is used to calibrate the gyroscope bias parameters.  This command should be sent while the x-IMU is stationary and at the lowest temperature the device is required to operate at.  The x-IMU will measure the mean temperature and gyroscope output over approximately  16 seconds, store the results to the \hyperref[sec:GyroscopeSample2Temperature]{sampled temperature 2} registers and then trigger a \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{calculate gyroscope bias parameters}} command.  The execution of the \textit{sample gyroscope bias at temperature 2} command will be aborted if the gyroscope is detected as not being stationary and a \textit{\hyperref[sec:GyroscopeNotStationary]{gyroscope not stationary}} error will be generated.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.
 \end{tabular*}
 
@@ -1697,7 +1724,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:CalculateGyroscopeBiasParameters}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0009=\\			
+	\textit{Command code:}	& \verb=0x0009=\\
 	\textit{Description:}	& The \textit{calculate gyroscope bias parameters} command is used to execute the on-board gyroscope bias calibration algorithm.  The algorithm uses the \hyperref[sec:GyroscopeSample1Temperature]{sampled gyroscope bias} register values previously sampled by the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{sample gyroscope bias at temperature 1}} and \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{sample gyroscope bias at temperature 2}} commands to calculate the gyroscope bias parameters and update the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters} registers.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.
 \end{tabular*}
 
@@ -1706,7 +1733,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:SampleAccelerometerAxisAt1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000A=\\			
+	\textit{Command code:}	& \verb=0x000A=\\
 	\textit{Description:}	& The \textit{sample accelerometer axis at 1 g} command is used to calibrate the accelerometer bias and sensitivity parameters.  This command should be sent while the x-IMU stationary and orientated with either its \textit{x}, \textit{y} or \textit{z} axis at either $+1$ g or $-1$ g.  The x-IMU will automatically detect the axis and direction of gravity.  The mean accelerometer output will then be measured over approximately 8 seconds before being stored to the \hyperref[sec:AccelerometerSampledXAxisAtp1G]{sampled accelerometer axis} registers.  A \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}} command will then be executed.  The execution of the \textit{sample accelerometer axis at 1 g} command will be aborted if a accelerometer axis is detected as not being at approximately $\pm1$ g and a \textit{\hyperref[sec:AccelerometerAxisNotAt1g]{accelerometer axis not at 1 g}} error will be generated.  See the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} section for more information.
 \end{tabular*}
 
@@ -1715,7 +1742,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:CalculateAccelerometerBiasAndSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000B=\\		
+	\textit{Command code:}	& \verb=0x000B=\\
 	\textit{Description:}	& The \textit{calculate accelerometer bias and sensitivity} command is used to execute the on-board accelerometer bias and sensitivity calibration algorithm.  The algorithm uses the \hyperref[sec:AccelerometerSampledXAxisAtp1G]{sampled accelerometer axes} register values previously obtained by the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command to calculate the accelerometer bias and sensitivity and update the \hyperref[sec:AccelerometerXAxisSensitivity]{accelerometer calibration parameters} registers.  See the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} section for more information.
 \end{tabular*}
 
@@ -1724,7 +1751,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:MeasureMagnetometerBiasAndSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000C=\\			
+	\textit{Command code:}	& \verb=0x000C=\\
 	\textit{Description:}	& The \textit{measure magnetometer bias and sensitivity} command is used to run an on-board magnetometer calibration algorithm.  The x-IMU uses the magnetometer's internal field generator to measure the mean magnetometer bias and sensitivity over approximately 16 seconds independent of external magnetic interference.  The magnetometer \hyperref[sec:MagnetometerXAxisSensitivity]{sensitivity} and \hyperref[sec:MagnetometerXAxisBias]{bias} registers and then automatically updated.  This command should be used each time the \hyperref[sec:MagnetometerFullScale]{magnetometer full-scale range} is changed.  The execution of this command will be aborted if a magnetometer axis saturates and a \textit{\hyperref[sec:MagnetometerSaturation]{magnetometer saturation}} error will be generated.  See the \hyperref[sec:MagnetometerCalibration]{magnetometer calibration} section for more information.
 \end{tabular*}
 
@@ -1733,7 +1760,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmInitialise}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000D=\\			
+	\textit{Command code:}	& \verb=0x000D=\\
 	\textit{Description:}	& The \textit{algorithm initialise} command will re-start the algorithm from initial conditions.  This command can be used to 'force' the algorithm to converge to steady state conditions if previous distortions to magnetic or other extreme sensor measurements have left the IMU or AHRS algorithm output at an erroneous orientation.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.
 \end{tabular*}
 
@@ -1742,7 +1769,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000E=\\			
+	\textit{Command code:}	& \verb=0x000E=\\
 	\textit{Description:}	& The \textit{algorithm tare} command is used to set the algorithm datum orientation and store the reference quaternion to the \textit{\hyperref[sec:TareQuaternionElement0]{tare quaternion}} registers.  These registers may be then be cleared using the \textit{\hyperref[sec:AlgorithmClearTare]{algorithm clear tare}} command.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.
 \end{tabular*}
 
@@ -1751,7 +1778,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmClearTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x000F=\\			
+	\textit{Command code:}	& \verb=0x000F=\\
 	\textit{Description:}	& The \textit{algorithm clear tare} command is used to clear the \textit{\hyperref[sec:TareQuaternionElement0]{tare quaternion}} registers and return the datum orientation to alignment with the Earth coordinate frame.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.
 \end{tabular*}
 
@@ -1760,7 +1787,7 @@ Sending a \textit{command} packet to the x-IMU will cause the x-IMU to momentari
 \label{sec:AlgorithmInitialiseThenTare}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.815\textwidth} l}
-	\textit{Command code:}	& \verb=0x0010=\\			
+	\textit{Command code:}	& \verb=0x0010=\\
 	\textit{Description:}	& The \textit{algorithm initialise then tare} command will perform an \textit{\hyperref[sec:AlgorithmInitialise]{algorithm initialise}} and then \textit{\hyperref[sec:AlgorithmTare]{algorithm tare}}  once the initialisation is complete.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.
 \end{tabular*}
 
@@ -1781,7 +1808,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:NoError}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0000=\\			
+	\textit{Error code:}	& \verb=0x0000=\\
 	\textit{Description:}	& No error.  This error code is used within internal processes and will never appear to the user.
 \end{tabular*}
 
@@ -1790,7 +1817,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:FactoryResetFailed}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0001=\\			
+	\textit{Error code:}	& \verb=0x0001=\\
 	\textit{Description:}	& A \textit{factory reset failed} error is sent if the user fails to press the \hyperref[sec:CommandButton]{command button} within 3 seconds of sending a \textit{\hyperref[sec:FactoryReset]{factory reset}} command and the execution of the command was aborted.
 \end{tabular*}
 
@@ -1799,7 +1826,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:LowBattery}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0002=\\			
+	\textit{Error code:}	& \verb=0x0002=\\
 	\textit{Description:}	& A \textit{low battery} error is sent when the low \hyperref[sec:LowBatteryVoltageDetection]{battery voltage detection} detects that the battery voltage has fallen below the specific level defined in the \textit{\hyperref[sec:BatteryShotdownVoltage]{battery shutdown voltage}} register.  This message is sent immediately before the x-IMU enters \hyperref[sec:SleepMode]{sleep mode}.  See the \hyperref[sec:LowBatteryVoltageDetection]{low battery voltage detection} section for more information.
 \end{tabular*}
 
@@ -1808,7 +1835,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:USBReceiveBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0003=\\			
+	\textit{Error code:}	& \verb=0x0003=\\
 	\textit{Description:}	& A \textit{USB receive buffer over} error will be sent if the \hyperref[sec:USB]{USB} receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.  See the \hyperref[sec:USBBandwidth]{USB bandwidth} section for more information.
 \end{tabular*}
 
@@ -1817,7 +1844,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:USBTransmitBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0004=\\			
+	\textit{Error code:}	& \verb=0x0004=\\
 	\textit{Description:}	& A \textit{USB transmit buffer overrun} error will be sent if the USB transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.  The x-IMU will attempt to transmit data via \hyperref[sec:USB]{USB} while the \hyperref[sec:USB]{USB} is detected as connected, if the \hyperref[sec:USB]{USB} is connect but the associated serial port not open then the \hyperref[sec:USB]{USB} transmit buffer will continue to overrun until the port is opened or the \hyperref[sec:USB]{USB} disconnected.  See the \hyperref[sec:USBBandwidth]{USB bandwidth} section for more information.
 \end{tabular*}
 
@@ -1826,7 +1853,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:BluetoothReceiveBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0005=\\			
+	\textit{Error code:}	& \verb=0x0005=\\
 	\textit{Description:}	& A \textit{Bluetooth receive buffer over} error will be sent if the Bluetooth receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.
 \end{tabular*}
 
@@ -1835,7 +1862,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:BluetoothTransmitBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0006=\\			
+	\textit{Error code:}	& \verb=0x0006=\\
 	\textit{Description:}	& A \textit{Bluetooth transmit buffer overrun} error will be sent if the Bluetooth transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  \textit{Transmit buffer overrun} errors may be expected in the Bluetooth communication channel quality deteriorates; for example, if out of range.  This error may be ignored in applications where USB data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.
 \end{tabular*}
 
@@ -1844,7 +1871,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:SDCardWriteBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0007=\\			
+	\textit{Error code:}	& \verb=0x0007=\\
 	\textit{Description:}	& An \textit{SD card buffer over} error will be sent if the SD card buffer is overrun and data to be written to the SD was lost.  Consider using lower data output rates if this error occurs repeatedly.  An occurrence of this error may go unnoticed while the USB and Bluetooth are not used.  The \hyperref[sec:ChargingLEDRed]{red SD card LED} indicates SD card activity, if this LED behaviour approaches that of being solidly on then it is likely that the this error is occurring.
 \end{tabular*}
 
@@ -1853,7 +1880,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:TooFewBytesInPacket}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0008=\\			
+	\textit{Error code:}	& \verb=0x0008=\\
 	\textit{Description:}	& A \textit{too few bytes in packet} error will be sent if the received packet does not contain enough bytes to be valid.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1862,7 +1889,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:TooManyBytesInPacket}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0009=\\			
+	\textit{Error code:}	& \verb=0x0009=\\
 	\textit{Description:}	& A \textit{too many bytes in packet} error will be sent if the received packet does not contains too many bytes to be valid.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1871,7 +1898,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:InvalidChecksum}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000A=\\			
+	\textit{Error code:}	& \verb=0x000A=\\
 	\textit{Description:}	& An \textit{invalid checksum} error will be sent if the received packet contains a valid number of bytes but contains an invalid checksum.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1880,7 +1907,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:UnknownPacketHeader}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000B=\\			
+	\textit{Error code:}	& \verb=0x000B=\\
 	\textit{Description:}	& An \textit{Unknown packet header} error will be sent if the received packet contains a valid number of bytes and checksum but the header is not recognised.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1889,7 +1916,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:InvalidNumberOfBytesForPacketHeader}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000C=\\			
+	\textit{Error code:}	& \verb=0x000C=\\
 	\textit{Description:}	& An \textit{invalid number of bytes for packet header} error will be sent if the received packet contains a valid number of bytes, checksum and packet header but the number of bytes does not match that expected for the specific packet header.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1898,7 +1925,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:InvalidRegisterAddress}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000D=\\			
+	\textit{Error code:}	& \verb=0x000D=\\
 	\textit{Description:}	& An \textit{invalid register address} error will be sent if the read or write register packet contains an invalid register address.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1907,7 +1934,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:RegisterReadOnly}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000E=\\			
+	\textit{Error code:}	& \verb=0x000E=\\
 	\textit{Description:}	& A \textit{register read-only} error will be sent if the write register packet represents an attempt to write a read-only register.
 \end{tabular*}
 
@@ -1916,7 +1943,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:InvalidRegisterValue}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x000F=\\			
+	\textit{Error code:}	& \verb=0x000F=\\
 	\textit{Description:}	& An \textit{invalid register value} error will be sent if the write register packet contains an invalid register value for the specific address.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1925,7 +1952,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:InvalidCommand}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0010=\\			
+	\textit{Error code:}	& \verb=0x0010=\\
 	\textit{Description:}	& An \textit{invalid command} error will be sent if the command code within the command packet is not valid.  This error is only relevant to users developing their own communication software and not using the \hyperref[sec:xIMUAPI]{x-IMU API} or \hyperref[sec:xIMUGUI]{x-IMU GUI}.
 \end{tabular*}
 
@@ -1934,7 +1961,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:GyroscopeAxisNotAt200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0011=\\			
+	\textit{Error code:}	& \verb=0x0011=\\
 	\textit{Description:}	& A \textit{gyroscope axis not at 200 dps} error will be sent if an axis is detected as not being at approximately $\pm200^\circ$/s during the execution of a \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command and the execution of the command was aborted.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.
 \end{tabular*}
 
@@ -1943,7 +1970,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:GyroscopeNotStationary}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0012=\\			
+	\textit{Error code:}	& \verb=0x0012=\\
 	\textit{Description:}	& A \textit{gyroscope not stationary} error will be sent if the gyroscope was detected as not being stationary during the execution of a \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{sample gyroscope bias}} commands and the execution of the command was aborted.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.
 \end{tabular*}
 
@@ -1952,7 +1979,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:AccelerometerAxisNotAt1g}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0013=\\			
+	\textit{Error code:}	& \verb=0x0013=\\
 	\textit{Description:}	& A \textit{accelerometer axis not at 1g} error will be sent if an axis is detected as not being at approximately $\pm1$ g during the execution of a \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command and the execution of the command was aborted.  See the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} section for more information.
 \end{tabular*}
 
@@ -1961,7 +1988,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:MagnetometerSaturation}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0014=\\			
+	\textit{Error code:}	& \verb=0x0014=\\
 	\textit{Description:}	& A \textit{magnetometer saturation} error will be sent if the measurements taken during the execution of the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{measure magnetometer bias and sensitivity}} command were detected as having saturated and the execution of the command was aborted.  See the \hyperref[sec:MagnetometerCalibration]{magnetometer calibration} section for more information.
 \end{tabular*}
 
@@ -1970,7 +1997,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:IncorrectAuxiliaryPortMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0015=\\			
+	\textit{Error code:}	& \verb=0x0015=\\
 	\textit{Description:}	& An \textit{incorrect auxiliary port mode} error will be sent if an auxiliary port action is requested while the \hyperref[sec:AuxiliaryPort]{auxiliary port} is not in the correct \hyperref[sec:AuxiliaryPortMode]{mode} for that action.  For example, an \textit{incorrect auxiliary port mode} error will be sent if a \textit{digital IO data} packet is received while the auxiliary port mode is \textit{disabled}.  See the \hyperref[sec:AuxiliaryPort]{auxiliary port} section for more information.
 \end{tabular*}
 
@@ -1979,7 +2006,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:UARTReceiveBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0016=\\			
+	\textit{Error code:}	& \verb=0x0016=\\
 	\textit{Description:}	& A \textit{UART receive buffer over} error will be sent if the \hyperref[sec:UART]{UART} receive buffer overruns and data to be received was lost.  This occurs when data is transmitted to the x-IMU at a rate greater than the rate it can be processed.  Consider reducing the rate at which data is sent to the x-IMU if this error occurs repeatedly.  See the \hyperref[sec:UARTBandwidth]{UART bandwidth} section for more information.
 \end{tabular*}
 
@@ -1988,7 +2015,7 @@ Error are sent by the x-IMU to warn the user or host software of any internal er
 \label{sec:UARTTransmitBufferOverrun}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Error code:}	& \verb=0x0017=\\			
+	\textit{Error code:}	& \verb=0x0017=\\
 	\textit{Description:}	& A \textit{UART transmit buffer overrun} error will be sent if the UART transmit buffer overruns and data due to be transmitted was lost.  This will occur when the communication channel bandwidth is unable to cope with the amount of data being transmitted.  Consider using lower data output rates if this error occurs repeatedly.  This error may be ignored in applications where UART data is not essential and the SD card is the intended data output.  In such applications, the user need only be concerned with \textit{\hyperref[sec:SDCardWriteBufferOverrun]{SD card write buffer overrun}} errors.  See the \hyperref[sec:UARTBandwidth]{UART bandwidth} section for more information.
 \end{tabular*}
 
@@ -2023,8 +2050,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:FirmwareVersionMajorNumber}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0000=\\			
-	\textit{Value:}				& 0 to 65534.  Read-only.\\	
+	\textit{Address:}			& \verb=0x0000=\\
+	\textit{Value:}				& 0 to 65534.  Read-only.\\
 	\textit{Description:}	& The major number of the current firmware version loaded on the x-IMU.\\
 \end{tabular*}
 
@@ -2033,8 +2060,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:FirmwareVersionMinorNumber}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0001=\\			
-	\textit{Value:}				& 0 to 65534.  Read-only.\\	
+	\textit{Address:}			& \verb=0x0001=\\
+	\textit{Value:}				& 0 to 65534.  Read-only.\\
 	\textit{Description:}	& The minor number of the current firmware version loaded on the x-IMU.\\
 \end{tabular*}
 
@@ -2043,7 +2070,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:DeviceID}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0002=\\			
+	\textit{Address:}			& \verb=0x0002=\\
 	\textit{Value:}				& \verb=0x0000= to \verb=0xFFFF=.  Read-only.\\
 	\textit{Description:}	& The 4 digit hexadecimal ID of the x-IMU taken as the last 2 bytes of the Bluetooth MAC address.\\
 \end{tabular*}
@@ -2053,7 +2080,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ButtonMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0003=\\			
+	\textit{Address:}			& \verb=0x0003=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = \textit{\hyperref[sec:Reset]{Reset}} command\\
 												& \verb=0x0002= = \textit{\hyperref[sec:Sleep]{Sleep}/wake up}\\
@@ -2068,8 +2095,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:BatteryVoltmeterSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0004=\\			
-	\textit{Value:}				& Q11.5 signed fixed point value between $-1024$ and $+1023.969$.\\	
+	\textit{Address:}			& \verb=0x0004=\\
+	\textit{Value:}				& Q11.5 signed fixed point value between $-1024$ and $+1023.969$.\\
 	\textit{Description:}	& Calibrated sensitivity of the battery ADC in lsb/V.  See parameter $s_v$ in the \hyperref[sec:BatteryVoltmeter]{battery voltmeter} section.  The typical calibrated value is $621$ lsb/V.\\
 \end{tabular*}
 
@@ -2078,8 +2105,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:BatteryVoltmeterBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0005=\\		
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
+	\textit{Address:}			& \verb=0x0005=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the battery ADC in lsb.  See parameter $b_v$ in the \hyperref[sec:BatteryVoltmeter]{battery voltmeter} section.  The typical calibrated value is 0 lsb.\\
 \end{tabular*}
 
@@ -2088,7 +2115,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ThermometerSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0006=\\			
+	\textit{Address:}			& \verb=0x0006=\\
 	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the thermometer in lsb/$^{\circ}$C.  See parameter $s_\tau$ in the \hyperref[sec:Thermometer]{thermometer} section. The typical calibrated value is provided as 280 lsb/$^{\circ}$C in the \gyroName{} datasheet.\\
 \end{tabular*}
@@ -2098,9 +2125,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ThermometerBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0007=\\			
+	\textit{Address:}			& \verb=0x0007=\\
 	\textit{Value:}				& Q16.0 signed fixed point value between $-32768$ and $+32677$.\\
-	\textit{Description:}	& Calibrated bias of the thermometer in lsb.  See parameter $b_\tau$ in the \hyperref[sec:Thermometer]{thermometer} section.  The typical calibrated value is provided as $-23,000$ lsb in the \gyroName{} datasheet.\\	
+	\textit{Description:}	& Calibrated bias of the thermometer in lsb.  See parameter $b_\tau$ in the \hyperref[sec:Thermometer]{thermometer} section.  The typical calibrated value is provided as $-23,000$ lsb in the \gyroName{} datasheet.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2108,11 +2135,11 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeFullScale}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0008=\\			
+	\textit{Address:}			& \verb=0x0008=\\
 	\textit{Value:}				& \verb=0x0000= = $\pm250 ^\circ$/s\\
 												& \verb=0x0001= = $\pm500 ^\circ$/s\\
-												& \verb=0x0002= = $\pm1000 ^\circ$/s\\	
-												& \verb=0x0003= = $\pm2000 ^\circ$/s\\												
+												& \verb=0x0002= = $\pm1000 ^\circ$/s\\
+												& \verb=0x0003= = $\pm2000 ^\circ$/s\\
 	\textit{Description:}	& Full-scale range of the gyroscope.  Each full-scale range will have different associated \hyperref[sec:GyroscopeXAxisSensitivity]{sensitivity} and \hyperref[sec:GyroscopeXAxisBias]{bias} values.  The gyroscope should therefore be recalibrated when the full-scale range is changed.  See the \hyperref[sec:GyroscopeCalibration]{gyroscope calibration} section for more information.\\
 \end{tabular*}
 
@@ -2121,8 +2148,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0009=\\			
-	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\		
+	\textit{Address:}			& \verb=0x0009=\\
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\
 	\textit{Description:}	& Calibrated sensitivity of the gyroscope x-axis in lsb/$^{\circ}$/s.  See parameter $s_{g_x}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeSensitivity]{calculate gyroscope sensitivity}} command.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2131,8 +2158,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000A=\\	
-	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\				
+	\textit{Address:}			& \verb=0x000A=\\
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\
 	\textit{Description:}	& Calibrated sensitivity of the gyroscope y-axis in lsb/$^{\circ}$/s.  See parameter $s_{g_y}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeSensitivity]{calculate gyroscope sensitivity}} command.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2141,8 +2168,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000B=\\		
-	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\			
+	\textit{Address:}			& \verb=0x000B=\\
+	\textit{Value:}				& Q9.7 signed fixed point value between $-256$ and $+255.9922$.\\
 	\textit{Description:}	& Calibrated sensitivity of the gyroscope z-axis in lsb/$^{\circ}$/s.  See parameter $s_{g_z}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeSensitivity]{calculate gyroscope sensitivity}} command.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2151,8 +2178,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledXAxisAtp200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000C=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x000C=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope x-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.  This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeXAxisSensitivity]{gyroscope x-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2161,8 +2188,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledYAxisAtp200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000D=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x000D=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope y-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.   This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeYAxisSensitivity]{gyroscope y-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2171,8 +2198,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledZAxisAtp200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000E=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x000E=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope z-axis output in lsb when rotating at $+200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.  This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeZAxisSensitivity]{gyroscope z-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2181,8 +2208,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledXAxisAtm200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x000F=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x000F=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope x-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.  This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeXAxisSensitivity]{gyroscope x-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2191,8 +2218,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledYAxisAtm200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0010=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x0010=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope y-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.  This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeYAxisSensitivity]{gyroscope y-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2201,8 +2228,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSampledZAxisAtm200Dps}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0011=\\		
-	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\			
+	\textit{Address:}			& \verb=0x0011=\\
+	\textit{Value:}				& Q16.0 signed fixed point value between $-32,768$ and $+32,767$.\\
 	\textit{Description:}	& Sampled gyroscope z-axis output in lsb when rotating at $-200^{\circ}$/s, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeAxisAtPm200CircS]{sample gyroscope axis at 200 dps}} command.  This value is used by the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} algorithm to calculate the \textit{\hyperref[sec:GyroscopeZAxisSensitivity]{gyroscope z-axis sensitivity}}.  See the \hyperref[sec:GyroscopeSensitivityCalibration]{gyroscope sensitivity calibration} section for more information.\\
 \end{tabular*}
 
@@ -2211,8 +2238,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0012=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x0012=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Calibrated bias of the gyroscope x-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_x}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2221,8 +2248,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0013=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\			
+	\textit{Address:}			& \verb=0x0013=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Calibrated bias of the gyroscope y-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_y}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2231,8 +2258,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0014=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\			
+	\textit{Address:}			& \verb=0x0014=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Calibrated bias of the gyroscope z-axis at 25 $^{\circ}$C in lsb.  See parameter $b_{g_z}$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2241,8 +2268,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeXAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0015=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\	
+	\textit{Address:}			& \verb=0x0015=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope x-axis in lsb/$^{\circ}$C.  See parameter $f_x$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2251,7 +2278,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeYAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0016=\\			
+	\textit{Address:}			& \verb=0x0016=\\
 	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope y-axis in lsb/$^{\circ}$C.  See parameter $f_y$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
@@ -2261,8 +2288,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeZAxisBiasTemperatureSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0017=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\	
+	\textit{Address:}			& \verb=0x0017=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated bias temperature sensitivity of the gyroscope z-axis in lsb/$^{\circ}$C.  See parameter $f_z$ in the \hyperref[sec:Gyroscope]{gyroscope} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateGyroscopeBiasParameters]{Calculate gyroscope bias parameters}} command.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2271,8 +2298,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample1Temperature}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0018=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
+	\textit{Address:}			& \verb=0x0018=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
 \textit{Description:}	& Sampled temperature of gyroscope in $^{\circ}$C, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{Sample gyroscope bias at temperature 1}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2281,8 +2308,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample1XAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0019=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x0019=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope x-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{Sample gyroscope bias at temperature 1}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2291,8 +2318,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample1YAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001A=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x001A=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{Sample gyroscope bias at temperature 1}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2301,8 +2328,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample1ZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001B=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x001B=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope z-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature1]{Sample gyroscope bias at temperature 1}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2311,9 +2338,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample2Temperature}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001C=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\	
-\textit{Description:}	& Sampled temperature of gyroscope in $^{\circ}$C, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{Sample gyroscope bias at temperature 2}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x001C=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
+\textit{Description:}	& Sampled temperature of gyroscope in $^{\circ}$C, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{Sample gyroscope bias at temperature 2}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2321,8 +2348,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample2XAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001D=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x001D=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope x-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{Sample gyroscope bias at temperature 2}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2331,8 +2358,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample2YAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001E=\\			
-	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\		
+	\textit{Address:}			& \verb=0x001E=\\
+	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{Sample gyroscope bias at temperature 2}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
 
@@ -2341,7 +2368,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:GyroscopeSample2ZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x001F=\\			
+	\textit{Address:}			& \verb=0x001F=\\
 	\textit{Value:}				& Q13.3 signed fixed point value between $-4096$ and $+4095.875$.\\
 	\textit{Description:}	& Sampled gyroscope y-axis output in lsb, obtained through the execution of the \textit{\hyperref[sec:SampleGyroscopeBiasAtTemperature2]{Sample gyroscope bias at temperature 2}} command.  This value is used by the gyroscope bias calibration algorithm in the calculation the \hyperref[sec:GyroscopeXAxisBias]{gyroscope bias parameters}.  See the \hyperref[sec:GyroscopeBiasCalibration]{gyroscope bias calibration} section for more information.\\
 \end{tabular*}
@@ -2351,11 +2378,11 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerFullScale}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0020=\\			
+	\textit{Address:}			& \verb=0x0020=\\
 	\textit{Value:}				& \verb=0x0000= = $\pm2$ g\\
 												& \verb=0x0001= = $\pm4$ g\\
-												& \verb=0x0002= = $\pm8$ g\\												
-	\textit{Description:}	& Full-scale range of the accelerometer.  Each full-scale range will have different associated \hyperref[sec:AccelerometerXAxisSensitivity]{sensitivity} and \hyperref[sec:AccelerometerXAxisBias]{bias} values.  The accelerometer must therefore be recalibrated when the full-scale range is changed.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+												& \verb=0x0002= = $\pm8$ g\\
+	\textit{Description:}	& Full-scale range of the accelerometer.  Each full-scale range will have different associated \hyperref[sec:AccelerometerXAxisSensitivity]{sensitivity} and \hyperref[sec:AccelerometerXAxisBias]{bias} values.  The accelerometer must therefore be recalibrated when the full-scale range is changed.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2363,9 +2390,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0021=\\			
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer x-axis in lsb/g.  See parameter $s_{a_x}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+	\textit{Address:}			& \verb=0x0021=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer x-axis in lsb/g.  See parameter $s_{a_x}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2373,9 +2400,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0022=\\	
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer y-axis in lsb/g.  See parameter $s_{a_y}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+	\textit{Address:}			& \verb=0x0022=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer y-axis in lsb/g.  See parameter $s_{a_y}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2383,9 +2410,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0023=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\	
-	\textit{Description:}	& Calibrated sensitivity of the accelerometer z-axis in lsb/g.  See parameter $s_{a_z}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+	\textit{Address:}			& \verb=0x0023=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the accelerometer z-axis in lsb/g.  See parameter $s_{a_z}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2393,9 +2420,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0024=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\		
-	\textit{Description:}	& Calibrated bias of the accelerometer x-axis in lsb.  See parameter $b_{a_x}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+	\textit{Address:}			& \verb=0x0024=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
+	\textit{Description:}	& Calibrated bias of the accelerometer x-axis in lsb.  See parameter $b_{a_x}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2403,8 +2430,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0025=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Address:}			& \verb=0x0025=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the accelerometer y-axis in lsb.  See parameter $b_{a_y}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2413,8 +2440,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0026=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
+	\textit{Address:}			& \verb=0x0026=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the accelerometer z-axis in lsb.  See parameter $b_{a_z}$ in the \hyperref[sec:Accelerometer]{accelerometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:CalculateAccelerometerBiasAndSensitivity]{calculate accelerometer bias and sensitivity}}command.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2423,8 +2450,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledXAxisAtp1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0027=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
+	\textit{Address:}			& \verb=0x0027=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
 	\textit{Description:}	& Sampled accelerometer x-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerXAxisSensitivity]{accelerometer x-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerXAxisBias]{accelerometer x-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2433,9 +2460,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledYAxisAtp1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0028=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
-	\textit{Description:}	& Sampled accelerometer y-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerYAxisSensitivity]{accelerometer y-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerYAxisBias]{accelerometer y-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\	
+	\textit{Address:}			& \verb=0x0028=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Sampled accelerometer y-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerYAxisSensitivity]{accelerometer y-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerYAxisBias]{accelerometer y-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2443,8 +2470,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledZAxisAtp1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0029=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Address:}			& \verb=0x0029=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
 	\textit{Description:}	& Sampled accelerometer z-axis output in lsb when orientated to measure +1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerZAxisSensitivity]{accelerometer z-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerZAxisBias]{accelerometer z-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2453,8 +2480,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledXAxisAtm1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002A=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Address:}			& \verb=0x002A=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
 	\textit{Description:}	& Sampled accelerometer x-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerXAxisSensitivity]{accelerometer x-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerXAxisBias]{accelerometer x-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2463,8 +2490,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledYAxisAtm1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002B=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Address:}			& \verb=0x002B=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
 	\textit{Description:}	& Sampled accelerometer y-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerYAxisSensitivity]{accelerometer y-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerYAxisBias]{accelerometer y-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2473,8 +2500,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AccelerometerSampledZAxisAtm1G}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002C=\\		
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
+	\textit{Address:}			& \verb=0x002C=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
 	\textit{Description:}	& Sampled accelerometer z-axis output in lsb when orientated to measure -1g, obtained through the execution of the \textit{\hyperref[sec:SampleAccelerometerAxisAt1G]{sample accelerometer axis at 1 g}} command.  This value is used by the \hyperref[sec:AccelerometerCalibration]{accelerometer calibration} algorithm to calculate the value of the \textit{\hyperref[sec:AccelerometerZAxisSensitivity]{accelerometer z-axis sensitivity}} and \textit{\hyperref[sec:AccelerometerZAxisBias]{accelerometer z-axis bias}}.  See the accelerometer \hyperref[sec:AccelerometerCalibration]{calibration section} for more information.\\
 \end{tabular*}
 
@@ -2483,15 +2510,15 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerFullScale}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002D=\\			
+	\textit{Address:}			& \verb=0x002D=\\
 	\textit{Value:}				& \verb=0x0000= = $\pm1.3$ G\\
 												& \verb=0x0001= = $\pm1.9$ G\\
-												& \verb=0x0002= = $\pm2.5$ G\\		
-												& \verb=0x0003= = $\pm4.0$ G\\	
-												& \verb=0x0004= = $\pm4.7$ G\\	
-												& \verb=0x0005= = $\pm5.6$ G\\	
-												& \verb=0x0006= = $\pm8.1$ G\\											
-	\textit{Description:}	& Full-scale range of the magnetometer.  Each full-scale range will have different associated \hyperref[sec:MagnetometerXAxisSensitivity]{sensitivity} and \hyperref[sec:MagnetometerZAxisBias]{bias} values.  The magnetometer therefore must be recalibrated when the full-scale range is changed.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+												& \verb=0x0002= = $\pm2.5$ G\\
+												& \verb=0x0003= = $\pm4.0$ G\\
+												& \verb=0x0004= = $\pm4.7$ G\\
+												& \verb=0x0005= = $\pm5.6$ G\\
+												& \verb=0x0006= = $\pm8.1$ G\\
+	\textit{Description:}	& Full-scale range of the magnetometer.  Each full-scale range will have different associated \hyperref[sec:MagnetometerXAxisSensitivity]{sensitivity} and \hyperref[sec:MagnetometerZAxisBias]{bias} values.  The magnetometer therefore must be recalibrated when the full-scale range is changed.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2499,9 +2526,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002E=\\			
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\		
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer x-axis in lsb/G.  See parameter $s_{m_x}$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x002E=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer x-axis in lsb/G.  See parameter $s_{m_x}$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2509,9 +2536,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x002F=\\			
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer y-axis in lsb/G.  See parameter $s_{m_y}$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x002F=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer y-axis in lsb/G.  See parameter $s_{m_y}$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2519,9 +2546,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0030=\\			
-	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\			
-	\textit{Description:}	& Calibrated sensitivity of the magnetometer z-axis in lsb/G.  See parameter $s_{m_z}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x0030=\\
+	\textit{Value:}				& Q12.4 signed fixed point value between $-2048$ and $+2047.938$.\\
+	\textit{Description:}	& Calibrated sensitivity of the magnetometer z-axis in lsb/G.  See parameter $s_{m_z}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2529,9 +2556,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0031=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
-	\textit{Description:}	& Calibrated bias of the magnetometer x-axis in lsb.  See parameter $b_{m_x}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x0031=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
+	\textit{Description:}	& Calibrated bias of the magnetometer x-axis in lsb.  See parameter $b_{m_x}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2539,19 +2566,19 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0032=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
-	\textit{Description:}	& Calibrated bias of the magnetometer y-axis in lsb.  See parameter $b_{m_y}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x0032=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
+	\textit{Description:}	& Calibrated bias of the magnetometer y-axis in lsb.  See parameter $b_{m_y}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
-	
+
 %------------------------------------------------
 \subsubsection{Magnetometer z-axis bias}
 \label{sec:MagnetometerZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0033=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\			
-	\textit{Description:}	& Calibrated bias of the magnetometer z-axis in lsb.  See parameter $b_{m_z}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\	
+	\textit{Address:}			& \verb=0x0033=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-128$ and $+127.9961$.\\
+	\textit{Description:}	& Calibrated bias of the magnetometer z-axis in lsb.  See parameter $b_{m_z}$ in the \hyperref[sec:Magnetometer]{magnetometer} section.  The value of the parameter can be accurately evaluated through calibration using the \textit{\hyperref[sec:MeasureMagnetometerBiasAndSensitivity]{Measure magnetometer bias and sensitivity}} command.  See the \hyperref[sec:MagnetometerBiasAndSensitivityCalibration]{magnetometer bias and sensitivity calibration} section for more information.\\
 \end{tabular*}
 
 %------------------------------------------------
@@ -2559,8 +2586,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerXAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0034=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Address:}			& \verb=0x0034=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer x-axis in G.  See parameter $h_x$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the \hyperref[sec:MagnetometerHardIronCalibration]{magnetometer hard-iron calibrations} section for more information.\\
 \end{tabular*}
 
@@ -2569,8 +2596,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerYAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0035=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Address:}			& \verb=0x0035=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer y-axis in G.  See parameter $h_x$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the \hyperref[sec:MagnetometerHardIronCalibration]{magnetometer hard-iron calibrations} section for more information.\\
 \end{tabular*}
 
@@ -2579,8 +2606,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MagnetometerZAxisHardIronBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0036=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\		
+	\textit{Address:}			& \verb=0x0036=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $-16$ and $+15.99951$.\\
 	\textit{Description:}	& Calibrated hard-iron bias affecting the magnetometer z-axis in G.  See parameter $h_x$ in the \hyperref[sec:Magnetometer]{magnetometer section}.  The hard-iron bias parameters will change when the x-IMU's local magnetic environment is altered; for example, when the x-IMU is fixed to the battery.  See the \hyperref[sec:MagnetometerHardIronCalibration]{magnetometer hard-iron calibrations} section for more information.\\
 \end{tabular*}
 
@@ -2589,10 +2616,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0037=\\			
+	\textit{Address:}			& \verb=0x0037=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0000= = IMU\\
-												& \verb=0x0001= = AHRS\\										
+												& \verb=0x0001= = AHRS\\
 	\textit{Description:}	& IMU and AHRS algorithm mode.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.  The algorithm will automatically re-initialise when the value of this register is changed.  If the algorithm is not required then the \textit{algorithm mode} can be set to \textit{Disabled} to \hyperref[sec:TipsForMinimisingPowerConsumption]{reduce power consumption}.\\
 \end{tabular*}
 
@@ -2601,8 +2628,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmProportionalGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0038=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Address:}			& \verb=0x0038=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\
 	\textit{Description:}	& Algorithm proportional feedback gain.  The proportional gain governs the rate at which the algorithm output converges to an orientation assumed by the accelerometer and magnetometer; lower values `trust' the gyroscope data more and the accelerometer and magnetometer less and higher values will 'trust' the gyroscope less and the accelerometer and magnetometer more.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2611,8 +2638,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmIntegralGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0039=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $0$ and $+0.9999695$.\\	
+	\textit{Address:}			& \verb=0x0039=\\
+	\textit{Value:}				& Q1.15 signed fixed point value between $0$ and $+0.9999695$.\\
 	\textit{Description:}	& Algorithm integral feedback gain in units of $1/1000$.  The integral gain governs the rate at which the algorithm compensates for gyroscope bias drift.  In most situations it is recommended that users ensure accurate gyroscope bias temperature sensitivity calibration and use an integral feedback gain of 0 to avoid algorithm output oscillations and instabilities.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2621,8 +2648,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmInitialProportionalGain}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003A=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\		
+	\textit{Address:}			& \verb=0x003A=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\
 	\textit{Description:}	& Initial algorithm proportional feedback gain used during algorithm initialisation.  The effective proportional gain will ramp down from the \textit{algorithm initial proportional gain} to the \textit{\hyperref[sec:AlgorithmProportionalGain]{algorithm proportional gain}} over the \textit{\hyperref[sec:AlgorithmInitilasationPeriod]{algorithm initialisation period}}.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2631,8 +2658,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmInitilasationPeriod}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003B=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\		
+	\textit{Address:}			& \verb=0x003B=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\
 	\textit{Description:}	& Algorithm initialisation period in seconds. The effective proportional gain will ramp down from the \textit{\hyperref[sec:AlgorithmInitialProportionalGain]{algorithm initial proportional gain}} to the \textit{\hyperref[sec:AlgorithmProportionalGain]{algorithm proportional gain}} over the \textit{algorithm initialisation period}.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2641,8 +2668,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmMinimumValidMagneticFieldMagnitude}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003C=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Address:}			& \verb=0x003C=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\
 	\textit{Description:}	& The minimum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.  Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2651,8 +2678,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AlgorithmMaximumValidMagneticFieldMagnitude}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003D=\\			
-	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\	
+	\textit{Address:}			& \verb=0x003D=\\
+	\textit{Value:}				& Q5.11 signed fixed point value between $0$ and $+15.99951$.\\
 	\textit{Description:}	& The maximum valid magnetic field magnitude (in G) that may be used by the algorithm in the estimation of heading.   Magnetic fields of an invalid magnitude will be ignored by the AHRS algorithm so that heading is determined from gyroscope measurements alone.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2661,8 +2688,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:TareQuaternionElement0}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003E=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\		
+	\textit{Address:}			& \verb=0x003E=\\
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\
 	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{\hyperref[sec:AlgorithmTare]{algorithm tare}} command and cleared using the \textit{\hyperref[sec:AlgorithmClearTare]{clear tare}} command.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2671,8 +2698,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:TareQuaternionElement1}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x003F=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\		
+	\textit{Address:}			& \verb=0x003F=\\
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\
 	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{\hyperref[sec:AlgorithmTare]{algorithm tare}} command and cleared using the \textit{\hyperref[sec:AlgorithmClearTare]{clear tare}} command.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2681,8 +2708,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:TareQuaternionElement2}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0040=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\			
+	\textit{Address:}			& \verb=0x0040=\\
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\
 	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{\hyperref[sec:AlgorithmTare]{algorithm tare}} command and cleared using the \textit{\hyperref[sec:AlgorithmClearTare]{clear tare}} command.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2691,8 +2718,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:TareQuaternionElement3}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0041=\\			
-	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\			
+	\textit{Address:}			& \verb=0x0041=\\
+	\textit{Value:}				& Q1.15 signed fixed point value between $-1$ and $+0.9999695$.\\
 	\textit{Description:}	& Quaternion stored to compute the algorithm output after a tare operation has been preformed.  The tare quaternion can be set using the \textit{\hyperref[sec:AlgorithmTare]{algorithm tare}} command and cleared using the \textit{\hyperref[sec:AlgorithmClearTare]{clear tare}} command.  See the \hyperref[sec:IMUAndAHRSAlgorithms]{IMU and AHRS algorithms} section for more information.\\
 \end{tabular*}
 
@@ -2701,9 +2728,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:SensorDataMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0042=\\			
+	\textit{Address:}			& \verb=0x0042=\\
 	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
-												& \verb=0x0001= = Calibrated measurements\\										
+												& \verb=0x0001= = Calibrated measurements\\
 	\textit{Description:}	& Data output mode of on-board sensors.  See the \hyperref[sec:Sensors]{sensors} section for more details.\\
 \end{tabular*}
 
@@ -2712,10 +2739,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:DateTimeDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0043=\\		
+	\textit{Address:}			& \verb=0x0043=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled (sent on reset/wake only)\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2732,10 +2759,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:BatteryAndThermometerDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0044=\\		
+	\textit{Address:}			& \verb=0x0044=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2752,10 +2779,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:InertialAndMagneticDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0045=\\		
+	\textit{Address:}			& \verb=0x0045=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2772,10 +2799,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:QuaternionDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0046=\\		
+	\textit{Address:}			& \verb=0x0046=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2792,8 +2819,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:SDCardNewFileName}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0047=\\			
-	\textit{Value:}				& 00000 to 65535\\		
+	\textit{Address:}			& \verb=0x0047=\\
+	\textit{Value:}				& 00000 to 65535\\
 	\textit{Description:}	& The file name used to be used when the next file is created on the SD card.  See the \hyperref[sec:SDCard]{SD card} section for more information.
 \end{tabular*}
 
@@ -2802,8 +2829,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:BatteryShotdownVoltage}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0048=\\			
-	\textit{Value:}				& Q4.12 signed fixed point value between $3.5$ and $+7.999756$.\\		
+	\textit{Address:}			& \verb=0x0048=\\
+	\textit{Value:}				& Q4.12 signed fixed point value between $3.5$ and $+7.999756$.\\
 	\textit{Description:}	& Minimum voltage threshold for the device to shutdown.  See the \hyperref[sec:LowBatteryVoltageDetection]{low battery voltage detection} section for more information.\\
 \end{tabular*}
 
@@ -2812,7 +2839,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:SleepTimerReg}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0049=\\			
+	\textit{Address:}			& \verb=0x0049=\\
 	\textit{Value:}				& 0 to 65535\\
 	\textit{Description:}	& Sleep timer value in seconds.  Once this period has elapsed, the x-IMU will enter \hyperref[sec:SleepMode]{sleep mode}.  A value of 0 seconds will disable the sleep timer.  See the \hyperref[sec:SleepTimer]{sleep timer} section for more information.\\
 \end{tabular*}
@@ -2822,7 +2849,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:MotionTriggerWakeUpReg}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004A=\\			
+	\textit{Address:}			& \verb=0x004A=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Low sensitivity\\
 												& \verb=0x0001= = High sensitivity\\
@@ -2834,7 +2861,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:BluetoothPower}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004B=\\			
+	\textit{Address:}			& \verb=0x004B=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Enabled\\
 	\textit{Description:}	& Enables or disables Bluetooth.  The Bluetooth can be disabled to \hyperref[sec:TipsForMinimisingPowerConsumption]{reduce power consumption}.\\
@@ -2845,12 +2872,14 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AuxiliaryPortMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004C=\\			
+	\textit{Address:}			& \verb=0x004C=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
 												& \verb=0x0001= = Digital I/O\\
 												& \verb=0x0002= = Analgoue input\\
 												& \verb=0x0003= = PWM output\\
 												& \verb=0x0004= = ADXL345 bus\\
+                                                & \verb=0x0005= = UART\\
+                                                & \verb=0x0006= = Sleep/wake\\
 	\textit{Description:}	& Sets the auxiliary port mode.  See the \hyperref[sec:AuxiliaryPort]{auxiliary port} section for more information.
 \end{tabular*}
 
@@ -2859,7 +2888,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:DigitalIODirection}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004D=\\			
+	\textit{Address:}			& \verb=0x004D=\\
 	\textit{Value:}				& \verb=0x0000= = All channels are inputs\\
 												& \verb=0x0001= = Channels 0, 1, 2, 3, 4, 5 and 6 are inputs, 7 is an output\\
 												& \verb=0x0002= = Channels 0, 1, 2, 3, 4 and 5 are inputs, 6 and 7 are outputs\\
@@ -2877,10 +2906,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:DigitalIODataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004E=\\		
+	\textit{Address:}			& \verb=0x004E=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled (On change only)\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2897,9 +2926,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AnalogueInputDataMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x004F=\\			
+	\textit{Address:}			& \verb=0x004F=\\
 	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
-												& \verb=0x0001= = Calibrated measurements\\										
+												& \verb=0x0001= = Calibrated measurements\\
 	\textit{Description:}	& Data output mode of analogue input.  See the \hyperref[sec:AnalogueInput]{analogue input} section for more information.\\
 \end{tabular*}
 
@@ -2908,10 +2937,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AnalogueInputDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0050=\\		
+	\textit{Address:}			& \verb=0x0050=\\
 	\textit{Value:}				& \verb=0x0000= = On change only\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2928,7 +2957,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AnalogueInputSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0051=\\			
+	\textit{Address:}			& \verb=0x0051=\\
 	\textit{Value:}				& Q12.4 signed fixed point value between $-2,048$ and $+2047.938$.\\
 	\textit{Description:}	& Calibrated sensitivity of the analogue input ADC in lsb/V.  The typical value is $1241.188$ lsb/V.  See the \hyperref[sec:AnalogueInput]{analogue input} section for more information.\\
 \end{tabular*}
@@ -2938,7 +2967,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:AnalogueInputBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0052=\\			
+	\textit{Address:}			& \verb=0x0052=\\
 	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the battery ADC in lsb.  The typical value is 0 lsb.  See the \hyperref[sec:AnalogueInput]{analogue input} section for more information.\\
 \end{tabular*}
@@ -2948,7 +2977,7 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:PWMFrequency}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0053=\\			
+	\textit{Address:}			& \verb=0x0053=\\
 	\textit{Value:}				& 3 to 65535\\
 	\textit{Description:}	& Frequency of the PWM output in Hz.  See the \hyperref[sec:PWMOutput]{PWM} section for more information.\\
 \end{tabular*}
@@ -2958,9 +2987,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BusDataMode}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0054=\\			
+	\textit{Address:}			& \verb=0x0054=\\
 	\textit{Value:}				& \verb=0x0000= = Raw ADC results\\
-												& \verb=0x0001= = Calibrated measurements\\										
+												& \verb=0x0001= = Calibrated measurements\\
 	\textit{Description:}	& Data output mode of ADXL345 bus.\\
 \end{tabular*}
 
@@ -2969,10 +2998,10 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BusDataOutputRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0055=\\		
+	\textit{Address:}			& \verb=0x0055=\\
 	\textit{Value:}				& \verb=0x0000= = On change only\\
 												& \verb=0x0001= = 1 Hz\\
-												& \verb=0x0002= = 2 Hz\\	
+												& \verb=0x0002= = 2 Hz\\
 												& \verb=0x0003= = 4 Hz\\
 												& \verb=0x0004= = 8 Hz\\
 												& \verb=0x0005= = 16 Hz\\
@@ -2989,8 +3018,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0056=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0056=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A x-axis in lsb/g.  The typical value is $256$ lsb/g.  The typical value is $256$ lsb/V.
 \end{tabular*}
 
@@ -2999,8 +3028,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0057=\\	
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0057=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A y-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3009,8 +3038,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0058=\\		
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0058=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 A z-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3019,8 +3048,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0059=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0059=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 A x-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3029,8 +3058,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005A=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x005A=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 A y-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3039,8 +3068,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345AZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005B=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x005B=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 A z-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3049,8 +3078,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005C=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x005C=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B x-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3059,8 +3088,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005D=\\	
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x005D=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B y-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3069,8 +3098,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005E=\\		
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x005E=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 B z-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3079,8 +3108,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x005F=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x005F=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 B x-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3089,8 +3118,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0060=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0060=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 B y-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3099,8 +3128,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345BZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0061=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0061=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 B z-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3109,8 +3138,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0062=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0062=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C x-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3119,8 +3148,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0063=\\	
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0063=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C y-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3129,8 +3158,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0064=\\		
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0064=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 C z-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3139,8 +3168,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0065=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0065=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 C x-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3149,8 +3178,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0066=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0066=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 C y-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3159,8 +3188,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345CZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0067=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x0067=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}	& Calibrated bias of the ADXL345 C z-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3169,8 +3198,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DXAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0068=\\			
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0068=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D x-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3179,8 +3208,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DYAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x0069=\\	
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x0069=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D y-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3189,8 +3218,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DZAxisSensitivity}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006A=\\		
-	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\	
+	\textit{Address:}			& \verb=0x006A=\\
+	\textit{Value:}				& Q10.6 signed fixed point value between $-512$ and $+511.9844$.\\
 	\textit{Description:}	& Calibrated sensitivity of the ADXL345 D z-axis in lsb/g.  The typical value is $256$ lsb/g.
 \end{tabular*}
 
@@ -3199,8 +3228,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DXAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006B=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x006B=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}		& Calibrated bias of the ADXL345 D x-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3209,8 +3238,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DYAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006C=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x006C=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}		& Calibrated bias of the ADXL345 D y-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3219,8 +3248,8 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:ADXL345DZAxisBias}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006D=\\			
-	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\		
+	\textit{Address:}			& \verb=0x006D=\\
+	\textit{Value:}				& Q8.8 signed fixed point value between $-256$ and $+127.9961$.\\
 	\textit{Description:}		& Calibrated bias of the ADXL345 D z-axis in lsb.  The typical value is 0 lsb.\\
 \end{tabular*}
 
@@ -3229,9 +3258,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:UARTBaudRate}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006E=\\			
+	\textit{Address:}			& \verb=0x006E=\\
 	\textit{Value:}				& \verb=0x0000= = 2400 baud\\
-                                & \verb=0x0001= = 4800 baud\\	
+                                & \verb=0x0001= = 4800 baud\\
                                 & \verb=0x0002= = 7200 baud\\
                                 & \verb=0x0003= = 9600 baud\\
                                 & \verb=0x0004= = 14400 baud\\
@@ -3239,9 +3268,9 @@ A register may be written by sending a \textit{register write} packet containing
                                 & \verb=0x0006= = 38400 baud\\
                                 & \verb=0x0007= = 57600 baud\\
                                 & \verb=0x0008= = 115200 baud\\
-                                & \verb=0x0009= = 230400 baud\\	
-                                & \verb=0x000A= = 460800 baud\\	
-                                & \verb=0x000B= = 921600 baud\\		
+                                & \verb=0x0009= = 230400 baud\\
+                                & \verb=0x000A= = 460800 baud\\
+                                & \verb=0x000B= = 921600 baud\\
 	\textit{Description:}		& Baud rate of the auxiliary port \hyperref[sec:UART]{UART}.  See the \hyperref[sec:UART]{UART} section for more information.\\
 \end{tabular*}
 
@@ -3250,9 +3279,9 @@ A register may be written by sending a \textit{register write} packet containing
 \label{sec:UARTHardwareFlowControl}
 
 \begin{tabular*}{1.0\textwidth}{lp{0.845\textwidth} l}
-	\textit{Address:}			& \verb=0x006F=\\			
+	\textit{Address:}			& \verb=0x006F=\\
 	\textit{Value:}				& \verb=0x0000= = Disabled\\
-                                & \verb=0x0001= = Enabled\\			
+                                & \verb=0x0001= = Enabled\\
 	\textit{Description:}& Hardware flow control enable/disable of the auxiliary port \hyperref[sec:UART]{UART}.  See the \hyperref[sec:UART]{UART} section for more information.\\
 \end{tabular*}
 
@@ -3269,36 +3298,36 @@ A register may be written by sending a \textit{register write} packet containing
 %\begin{table}[H]
 %	\centering
 %		\begin{tabular}{l l l l}
-%		\hline	
+%		\hline
 %		Brand & Capacity & Class & Product ID\\
-%		\hline			
+%		\hline
 %        Kingston & 8 GB & 4 & SDC4/8GB\\
-%		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\	
+%		PNY & 4 GB & 4 & SDU4GBHC4OPTSON-EF\\
 %        PNY & 8 GB & 2 & P-MICROSD8GBHC-BX\\
 %        SanDisk & 4 GB & 4 & SDSDQM-004G-B35\\
 %        SanDisk & 8 GB & 2 & Unknown\\
 %        SanDisk & 16 GB & 2 & Unknown\\
 %        Transcend & 4 GB & 6 & TS4GUSDHC6\\
-%        Transcend & 8 GB & 2 & TS8GUSDC2\\	                          										
+%        Transcend & 8 GB & 2 & TS8GUSDC2\\
 %		\hline
 %		\end{tabular}
-%		\caption{Confirmed compatible SDHC cards}			
+%		\caption{Confirmed compatible SDHC cards}
 %	\label{tab:ConfirmedCompatibleSDHCCards}
 %\end{table}
 %
 %\begin{table}[H]
 %	\centering
 %		\begin{tabular}{l l l l}
-%		\hline	
+%		\hline
 %		Brand & Capacity & Class & Product ID\\
 %		\hline
 %        Kingston & 4 GB & 4 & SDC4/4GB\\
 %        Kingston & 16 GB & 4 & SDC4/16GB\\
-%		SanDisk & 16 GB & 2 & Unknown\\	
-%        Transcend & 16 GB & 2 & TS16GUSDC2\\         									
+%		SanDisk & 16 GB & 2 & Unknown\\
+%        Transcend & 16 GB & 2 & TS16GUSDC2\\
 %		\hline
 %		\end{tabular}
-%		\caption{Confirmed incompatible SDHC cards}			
+%		\caption{Confirmed incompatible SDHC cards}
 %	\label{tab:ConfirmedIncompatibleSDHCCards}
 %\end{table}
 
